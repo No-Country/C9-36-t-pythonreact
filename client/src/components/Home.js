@@ -1,10 +1,10 @@
 import React from "react";
-import { Link, NavLink, useSearchParams } from "react-router-dom";
+import { Link, NavLink, useLocation, useSearchParams } from "react-router-dom";
 import Logo from "../assets/Logo";
 
-const windowUrl = window.location.search;
-
 const Home = () => {
+  const location = useLocation();
+  console.log(location.pathname);
   return (
     <div>
       <div className="flex justify-center mt-10">
@@ -12,19 +12,24 @@ const Home = () => {
           <Logo />
         </NavLink>
       </div>
-      {/*Cambios en el figma <div className="flex justify-center">
-        <h1 className="text-3xl font-semibold mt-[1px]">hive</h1>
-      </div> */}
-      {/*Comentario de Cristian ->> A resolver que esto de abajo se renderice solamente cuando estamos en el home */}
-      {/*  <div className="flex justify-center mt-12">
-        <h2 className="text-2xl">¡Te damos la bienvenida!</h2>
-      </div> 
-      <div>
-        <h2 className="flex justify-center mt-12">Te gusta tindev? </h2>
-      </div>
-      <div>
-        <NavLink to={"/register"}>Registrate</NavLink>
-      </div>*/}
+
+      {location.pathname === "/" && (
+        <>
+          <div className="flex justify-center mt-12">
+            <h2 className="text-2xl">¡Te damos la bienvenida!</h2>
+          </div>
+          <div>
+            <h2 className="flex justify-center mt-12">Te gusta tindev? </h2>
+          </div>
+          <div className="mt-8 text-center">
+            <NavLink
+              to={"/register"}
+              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+              Registrate
+            </NavLink>
+          </div>
+        </>
+      )}
     </div>
   );
 };
