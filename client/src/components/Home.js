@@ -19,7 +19,7 @@ const Home = () => {
         <div className="flex justify-center">
           <button
             className="bg-[#354580] flex gap-2 items-center rounded-full text-white text-
-         h-[56px] px-10 text-base">
+              h-[56px] px-10 text-base">
             <MdMailOutline className="text-3xl" />
             Registrate con tu e-mail
           </button>
@@ -27,7 +27,7 @@ const Home = () => {
         <div className="flex justify-center">
           <button
             className="text-black flex gap-2 items-center rounded-full border-2 border-black text-
-         h-[56px] px-12 text-base">
+              h-[56px] px-12 text-base">
             <FaGoogle className="text-2xl text-black" />
             Registrate con Google
           </button>
