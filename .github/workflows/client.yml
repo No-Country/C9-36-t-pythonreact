@@ -1,4 +1,4 @@
-name: Test, build & deploy client
+name: Build & deploy client
 
 on:
   push:
@@ -36,21 +36,6 @@ jobs:
         
       - name: Build the React application
         run: npm run build
-
-  # test:
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-
-  #     - name: Test the application
-  #       run: echo test should be placed here
-
-  deploy:
-    needs: build
-    
-    runs-on: ubuntu-latest
-
-    steps:
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
