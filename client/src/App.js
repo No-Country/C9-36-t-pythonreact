@@ -1,11 +1,18 @@
-import Card from "./components/Card";
-import Card2 from "./components/Card2";
-import Card3 from "./components/Card3";
 import Home from "./components/Home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Register from "./components/register/Register";
+import RegisterEmail from "./components/register/RegisterEmail";
+
 function App() {
   return (
     <>
-      <Home />
+      <BrowserRouter>
+        <Routes>
+          <Route path={"/"} element={<Home />} />
+          <Route path={"/register"} element={<Register />} />
+          <Route path={"/registerEmail"} element={<RegisterEmail />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
