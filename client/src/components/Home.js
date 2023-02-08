@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink, useLocation, useSearchParams } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import Logo from "../assets/Logo";
 
 const Home = () => {
