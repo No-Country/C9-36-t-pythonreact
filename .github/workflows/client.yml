@@ -1,11 +1,11 @@
 name: Test, build & deploy client
 
 on:
-  push:
-    branches: 
-      - dev
-    paths:
-      - 'client/**'
+#   push:
+#     branches: 
+#       - dev
+#     paths:
+#       - 'client/**'
   workflow_dispatch:
 
 jobs:
