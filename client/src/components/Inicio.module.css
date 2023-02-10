@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
+
+.container {
+    height: 100vh;
+    background: linear-gradient(113deg, #264653 25.18%, #2A9D8F 80.69%);
+    
+    display: flex;
+    flex-direction: column;
+    gap: 67px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 85px;
+    
+}
+
+.titulo {
+    text-align: start;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 60px;
+    padding-left: 21px;
+    margin-top: -12px;
+    
+    
+
+
+
+    color: #FFFFFF;
+}
+
+.boton {
+    display: flex;
+    justify-content: end;
+}
+
+button {
+    background: #264653;
+    border-radius: 30px;
+    padding: 8px 47px;
+    color: #FFF;
+    margin-right: 17px;
+}
