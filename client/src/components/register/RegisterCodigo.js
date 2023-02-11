@@ -40,7 +40,7 @@ const Register = () => {
             />
             <ErrorMessage name="codigo" component="div"/>
             <label htmlFor="floating_email" className={classLabel}>
-            Ingresa el código
+              Ingresa el código
             </label>
           </div>
           <div className="flex justify-center">

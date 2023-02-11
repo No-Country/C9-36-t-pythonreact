@@ -4,6 +4,7 @@ import Register from "./components/register/Register";
 import RegisterEmail from "./components/register/RegisterEmail";
 import Inicio from "./components/Inicio";
 import RegisterCodigo from "./components/register/RegisterCodigo";
+import RegisterSpinner from "./components/register/RegisterSpinner";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path={"/register"} element={<Register />} />
           <Route path={"/registerEmail"} element={<RegisterEmail />} />
           <Route path={"/registerCodigo"} element={<RegisterCodigo />} />
+          <Route path={"/registerSpinner"} element={<RegisterSpinner />} />
         </Routes>
       </BrowserRouter>
     </>
