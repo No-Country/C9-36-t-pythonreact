@@ -1,5 +1,5 @@
-import { Field, Form, Formik } from "formik";
-// import * as Yup from "yup";
+import { ErrorMessage, Field, Form, Formik, } from "formik";
+import * as Yup from "yup";
 import Home from "../Home";
 const Register = () => {
   const onSubmit = (values) => {
@@ -9,7 +9,25 @@ const Register = () => {
     "peer block w-full appearance-none border border-slate-300 rounded-md text-sm shadow-sm bg-transparent p-4 text-sm text-gray-900 focus:border-blue-800 focus:outline-none  focus:ring-0 rounded-sm";
   const classLabel =
     "transhtmlForm absolute top-5 -z-10 origin-[0] ml-1 -translate-y-6 scale-75 text-md text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-blue-600";
-  return (
+  const registerSchema = Yup.object().shape({
+    email: Yup.string()
+      .email("El e-mail ingresado no es valido.")
+      .required("El e-mail es obligatorio")
+      .min(6, "El e-mail ingresado es muy corto.")
+      .max(38, "El e-mail ingresado es muy largo."),
+    password: Yup.string()
+      .required("La contraseña es requerida")
+      .min(8, "La contraseña es muy corta.")
+      .max(18, "La contraseña es muy larga."),
+      changepassword: Yup.string().when("password", {
+      is: (value) => (value && value.length > 0 ? true : false),
+      then: Yup.string()
+        .oneOf([Yup.ref("password")], "Las contraseñas no cohinciden.")
+        .required("Debes volver a ingresar la contraseña en este campo."),
+    }),
+  
+    });
+    return (
     <div className="mt-10">
       <Home />
       <Formik
@@ -19,6 +37,7 @@ const Register = () => {
           password: "",
           changepassword: "",
         }}
+        validationSchema={registerSchema}
         onSubmit={onSubmit}>
         <Form className="flex flex-col gap-2 justify-center m-6">
           <div className="group relative z-0 mb-6 w-full">
@@ -30,6 +49,7 @@ const Register = () => {
               placeholder=" "
               required
             />
+            <ErrorMessage name="email" component="div"/>
             <label htmlFor="floating_email" className={classLabel}>
               Direccion de email
             </label>
@@ -43,6 +63,7 @@ const Register = () => {
               placeholder=" "
               required
             />
+            <ErrorMessage name="password" component="div"/>
             <label htmlFor="floating_password" className={classLabel}>
               Ingrese su contraseña
             </label>
@@ -56,6 +77,7 @@ const Register = () => {
               placeholder=" "
               required
             />
+            <ErrorMessage name="changepassword" component="div"/>
             <label htmlFor="floating_changepassword" className={classLabel}>
               Reingrese su contraseña
             </label>
