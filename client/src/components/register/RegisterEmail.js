@@ -1,10 +1,30 @@
 import { ErrorMessage, Field, Form, Formik, } from "formik";
+import { useState } from "react";
+import { Link, Navigate } from "react-router-dom";
+import { register } from "../../config/firebase";
 import * as Yup from "yup";
 import Home from "../Home";
 const Register = () => {
-  const onSubmit = (values) => {
-    console.log(values);
+  const [error, setError] = useState("");
+  const onSubmit = async (values) => {
+    const { email, password } = values;
+    try {
+      const credentialUser = await register({ email, password });
+      window.location.href = "/dashboard";
+    } catch (error) {
+      switch (error.code) {
+        case "auth/email-already-in-use":
+          setError("Usuario ya registrado");
+          break;
+        case "auth/invalid-email":
+          setError("Formato email no válido");
+          break;
+        default:
+          console.log("Ocurrio un error en el server");
+      }
+    }
   };
+
   const classTw =
     "peer block w-full appearance-none border border-slate-300 rounded-md text-sm shadow-sm bg-transparent p-4 text-sm text-gray-900 focus:border-blue-800 focus:outline-none  focus:ring-0 rounded-sm";
   const classLabel =
@@ -32,7 +52,6 @@ const Register = () => {
       <Home />
       <Formik
         initialValues={{
-          name: "",
           email: "",
           password: "",
           changepassword: "",
@@ -53,6 +72,9 @@ const Register = () => {
             <label htmlFor="floating_email" className={classLabel}>
               Direccion de email
             </label>
+            <div>
+              <span className="text-red-600 font-bold">{error}</span>
+            </div>
           </div>
           <div className="group relative z-0 mb-6 w-full">
             <Field
@@ -91,6 +113,15 @@ const Register = () => {
           </div>
         </Form>
       </Formik>
+      <div className="text-right">
+        <p className="text-right">
+          Ya tenes cuenta?{" "}
+          <Link to={"/login"} className="text-black font-bold">
+            {" "}
+            Iniciar sesión
+          </Link>
+        </p>{" "}
+      </div>
     </div>
   );
 };
