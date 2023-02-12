@@ -15,7 +15,7 @@ function Inicio() {
             <h1 className={styles.titulo}>Te damos la bienvenida a la comunidad de developers más grande de LATAM</h1>
 
             <div className={styles.boton}>
-                <button>Continuar</button>
+            <button>Continuar</button>
             </div>
         </div>
     )
