@@ -47,7 +47,7 @@ const ForgotPassword = () => {
         <div className="flex justify-center">
           <button
             type="submit"
-            className="bg-[#264653] rounded-full w-[190px] h-10 text-white mt-28">
+            className="bg-[#264653] rounded-full w-72 h-12 text-white font-semibold mt-28">
             Enviar correo electrónico
           </button>
         </div>

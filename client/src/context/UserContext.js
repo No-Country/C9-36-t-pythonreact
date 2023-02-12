@@ -10,7 +10,6 @@ const UserContext = createContext();
 export default function UserContextProvider({ children }) {
   const [user, setUser] = useState(false);
   useEffect(() => {
-    console.log("useeffect en accion");
     /* Este metodo consulta a firebase si el usuario esta logueado o se registro  */
     /* Destructor de observable, una seguridad en la memoria para evitar que otro componente accidentalmente vuelva a ejecutar este useEffect*/
     const unsuscribe = onAuthStateChanged(auth, (user) => {

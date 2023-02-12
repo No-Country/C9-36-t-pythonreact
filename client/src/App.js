@@ -7,7 +7,7 @@ import Dashboard from "./components/Dashboard";
 import { useUserContext } from "./context/UserContext";
 import { LayoutPrivate } from "./layout/LayoutPrivate";
 import ForgotPassword from "./components/login/ForgotPassword";
-import Inicio from "./components/Inicio";
+import LandingPage from "./components/LandingPage";
 import RegisterCodigo from "./components/register/RegisterCodigo";
 
 function App() {
@@ -18,8 +18,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* <Route index element={<Landing/>}/> Cuando este creada la landing page siempre va a ser la pagina de inicio*/}
-          <Route path={"/"} element={<Home />} />
-          <Route path={"/inicio"} element={<Inicio />} />
+
+          <Route path={"/"} element={<LandingPage />} />
+          <Route path={"/home"} element={<Home />} />
           <Route path={"/login"} element={<Login />} />
           <Route path={"/forgotpassword"} element={<ForgotPassword />} />
           <Route path={"/register"} element={<Register />} />

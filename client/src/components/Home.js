@@ -13,13 +13,18 @@ const Home = () => {
         </NavLink>
       </div>
 
-      {location.pathname === "/" && (
+      {location.pathname === "/home" && (
         <>
           <div className="flex justify-center mt-12">
             <h2 className="text-2xl">¡Te damos la bienvenida!</h2>
           </div>
           <div>
-            <h2 className="flex justify-center mt-12">Te gusta tindev? </h2>
+            <h2 className="flex justify-center mt-12">
+              Busca Con quien Trabajar{" "}
+            </h2>
+            <h3 className="text-pink-600 font-extrabold text-center mt-4 bg-teal-400">
+              --- Seccion en construccion ---
+            </h3>
           </div>
           <div className="mt-8 text-center">
             <NavLink

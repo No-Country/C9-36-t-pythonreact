@@ -86,7 +86,7 @@ const Login = () => {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="bg-[#35457F] rounded-full w-[130px] h-10 text-white">
+              className="bg-[#35457F] rounded-full w-40 h-10 text-white">
               Ingresar
             </button>
           </div>
@@ -94,11 +94,15 @@ const Login = () => {
       </Formik>
       <div className="flex justify-between mb-2 mx-10">
         <Link to={"/forgotpassword"}>
-          <p>Olvidaste la contraseña?</p>
+          <p className="text-lime-800 font-semibold text-sm align-middle">
+            Olvidaste la contraseña?
+          </p>
         </Link>
-        <p>
+        <p className="font-semibold text-sm ">
           No tenes cuenta?{" "}
-          <Link to={"/register"} className="text-black font-bold">
+          <Link
+            to={"/register"}
+            className="text-lime-800 font-semibold text-sm ">
             {" "}
             Registrate
           </Link>
