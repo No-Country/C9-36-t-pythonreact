@@ -7,6 +7,9 @@ import Dashboard from "./components/Dashboard";
 import { useUserContext } from "./context/UserContext";
 import { LayoutPrivate } from "./layout/LayoutPrivate";
 import ForgotPassword from "./components/login/ForgotPassword";
+import Inicio from "./components/Inicio";
+import RegisterCodigo from "./components/register/RegisterCodigo";
+
 function App() {
   const { user } = useUserContext();
 
@@ -16,10 +19,12 @@ function App() {
         <Routes>
           {/* <Route index element={<Landing/>}/> Cuando este creada la landing page siempre va a ser la pagina de inicio*/}
           <Route path={"/"} element={<Home />} />
+          <Route path={"/inicio"} element={<Inicio />} />
           <Route path={"/login"} element={<Login />} />
           <Route path={"/forgotpassword"} element={<ForgotPassword />} />
           <Route path={"/register"} element={<Register />} />
           <Route path={"/registerEmail"} element={<RegisterEmail />} />
+          <Route path={"/registerCodigo"} element={<RegisterCodigo />} />
           <Route element={<LayoutPrivate />}>
             <Route path={"/dashboard"} element={<Dashboard />} />
           </Route>
