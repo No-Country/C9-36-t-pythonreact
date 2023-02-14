@@ -27,13 +27,10 @@ function App() {
           <Route path={"/register"} element={<Register />} />
           <Route path={"/registerEmail"} element={<RegisterEmail />} />
           <Route path={"/registerCodigo"} element={<RegisterCodigo />} />
-<<<<<<< HEAD
           <Route path={"/registerSpinner"} element={<RegisterSpinner />} />
-=======
           <Route element={<LayoutPrivate />}>
             <Route path={"/dashboard"} element={<Dashboard />} />
           </Route>
->>>>>>> a52e2fb39477684cc4bc877b6c059c06dafe28b0
         </Routes>
       </BrowserRouter>
     </>
