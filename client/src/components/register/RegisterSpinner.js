@@ -1,10 +1,10 @@
 import Home from "../Home";
-const RegisterSpinner = () => {
+const Register = () => {
     return (
     <div className="mt-10">
       <Home />
       <div className="flex justify-center mt-12">
-            <h2 className="text-2xl">Aguarda un instante por favor estamos validando tus datos.</h2>
+            <h2 className="text-2xl text-center">Aguarda un instante por favor estamos validando tus datos.</h2>
       </div>      
         <div role="status" class="flex justify-center mt-10 text-black">
             <svg aria-hidden="true" class="w-8 h-8 mr-2 text-black-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -15,4 +15,4 @@ const RegisterSpinner = () => {
       </div>
   );
 };
-export default RegisterSpinner;
+export default Register;
