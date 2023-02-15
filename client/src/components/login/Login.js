@@ -20,10 +20,12 @@ const Login = () => {
     if (user) {
       navigate("/dashboard");
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
   const onSubmit = async (values) => {
     const { email, password } = values;
     try {
+      // eslint-disable-next-line no-unused-vars
       const credentialUser = await login({ email, password });
     } catch (error) {
       if (error.code === "auth/wrong-password") {

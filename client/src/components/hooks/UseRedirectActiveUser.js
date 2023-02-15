@@ -7,5 +7,6 @@ export const useRedirectActiveUser = (user, path) => {
     if (user) {
       navigate(path);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 };
