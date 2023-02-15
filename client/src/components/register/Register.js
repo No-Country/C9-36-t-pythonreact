@@ -1,10 +1,14 @@
 import React from "react";
 // import { Formik } from "formik";
 import { Link } from "react-router-dom";
+import { useUserContext } from "../../context/UserContext";
 import Home from "../Home";
+import { useRedirectActiveUser } from "../hooks/UseRedirectActiveUser";
 import RegisterButtons from "./RegisterButtons";
 
 const Register = () => {
+  const { user } = useUserContext();
+  useRedirectActiveUser(user, "/dashboard");
   return (
     <div>
       <Home />
