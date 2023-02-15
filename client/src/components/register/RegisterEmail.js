@@ -1,6 +1,6 @@
 import { ErrorMessage, Field, Form, Formik, } from "formik";
 import { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { register } from "../../config/firebase";
 import * as Yup from "yup";
 import Home from "../Home";
@@ -9,6 +9,7 @@ const Register = () => {
   const onSubmit = async (values) => {
     const { email, password } = values;
     try {
+      // eslint-disable-next-line no-unused-vars
       const credentialUser = await register({ email, password });
       window.location.href = "/dashboard";
     } catch (error) {
