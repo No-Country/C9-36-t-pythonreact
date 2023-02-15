@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Register from "./components/register/Register";
 import RegisterEmail from "./components/register/RegisterEmail";
 import Dashboard from "./components/Dashboard";
-import { useUserContext } from "./context/UserContext";
+// import { useUserContext } from "./context/UserContext";
 import { LayoutPrivate } from "./layout/LayoutPrivate";
 import ForgotPassword from "./components/login/ForgotPassword";
 import LandingPage from "./components/LandingPage";
@@ -12,7 +12,7 @@ import RegisterCodigo from "./components/register/RegisterCodigo";
 import RegisterSpinner from "./components/register/RegisterSpinner";
 
 function App() {
-  const { user } = useUserContext();
+  // const { user } = useUserContext();
 
   return (
     <>
