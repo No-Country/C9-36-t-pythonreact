@@ -1,11 +1,11 @@
-import { Field, Form, Formik } from "formik";
+import { Field, Form, Formik, ErrorMessage } from "formik";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useUserContext } from "../../context/UserContext";
 import { auth, login, provider } from "../../config/firebase";
 import { FaGoogle } from "react-icons/fa";
 
-// import * as Yup from "yup";
+import * as Yup from "yup";
 import Home from "../Home";
 import { signInWithPopup } from "firebase/auth";
 
@@ -40,7 +40,18 @@ const Login = () => {
     "peer block w-full appearance-none border border-slate-300 rounded-md text-sm shadow-sm bg-transparent p-4 text-sm text-gray-900 focus:border-blue-800 focus:outline-none  focus:ring-0 rounded-sm";
   const classLabel =
     "transhtmlForm absolute top-5 -z-10 origin-[0] ml-1 -translate-y-6 scale-75 text-md text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-blue-600";
-  return (
+    const loginSchema = Yup.object().shape({
+      email: Yup.string()
+        .email("El e-mail ingresado no es valido.")
+        .required("El e-mail es obligatorio")
+        .min(6, "El e-mail ingresado es muy corto.")
+        .max(38, "El e-mail ingresado es muy largo."),
+      password: Yup.string()
+        .required("La contraseña es requerida")
+        .min(8, "La contraseña es muy corta.")
+        .max(18, "La contraseña es muy larga."),
+    });
+    return (
     <div className="mt-10 h-auto">
       <Home />
       <Formik
@@ -49,6 +60,7 @@ const Login = () => {
           password: "",
           changepassword: "",
         }}
+        validationSchema={loginSchema}
         onSubmit={onSubmit}>
         <Form className="flex flex-col gap-2 justify-center m-6">
           <div>
@@ -63,6 +75,7 @@ const Login = () => {
               placeholder=" "
               required
             />
+            <ErrorMessage name="email" component="div"/>
             <label htmlFor="floating_email" className={classLabel}>
               Direccion de email
             </label>
@@ -76,6 +89,7 @@ const Login = () => {
               placeholder=" "
               required
             />
+            <ErrorMessage name="password" component="div"/>
             <label htmlFor="floating_password" className={classLabel}>
               Ingrese su contraseña
             </label>
