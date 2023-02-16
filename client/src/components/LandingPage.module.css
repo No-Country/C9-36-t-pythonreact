@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+
+.container {
+    height: 100vh;
+    background: linear-gradient(113deg, #264653 25.18%, #2A9D8F 80.69%);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+
+.containerLogoTitulo {
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+.titulo {
+    text-align: left;
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 45px;
+    line-height: 125%;
+    padding-left: 21px;
+    margin-top: -12px;
+    
+    
+
+
+
+    color: #FFFFFF;
+}
+
+
+.boton {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button {
+    background: #264653;
+    border-radius: 30px;
+    padding: 8px 47px;
+    color: #FFF;
+    margin-right: 17px;
+}
+
+
+
+
+@media  (min-width: 700px) {
+    .containerLogoTitulo {
+        
+        display: flex;
+        
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    
+    .titulo {
+        font-size: 55px;
+        line-height: 80px;
+        padding: 0;
+        width: 87%;
+    }
+
+    .button {
+        margin-right: 50px;
+    }
+    
+}
+
+@media  (min-width: 1080px) {
+    /* Estilos para pantallas de 700px o más ancho */
+    .container {
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        gap: 0;
+    }
+
+    .logoSvg {
+        width: 290px;
+    }
+
+    .containerLogoTitulo {
+        width: 58%;
+        display: flex;
+        
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .titulo {
+        font-size: 64px;
+        line-height: 80px;
+        padding: 0;
+        width: 87%;
+    }
+
+    .photodevs {
+        height: 100%;
+        width: 42%;
+        
+        background-image: url('../assets/PhotoDevs.jpg');
+        
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        
+                
+
+    }
+
+    .photodevsFondo {
+        background: linear-gradient(180deg, rgba(42, 157, 143, 0.7) 15.6%, rgba(38, 70, 83, 0) 41.27%);
+        transform: matrix(1, 0, 0, -1, 0, 0);
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .boton  {
+        transform: matrix(1, 0, 0, -1, 0, 0);
+        display: flex;
+        justify-content: center;
+        padding-bottom: 7%;
+    }
+
+    .button {
+        margin: 0;
+        font-family: Lato;
+        font-size: 25px;
+        font-weight: 400;
+        line-height: 16px;
+        letter-spacing: 0.4000000059604645px;
+        
+        padding: 13px 40px;
+        letter-spacing: 0.4px;
+    }
+
+    .button:hover {
+        background: #3c9f93;
+        color: #ffea00;
+    }
+
+}

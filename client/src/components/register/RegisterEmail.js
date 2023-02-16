@@ -10,6 +10,7 @@ const Register = () => {
   const onSubmit = async (values) => {
     const { email, password } = values;
     try {
+      // eslint-disable-next-line no-unused-vars
       const credentialUser = await register({ email, password });
       console.log(credentialUser);
       navegate("/registernewprofile");
