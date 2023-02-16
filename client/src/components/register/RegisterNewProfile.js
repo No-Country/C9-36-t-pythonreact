@@ -222,13 +222,23 @@ function RegisterNewProfile() {
           <div className="text-center text-xl font-semibold text-[#264653]">
             {formMessage && <div>Perfil actualizado correctamente</div>}
           </div>
-          <Link to="/profileview">Ver PERFIL</Link>
+          <Link
+            to="/profileview"
+            className="mr-2 mb-2 rounded-lg bg-gradient-to-br from-green-400 to-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gradient-to-bl focus:outline-none focus:ring-4 focus:ring-green-200 dark:focus:ring-green-800"
+          >
+            Ver PERFIL
+          </Link>
         </form>
         <div className="text-center text-xl font-semibold text-[#264653]">
           {photoMessage && <div>Foto Cargada correctamente</div>}
         </div>
         <div className="mt-4 flex justify-center">
-          <button onClick={handleOpenFilePicker}>Elegir foto de perfil</button>
+          <button
+            className="mr-2 mb-2 rounded-lg bg-gradient-to-br from-purple-600 to-blue-500 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gradient-to-bl focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800"
+            onClick={handleOpenFilePicker}
+          >
+            Elegir foto de perfil
+          </button>
           <input
             type="file"
             ref={fileRef}

@@ -2,27 +2,22 @@ import { Field, Form, Formik } from "formik";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useUserContext } from "../../context/UserContext";
-import {
-  auth,
-  login,
-  provider,
-  handleClickGoogle,
-} from "../../config/firebase";
+import { login, handleClickGoogle } from "../../config/firebase";
 import { FaGoogle } from "react-icons/fa";
 
 // import * as Yup from "yup";
 import Home from "../Home";
-import { signInWithPopup } from "firebase/auth";
+/* import { signInWithPopup } from "firebase/auth"; */
 
 const Login = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
-  const { user, setUser } = useUserContext();
+  const { user } = useUserContext();
   useEffect(() => {
     if (user) {
       navigate("/loggedin");
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
   const onSubmit = async (values) => {
     const { email, password } = values;
@@ -51,8 +46,9 @@ const Login = () => {
           password: "",
           changepassword: "",
         }}
-        onSubmit={onSubmit}>
-        <Form className="flex flex-col gap-2 justify-center m-6">
+        onSubmit={onSubmit}
+      >
+        <Form className="m-6 flex flex-col justify-center gap-2">
           <div>
             <h1 className="text-center text-3xl font-bold">Login</h1>
           </div>
@@ -84,29 +80,31 @@ const Login = () => {
           </div>
           {
             <div>
-              <p className="text-red-600 font-bold text-md">{error}</p>
+              <p className="text-md font-bold text-red-600">{error}</p>
             </div>
           }
           <div className="flex justify-center">
             <button
               type="submit"
-              className="bg-[#35457F] rounded-full w-40 h-10 text-white">
+              className="h-10 w-40 rounded-full bg-[#35457F] text-white"
+            >
               Ingresar
             </button>
           </div>
         </Form>
       </Formik>
-      <div className="flex justify-between mb-2 mx-10">
+      <div className="mx-10 mb-2 flex justify-between">
         <Link to={"/forgotpassword"}>
-          <p className="text-lime-800 font-semibold text-sm align-middle">
+          <p className="align-middle text-sm font-semibold text-lime-800">
             Olvidaste la contraseña?
           </p>
         </Link>
-        <p className="font-semibold text-sm ">
+        <p className="text-sm font-semibold ">
           No tenes cuenta?{" "}
           <Link
             to={"/register"}
-            className="text-lime-800 font-semibold text-sm ">
+            className="text-sm font-semibold text-lime-800 "
+          >
             {" "}
             Registrate
           </Link>
@@ -115,8 +113,9 @@ const Login = () => {
       <div className="flex justify-center">
         <button
           onClick={handleClickGoogle}
-          className="text-black flex gap-2 items-center rounded-full border-2 border-black text-
-         h-[56px] px-12 text-base">
+          className="text- flex h-[56px] items-center gap-2 rounded-full border-2 border-black
+         px-12 text-base text-black"
+        >
           <FaGoogle className="text-2xl text-black" />
           Login con Google
         </button>

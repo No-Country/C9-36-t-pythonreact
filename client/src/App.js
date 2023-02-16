@@ -34,7 +34,6 @@ function App() {
           <Route element={<LayoutPrivate />}>
             <Route path={"/dashboard"} element={<Dashboard />} />
             <Route path={"/loggedIn"} element={<LoggedIn />} />
-            {/* <Route path={"/registerProfile"} element={<RegisterProfile />} /> */}
             <Route
               path={"/registernewprofile"}
               element={<RegisterNewProfile />}
