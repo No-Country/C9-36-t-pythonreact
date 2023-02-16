@@ -4,7 +4,6 @@ import Logo from "../assets/Logo";
 
 const Home = () => {
   const location = useLocation();
-  console.log(location.pathname);
   return (
     <div>
       <div className="flex justify-center mt-10">
