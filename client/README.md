@@ -33,7 +33,10 @@ Se creo el formulario registerNewUser para que el usuario pueda cargar todos sus
 Se creo el la vista de usuario y se maqueto segun el figma
 
 
-\*\* Update 14/2 Se corrigieron errores del firebase
+\*\* Update 15/2 Se corrigieron errores del firebase
 Se termino de configurar el profileView para ver la vista de usuario completa
+Estado actual: El usuario puede loguearse en la app / registrarse, con mail y contraseña, facebook, o google, completar todos los datos de su perfil, cargar su foto y puede visualizar su perfil completo
 
+\*\* Update 16/02 Se trabajo en la factorizacion de componentes y funciones.
+Se comenzo a maquetar la carga del perfil segun el figma, estado actual, falta terminar
 }

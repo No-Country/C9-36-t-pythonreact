@@ -17,7 +17,7 @@ export default function UserContextProvider({ children }) {
       /* Eslint error user && console.log(user.displayName); */
     });
     return unsuscribe;
-  }, []);
+  }, [user]);
   if (user === false)
     /* Falta agregar el spiner aca */
     return <div>Loading app... Aca voy a poner un spinner lindo y bonito</div>;
