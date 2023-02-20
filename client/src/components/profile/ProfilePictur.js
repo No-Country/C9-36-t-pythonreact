@@ -11,7 +11,7 @@ function ProfilePhoto({ profilePicture, handleUpdateProfilePicture }) {
       setProfileUrl(url);
     };
     getUrl();
-  }, [profilePicture]);
+  }, [profilePicture, user.uid]);
 
   if (profileUrl === null) {
     return <div>No se encontró foto de perfil.</div>;

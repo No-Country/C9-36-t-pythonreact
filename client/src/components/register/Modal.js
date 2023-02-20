@@ -11,15 +11,30 @@ function Modal({ onClose, nombre, setUserState }) {
     const getDataUser = async () => {
       const userInfo = await getUserInfo(user.uid);
       setCurrentUser(userInfo);
-      console.log(currentUser.userName);
     };
     getDataUser();
   }, [user]);
   const handleUpdate = async () => {
-    const updatedUser = { ...currentUser, userName: name };
-    await updateUser(updatedUser);
-    setCurrentUser(updatedUser);
-    console.log(updatedUser);
+    if (nombre === "Agrega tu nombre") {
+      const updatedUser = { ...currentUser, userName: name };
+      await updateUser(updatedUser);
+      setCurrentUser(updatedUser);
+    }
+    if (nombre === "Agrega tu especialidad") {
+      const updatedUser = { ...currentUser, tecnologias: name };
+      await updateUser(updatedUser);
+      setCurrentUser(updatedUser);
+    }
+    if (nombre === "Descripción") {
+      const updatedUser = { ...currentUser, descripcion: name };
+      await updateUser(updatedUser);
+      setCurrentUser(updatedUser);
+    }
+    if (nombre === "Proyectos") {
+      const updatedUser = { ...currentUser, proyectos: name };
+      await updateUser(updatedUser);
+      setCurrentUser(updatedUser);
+    }
   };
   const handleNameChange = (event) => {
     setName(event.target.value);

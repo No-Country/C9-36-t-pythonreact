@@ -28,7 +28,7 @@ const LoggedIn = () => {
     /* es una ruta protegida, la voy a borrar */
   };
   const handleUserNotRegistered = (user) => {
-    navegate("/registernewprofile");
+    navegate("/registernewprofilefigma");
   };
   return (
     <AuthProvider
