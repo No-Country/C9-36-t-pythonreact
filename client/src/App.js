@@ -1,6 +1,7 @@
 import Home from "./components/Home";
 import Login from "./components/login/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import RegisterInicio from "./components/register/RegisterInicio";
 import Register from "./components/register/Register";
 import RegisterEmail from "./components/register/RegisterEmail";
 import Dashboard from "./components/Dashboard";
@@ -14,6 +15,7 @@ import LoggedIn from "./components/login/LoggedIn";
 import RegisterNewProfile from "./components/register/RegisterNewProfile";
 import ProfileView from "./components/profile/ProfileView";
 
+
 function App() {
   // const { user } = useUserContext();
 
@@ -25,12 +27,15 @@ function App() {
 
           <Route path={"/"} element={<LandingPage />} />
           <Route path={"/home"} element={<Home />} />
+          <Route path={"/registerInicio"} element={<RegisterInicio />} />
           <Route path={"/login"} element={<Login />} />
           <Route path={"/forgotpassword"} element={<ForgotPassword />} />
           <Route path={"/register"} element={<Register />} />
           <Route path={"/registerEmail"} element={<RegisterEmail />} />
           <Route path={"/registerCodigo"} element={<RegisterCodigo />} />
           <Route path={"/registerSpinner"} element={<RegisterSpinner />} />
+          <Route path={"/registerValidando"} element={<RegisterValidando />} />
+          <Route path={"/registerFin"} element={<RegisterFin />} />
           <Route element={<LayoutPrivate />}>
             <Route path={"/dashboard"} element={<Dashboard />} />
             <Route path={"/loggedIn"} element={<LoggedIn />} />
