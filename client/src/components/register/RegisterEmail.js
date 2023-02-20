@@ -1,17 +1,19 @@
-import { ErrorMessage, Field, Form, Formik, } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { register } from "../../config/firebase";
 import * as Yup from "yup";
 import Home from "../Home";
 const Register = () => {
+  const navegate = useNavigate();
   const [error, setError] = useState("");
   const onSubmit = async (values) => {
     const { email, password } = values;
     try {
       // eslint-disable-next-line no-unused-vars
       const credentialUser = await register({ email, password });
-      window.location.href = "/dashboard";
+      console.log(credentialUser);
+      navegate("/registernewprofile");
     } catch (error) {
       switch (error.code) {
         case "auth/email-already-in-use":
@@ -40,15 +42,14 @@ const Register = () => {
       .required("La contraseña es requerida")
       .min(8, "La contraseña es muy corta.")
       .max(18, "La contraseña es muy larga."),
-      changepassword: Yup.string().when("password", {
+    changepassword: Yup.string().when("password", {
       is: (value) => (value && value.length > 0 ? true : false),
       then: Yup.string()
         .oneOf([Yup.ref("password")], "Las contraseñas no cohinciden.")
         .required("Debes volver a ingresar la contraseña en este campo."),
     }),
-  
-    });
-    return (
+  });
+  return (
     <div className="mt-10">
       <Home />
       <Formik
@@ -58,8 +59,9 @@ const Register = () => {
           changepassword: "",
         }}
         validationSchema={registerSchema}
-        onSubmit={onSubmit}>
-        <Form className="flex flex-col gap-2 justify-center m-6">
+        onSubmit={onSubmit}
+      >
+        <Form className="m-6 flex flex-col justify-center gap-2">
           <div className="group relative z-0 mb-6 w-full">
             <Field
               type="email"
@@ -69,24 +71,24 @@ const Register = () => {
               placeholder=" "
               required
             />
-            <ErrorMessage name="email" component="div"/>
+            <ErrorMessage name="email" component="div" />
             <label htmlFor="floating_email" className={classLabel}>
               Direccion de email
             </label>
             <div>
-              <span className="text-red-600 font-bold">{error}</span>
+              <span className="font-bold text-red-600">{error}</span>
             </div>
           </div>
           <div className="group relative z-0 mb-6 w-full">
             <Field
-              type="password "
+              type="password"
               name="password"
               id="password"
               className={classTw}
               placeholder=" "
               required
             />
-            <ErrorMessage name="password" component="div"/>
+            <ErrorMessage name="password" component="div" />
             <label htmlFor="floating_password" className={classLabel}>
               Ingrese su contraseña
             </label>
@@ -100,7 +102,7 @@ const Register = () => {
               placeholder=" "
               required
             />
-            <ErrorMessage name="changepassword" component="div"/>
+            <ErrorMessage name="changepassword" component="div" />
             <label htmlFor="floating_changepassword" className={classLabel}>
               Reingrese su contraseña
             </label>
@@ -108,7 +110,8 @@ const Register = () => {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="bg-[#35457F] rounded-full w-[130px] h-10 text-white">
+              className="h-10 w-[130px] rounded-full bg-[#35457F] text-white"
+            >
               Aceptar
             </button>
           </div>
@@ -117,7 +120,7 @@ const Register = () => {
       <div className="text-right">
         <p className="text-right">
           Ya tenes cuenta?{" "}
-          <Link to={"/login"} className="text-black font-bold">
+          <Link to={"/login"} className="font-bold text-black">
             {" "}
             Iniciar sesión
           </Link>

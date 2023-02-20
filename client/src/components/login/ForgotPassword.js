@@ -9,6 +9,7 @@ const ForgotPassword = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
+      /* LLamo a una funcion creada en config/firebase para resetear el password */
       await resetPassword(email);
       setError(null);
     } catch (error) {
