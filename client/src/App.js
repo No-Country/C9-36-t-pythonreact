@@ -1,19 +1,19 @@
-import Home from "./components/Home";
-import Login from "./components/login/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import RegisterInicio from "./components/register/RegisterInicio";
-import Register from "./components/register/Register";
-import RegisterEmail from "./components/register/RegisterEmail";
 import Dashboard from "./components/Dashboard";
-import { LayoutPrivate } from "./layout/LayoutPrivate";
-import ForgotPassword from "./components/login/ForgotPassword";
+import Home from "./components/Home";
 import LandingPage from "./components/LandingPage";
-import RegisterCodigo from "./components/register/RegisterCodigo";
-import RegisterSpinner from "./components/register/RegisterSpinner";
+import ForgotPassword from "./components/login/ForgotPassword";
 import LoggedIn from "./components/login/LoggedIn";
+import Login from "./components/login/Login";
+import Register from "./components/register/Register";
+import RegisterCodigo from "./components/register/RegisterCodigo";
+import RegisterEmail from "./components/register/RegisterEmail";
+import RegisterInicio from "./components/register/RegisterInicio";
+import RegisterSpinner from "./components/register/RegisterSpinner";
+import { LayoutPrivate } from "./layout/LayoutPrivate";
 /* import RegisterProfile from "./components/register/RegisterProfile"; */
-import RegisterNewProfile from "./components/register/RegisterNewProfile";
 import ProfileView from "./components/profile/ProfileView";
+import RegisterNewProfile from "./components/register/RegisterNewProfile";
 import RegisterNewProfileFigma from "./components/register/RegisterNewProfileFigma";
 
 
@@ -35,8 +35,8 @@ function App() {
           <Route path={"/registerEmail"} element={<RegisterEmail />} />
           <Route path={"/registerCodigo"} element={<RegisterCodigo />} />
           <Route path={"/registerSpinner"} element={<RegisterSpinner />} />
-          <Route path={"/registerValidando"} element={<RegisterValidando />} />
-          <Route path={"/registerFin"} element={<RegisterFin />} />
+          {/* <Route path={"/registerValidando"} element={<RegisterValidando />} />
+          <Route path={"/registerFin"} element={<RegisterFin />} /> */}
           <Route element={<LayoutPrivate />}>
             <Route path={"/dashboard"} element={<Dashboard />} />
             <Route path={"/loggedIn"} element={<LoggedIn />} />
