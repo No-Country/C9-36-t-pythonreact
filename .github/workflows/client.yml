@@ -36,6 +36,8 @@ jobs:
         
       - name: Build the React application
         run: npm run build
+        env:
+          CI: ""
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
