@@ -14,6 +14,7 @@ import LoggedIn from "./components/login/LoggedIn";
 /* import RegisterProfile from "./components/register/RegisterProfile"; */
 import RegisterNewProfile from "./components/register/RegisterNewProfile";
 import ProfileView from "./components/profile/ProfileView";
+import RegisterNewProfileFigma from "./components/register/RegisterNewProfileFigma";
 
 
 function App() {
@@ -44,6 +45,10 @@ function App() {
               element={<RegisterNewProfile />}
             />
             <Route path={"/profileview"} element={<ProfileView />} />
+            <Route
+              path={"/registernewprofilefigma"}
+              element={<RegisterNewProfileFigma />}
+            />
           </Route>
         </Routes>
       </BrowserRouter>

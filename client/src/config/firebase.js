@@ -143,7 +143,6 @@ export async function setUserProfilePhoto(uid, file) {
 export async function getProfilePhotoUrl(profilePicture) {
   try {
     const profileRef = ref(storage, profilePicture);
-    /* const profileRef = storage.ref(profilePicture); */
     const url = await getDownloadURL(profileRef);
     return url;
   } catch (error) {
@@ -154,13 +153,3 @@ export const getUserPublicProfileInfo = async (uid) => {
   const profileInfo = await getUserInfo(uid);
   return profileInfo;
 };
-/* export async function getProfilePhotoUrl(profilePicture) {
-  try {
-    const imageRef = storage.ref(profilePicture);
-    const fileRef = imageRef.child(profilePicture);
-    const url = await fileRef.getDownloadURL();
-    return url;
-  } catch (error) {
-    console.log(error + "error de getprofilephotourl");
-  }
-} */
