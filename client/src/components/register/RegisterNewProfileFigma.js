@@ -5,8 +5,10 @@ import ProfilePictur from "../profile/ProfilePictur";
 import Modal from "./Modal";
 import { useUserContext } from "../../context/UserContext";
 import { getUserInfo } from "../../config/firebase";
+import ModalTecnologias from "./ModalTecnologias";
 const RegisterNewProfileFigma = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalTechOpen, setIsModalTechOpen] = useState(false);
   const [name, setName] = useState("");
   const [userState, setUserState] = useState(null);
   const [currentUser, setCurrentUser] = useState({});
@@ -19,9 +21,10 @@ const RegisterNewProfileFigma = () => {
       setProfilePicture(userInfo.profilePicture);
     };
     getDataUser();
-  }, [isModalOpen, profilePicture, setProfilePicture, user.uid]);
+  }, [isModalOpen, profilePicture, setProfilePicture, user.uid, user]);
   function handleCloseModal() {
     setIsModalOpen(false);
+    setIsModalTechOpen(false);
   }
   function handleUpdateProfilePicture() {
     setProfilePicture(`${Date.now()}_${user.uid}`);
@@ -54,6 +57,9 @@ const RegisterNewProfileFigma = () => {
               setUserState={setUserState}
             />
           ) : null}
+          {isModalTechOpen ? (
+            <ModalTecnologias onClose={handleCloseModal} />
+          ) : null}
         </div>
       </div>
       {/* Modal */}
@@ -83,7 +89,7 @@ const RegisterNewProfileFigma = () => {
           <div className="ml-3">
             <button
               onClick={() => {
-                setIsModalOpen(!isModalOpen);
+                setIsModalTechOpen(!isModalTechOpen);
                 setName("Agrega tu especialidad");
               }}
             >
@@ -91,11 +97,9 @@ const RegisterNewProfileFigma = () => {
             </button>
           </div>
           <div className="ml-8">
-            <p className="text-base font-semibold  text-[#264653]">
-              {currentUser.tecnologias
-                ? currentUser.tecnologias
-                : "Agrega tu especialidad"}
-            </p>
+            <span className="text-base font-semibold  text-[#264653]">
+              "Agrega tu especialidad"
+            </span>
             <p>Describe el área en la que te especializas.</p>
           </div>
         </div>
@@ -103,7 +107,7 @@ const RegisterNewProfileFigma = () => {
       {/* Descripción */}
       <div className="container mx-auto mt-5 flex justify-center gap-2 ">
         <div className="flex h-24 w-[379px] items-center justify-center rounded-sm bg-[#26465333]">
-          <div className="ml-3">
+          <div className="ml-4 flex items-center">
             <button
               onClick={() => {
                 setIsModalOpen(!isModalOpen);
@@ -114,7 +118,7 @@ const RegisterNewProfileFigma = () => {
             </button>
           </div>
           <div className="ml-8">
-            <p className="text-base font-semibold  text-[#264653]">
+            <p className="text-base font-semibold text-[#264653]">
               Descripcion
             </p>
             <p>
@@ -139,7 +143,9 @@ const RegisterNewProfileFigma = () => {
             </button>
           </div>
           <div className="ml-8">
-            <p className="text-base font-semibold  text-[#264653]">Proyectos</p>
+            <p className="text-base font-semibold  text-[#264653]">
+              Proyectos.
+            </p>
             <p>
               {currentUser.proyectos
                 ? currentUser.proyectos
@@ -148,26 +154,7 @@ const RegisterNewProfileFigma = () => {
           </div>
         </div>
       </div>
-      {/*  <div className="container mx-auto mt-5 flex justify-center gap-2 ">
-        <div className="flex h-24 w-[379px] items-center justify-center rounded-sm bg-[#26465333]">
-          <div className="ml-3">
-            <button
-              onClick={() => {
-                setIsModalOpen(!isModalOpen);
-                setName("Proyectos");
-              }}
-            >
-              <LogoLapizEdit />
-            </button>
-          </div>
-          <div className="ml-8">
-            <p className="text-base font-semibold  text-[#264653]">Proyectos</p>
-            {currentUser.proyectos
-              ? currentUser.proyectos
-              : "Publica los enlaces a los proyectos que hayas realizado."}
-          </div>
-        </div>
-      </div> */}
+
       {/* Que busco */}
       <div className="container mx-auto mt-5 flex justify-center gap-2 ">
         <div className="flex h-24 w-[379px] items-center justify-center rounded-sm bg-[#26465333]">
@@ -183,10 +170,16 @@ const RegisterNewProfileFigma = () => {
           </div>
           <div className="ml-8">
             <p className="text-base font-semibold  text-[#264653]">Que busco</p>
-            <p>
-              Cuéntales a otros usuarios en que tipo de proyectos te gustaría
-              trabajar o a qué developers andas buscando.
-            </p>
+            <span>
+              {currentUser.busco ? (
+                currentUser.busco
+              ) : (
+                <p>
+                  Cuéntales a otros usuarios en que tipo de proyectos te
+                  gustaría trabajar o a qué developers andas buscando.
+                </p>
+              )}
+            </span>
           </div>
         </div>
       </div>

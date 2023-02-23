@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { getUserInfo, updateUser } from "../../config/firebase";
 import { useUserContext } from "../../context/UserContext";
 
 function Modal({ onClose, nombre, setUserState }) {
   const { user } = useUserContext();
+  /*   const [isOpen, setIsOpen] = useState(false); */
   const [currentUser, setCurrentUser] = useState({});
   const [name, setName] = useState("");
   useEffect(() => {
@@ -14,17 +15,18 @@ function Modal({ onClose, nombre, setUserState }) {
     };
     getDataUser();
   }, [user]);
+
   const handleUpdate = async () => {
     if (nombre === "Agrega tu nombre") {
       const updatedUser = { ...currentUser, userName: name };
       await updateUser(updatedUser);
       setCurrentUser(updatedUser);
     }
-    if (nombre === "Agrega tu especialidad") {
+    /*     if (nombre === "Agrega tu especialidad") {
       const updatedUser = { ...currentUser, tecnologias: name };
       await updateUser(updatedUser);
       setCurrentUser(updatedUser);
-    }
+    } */
     if (nombre === "Descripción") {
       const updatedUser = { ...currentUser, descripcion: name };
       await updateUser(updatedUser);
@@ -35,12 +37,16 @@ function Modal({ onClose, nombre, setUserState }) {
       await updateUser(updatedUser);
       setCurrentUser(updatedUser);
     }
+    if (nombre === "Que busco") {
+      const updatedUser = { ...currentUser, busco: name };
+      await updateUser(updatedUser);
+      setCurrentUser(updatedUser);
+    }
   };
   const handleNameChange = (event) => {
     setName(event.target.value);
     setUserState(name);
   };
-
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
       <div className="w-297 h-130 relative rounded-lg bg-[#264653] p-8">
