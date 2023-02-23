@@ -10,20 +10,15 @@ import LandingPage from "./components/LandingPage";
 import RegisterCodigo from "./components/register/RegisterCodigo";
 import RegisterSpinner from "./components/register/RegisterSpinner";
 import LoggedIn from "./components/login/LoggedIn";
-/* import RegisterProfile from "./components/register/RegisterProfile"; */
 import RegisterNewProfile from "./components/register/RegisterNewProfile";
 import ProfileView from "./components/profile/ProfileView";
 import RegisterNewProfileFigma from "./components/register/RegisterNewProfileFigma";
 
 function App() {
-  // const { user } = useUserContext();
-
   return (
     <>
       <BrowserRouter>
         <Routes>
-          {/* <Route index element={<Landing/>}/> Cuando este creada la landing page siempre va a ser la pagina de inicio*/}
-
           <Route path={"/"} element={<LandingPage />} />
           <Route path={"/home"} element={<Home />} />
           <Route path={"/login"} element={<Login />} />

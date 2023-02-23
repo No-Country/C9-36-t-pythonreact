@@ -21,7 +21,14 @@ const RegisterNewProfileFigma = () => {
       setProfilePicture(userInfo.profilePicture);
     };
     getDataUser();
-  }, [isModalOpen, profilePicture, setProfilePicture, user.uid, user]);
+  }, [
+    isModalOpen,
+    profilePicture,
+    setProfilePicture,
+    user.uid,
+    user,
+    currentUser,
+  ]);
   function handleCloseModal() {
     setIsModalOpen(false);
     setIsModalTechOpen(false);
@@ -100,6 +107,7 @@ const RegisterNewProfileFigma = () => {
             <span className="text-base font-semibold  text-[#264653]">
               "Agrega tu especialidad"
             </span>
+
             <p>Describe el área en la que te especializas.</p>
           </div>
         </div>

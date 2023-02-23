@@ -67,7 +67,11 @@ const ProfileView = () => {
               Tecnologias
             </p>
             <span className="text-sm text-gray-500">
-              {currentUser.tecnologias}
+              {currentUser.tecnologias.frontend && (
+                <div>Frontend Developer</div>
+              )}
+              {currentUser.tecnologias.backend && <div>Backend Developer</div>}
+              {currentUser.tecnologias.uxui && <div>UX/UI Designer</div>}
             </span>
           </div>
           {/* Pryoectos */}

@@ -24,13 +24,11 @@ const ModalTecnologias = ({ onClose }) => {
     getDataUser();
   }, []);
   const handleTech = async () => {
-    console.log(checked);
-    if (checked.frontend) {
-      /*       currentUser.tecnologias.frontend = "frontend"; */
-      const updatedUser = { ...currentUser, tecnologias: checked };
-      await updateUser(updatedUser);
-      setCurrentUser(updatedUser);
-    }
+    
+    /*       currentUser.tecnologias.frontend = "frontend"; */
+    const updatedUser = { ...currentUser, tecnologias: checked };
+    await updateUser(updatedUser);
+    setCurrentUser(updatedUser);
   };
   return (
     <>
