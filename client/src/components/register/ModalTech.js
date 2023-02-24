@@ -36,10 +36,7 @@ const ModalTech = ({ onClose }) => {
   };
   return (
     <>
-      <div
-        className="fixed bottom-1 m-4 mx-auto my-auto rounded-lg bg-[#264653] shadow-lg "
-        style={{ width: "312px", height: "606px" }}
-      >
+      <div className="fixed bottom-1 m-auto rounded-lg bg-[#264653] shadow-lg ">
         <div>
           <p
             className="m-4 text-left text-2xl
@@ -105,9 +102,9 @@ const ModalTech = ({ onClose }) => {
             <input
               type="checkbox"
               className="form-checkbox h-6 w-6 text-indigo-600"
-              name="python"
+              name="phyton"
               onChange={handleClickCheckBox}
-              checked={checked.python}
+              checked={checked.phyton}
             />
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
@@ -115,7 +112,7 @@ const ModalTech = ({ onClose }) => {
               alt="Python"
             />
             <span className="ml-3 text-lg font-medium text-gray-900">
-              Python
+              Phyton
             </span>
           </label>
           <label className="mb-4 flex items-center">

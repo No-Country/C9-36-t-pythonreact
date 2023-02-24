@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getProfilePhotoUrl, getUsersFromServer } from "../../config/firebase";
 import styles from "./Perfiles.module.css";
 
@@ -33,13 +34,15 @@ function PerfilesFrontend() {
   return (
     <div className={styles.gridContainer}>
       {fronts.map((el, index) => (
-        <div key={el.uid} className={styles.gridItem}>
-          <img
-            src={profileUrls.find((url, i) => i === index)}
-            alt="Imagen de perfil"
-          />
-          {el.userName}
-        </div>
+        <Link key={el.uid} to={`/user/${el.uid}`}>
+          <div key={el.uid} className={styles.gridItem}>
+            <img
+              src={profileUrls.find((url, i) => i === index)}
+              alt="Imagen de perfil"
+            />
+            {el.userName}
+          </div>
+        </Link>
       ))}
     </div>
   );
