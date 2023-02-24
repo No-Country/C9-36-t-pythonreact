@@ -14,7 +14,7 @@ import { LayoutPrivate } from "./layout/LayoutPrivate";
 import ProfileView from "./components/profile/ProfileView";
 import RegisterNewProfile from "./components/register/RegisterNewProfile";
 import RegisterNewProfileFigma from "./components/register/RegisterNewProfileFigma";
-
+import RegisterFin from "./components/register/RegisterFin";
 
 function App() {
   return (
@@ -30,8 +30,8 @@ function App() {
           <Route path={"/registerEmail"} element={<RegisterEmail />} />
           <Route path={"/registerCodigo"} element={<RegisterCodigo />} />
           <Route path={"/registerSpinner"} element={<RegisterSpinner />} />
-          {/* <Route path={"/registerValidando"} element={<RegisterValidando />} />
-          <Route path={"/registerFin"} element={<RegisterFin />} /> */}
+          <Route path={"/registerValidando"} element={<registerValidando />} />
+          <Route path={"/registerFin"} element={<RegisterFin />} />
           <Route element={<LayoutPrivate />}>
             <Route path={"/dashboard"} element={<Dashboard />} />
             <Route path={"/loggedIn"} element={<LoggedIn />} />

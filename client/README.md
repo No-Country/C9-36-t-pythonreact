@@ -39,4 +39,19 @@ Estado actual: El usuario puede loguearse en la app / registrarse, con mail y co
 
 \*\* Update 16/02 Se trabajo en la factorizacion de componentes y funciones.
 Se comenzo a maquetar la carga del perfil segun el figma, estado actual, falta terminar
+
+\*\* Update 20/02
+Se trabajo en la carga de perfil segun el figma, 
+El usuario puede cargar sus datos y quedan guardados en la base de datos
+\*\* Update 21/02
+Se trabajo en el componente modalTecnologias el usuario puede elegir entre 3 tecnologias distintas que quedaran guardas en la base de datos y se podran filtrar en la vista de perfiles publicos
+\*\* Update 22/02
+Se termino de maquetar el componente profileregister por figma en la version mobile
+\*\* Update 23/02
+Se trabajo en el componente dashboard, se pueden ver los perfiles de los usuarios registrados y filtrar por categorias, frontend, backend, uxui designer.
+Se trabajo en la vista de perfil de usuario y se puede ver la imagen de perfil en miñatura.
+Junto a la imagen en miñatura se puede ver el nombre de usuario
+
+
+
 }

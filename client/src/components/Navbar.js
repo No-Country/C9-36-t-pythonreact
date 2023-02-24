@@ -19,7 +19,7 @@ function Navbar() {
           </NavLink>
         </div>
         <div className={styles.logo}>
-          <NavLink to={"/profileview"}>
+          <NavLink to={"/registernewprofilefigma"}>
             <LogoMiPerfil />
           </NavLink>
         </div>

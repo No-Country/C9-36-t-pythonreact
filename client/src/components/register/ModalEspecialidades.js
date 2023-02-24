@@ -6,7 +6,7 @@ import { IconBackend } from "../../assets/icons/IconBackend";
 import { IconUxUi } from "../../assets/icons/IconUxUi";
 import { getUserInfo, updateUser } from "../../config/firebase";
 
-const ModalTecnologias = ({ onClose }) => {
+const ModalEspecialidades = ({ onClose }) => {
   const { user } = useUserContext();
   const checkedInitial = {
     frontend: false,
@@ -18,15 +18,28 @@ const ModalTecnologias = ({ onClose }) => {
   useEffect(() => {
     const getDataUser = async () => {
       const userInfo = await getUserInfo(user.uid);
-      console.log(userInfo);
-      setCurrentUser(userInfo);
+      if (userInfo) {
+        setCurrentUser(userInfo);
+      } else {
+        console.log("errorrr"); // hclgandle error
+      }
     };
-    getDataUser();
+    if (user) {
+      getDataUser();
+    } else {
+      // handle error
+    }
   }, []);
+
+  console.log(currentUser);
+  console.log(setCurrentUser);
+  console.log(currentUser);
+
   const handleTech = async () => {
-    
-    /*       currentUser.tecnologias.frontend = "frontend"; */
-    const updatedUser = { ...currentUser, tecnologias: checked };
+    const updatedUser = {
+      ...currentUser,
+      especialidades: checked,
+    };
     await updateUser(updatedUser);
     setCurrentUser(updatedUser);
   };
@@ -117,4 +130,20 @@ const ModalTecnologias = ({ onClose }) => {
   );
 };
 
-export default ModalTecnologias;
+export default ModalEspecialidades;
+
+/*  if (checked.frontend) {
+      const updatedUser = { ...currentUser, frontend: "frontend" };
+      await updateUser(updatedUser);
+      setCurrentUser(updatedUser);
+    }
+    if (checked.backend) {
+      const updatedUser = { ...currentUser, backend: "backend" };
+      await updateUser(updatedUser);
+      setCurrentUser(updatedUser);
+    }
+    if (checked.uxui) {
+      const updatedUser = { ...currentUser, uxui: "uxui" };
+      await updateUser(updatedUser);
+      setCurrentUser(updatedUser);
+    } */

@@ -14,7 +14,8 @@ function Modal({ onClose, nombre, setUserState }) {
       setCurrentUser(userInfo);
     };
     getDataUser();
-  }, [user]);
+    console.log(user, currentUser, name);
+  }, [user, currentUser]);
 
   const handleUpdate = async () => {
     if (nombre === "Agrega tu nombre") {
@@ -63,15 +64,17 @@ function Modal({ onClose, nombre, setUserState }) {
           value={name}
           onChange={handleNameChange}
         />
-        <button
-          className=" w-20 origin-center scale-100 transform-gpu rounded-full  bg-[#2A9D8F] text-lg font-bold text-white hover:scale-95 focus:outline-none"
-          onClick={() => {
-            handleUpdate();
-            onClose();
-          }}
-        >
-          Aceptar
-        </button>
+        <div className="flex justify-end">
+          <button
+            className="w-28 origin-center scale-100 transform-gpu  rounded-full bg-[#2A9D8F] text-center text-lg font-bold text-white hover:scale-95 focus:outline-none"
+            onClick={() => {
+              handleUpdate();
+              onClose();
+            }}
+          >
+            Aceptar
+          </button>
+        </div>
       </div>
     </div>
   );

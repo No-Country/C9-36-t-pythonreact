@@ -1,11 +1,43 @@
 /* Este checkbox se va a mostrar cuando se necesiten elegir las tecnologias que utiliza el usurio */
-import React from "react";
-
-const CheckBoxTech = () => {
+import React, { useEffect, useState } from "react";
+import { useUserContext } from "../../context/UserContext";
+import { useChecked } from "./useChecked";
+import { getUserInfo, updateUser } from "../../config/firebase";
+const ModalTech = ({ onClose }) => {
+  const { user } = useUserContext();
+  const checkedInitial = {
+    csharp: false,
+    figma: false,
+    javascript: false,
+    phyton: false,
+    react: false,
+    sketch: false,
+  };
+  const [checked, handleClickCheckBox] = useChecked(checkedInitial);
+  const [currentUser, setCurrentUser] = useState({});
+  useEffect(() => {
+    const getDataUser = async () => {
+      const userInfo = await getUserInfo(user.uid);
+      console.log(userInfo);
+      setCurrentUser(userInfo);
+    };
+    getDataUser();
+    console.log(currentUser);
+    console.log(setCurrentUser);
+    console.log(currentUser);
+  }, []);
+  const handleTech = async () => {
+    const updatedUser = {
+      ...currentUser,
+      tecnologias: checked,
+    };
+    await updateUser(updatedUser);
+    setCurrentUser(updatedUser);
+  };
   return (
     <>
       <div
-        className="fixed bottom-0 right-0 m-4 mx-auto rounded-lg bg-[#264653] shadow-lg "
+        className="fixed bottom-1 m-4 mx-auto my-auto rounded-lg bg-[#264653] shadow-lg "
         style={{ width: "312px", height: "606px" }}
       >
         <div>
@@ -15,6 +47,9 @@ const CheckBoxTech = () => {
           >
             Selecciona las tecnologías que utilizas
           </p>
+          <button onClick={onClose}>
+            <span className="text-right text-lg font-medium text-white">X</span>
+          </button>
         </div>
         <div className="p-4">
           <label className="mb-4 flex items-center">
@@ -22,6 +57,8 @@ const CheckBoxTech = () => {
               type="checkbox"
               className="form-checkbox h-6 w-6 text-indigo-600"
               name="csharp"
+              onChange={handleClickCheckBox}
+              checked={checked.csharp}
             />
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"
@@ -35,6 +72,8 @@ const CheckBoxTech = () => {
               type="checkbox"
               className="form-checkbox h-6 w-6 text-indigo-600"
               name="figma"
+              onChange={handleClickCheckBox}
+              checked={checked.figma}
             />
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
@@ -50,6 +89,8 @@ const CheckBoxTech = () => {
               type="checkbox"
               className="form-checkbox h-6 w-6 text-indigo-600"
               name="javascript"
+              onChange={handleClickCheckBox}
+              checked={checked.javascript}
             />
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
@@ -65,6 +106,8 @@ const CheckBoxTech = () => {
               type="checkbox"
               className="form-checkbox h-6 w-6 text-indigo-600"
               name="python"
+              onChange={handleClickCheckBox}
+              checked={checked.python}
             />
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
@@ -80,6 +123,8 @@ const CheckBoxTech = () => {
               type="checkbox"
               className="form-checkbox h-6 w-6 text-indigo-600"
               name="react"
+              onChange={handleClickCheckBox}
+              checked={checked.react}
             />
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
@@ -95,6 +140,8 @@ const CheckBoxTech = () => {
               type="checkbox"
               className="form-checkbox h-6 w-6 text-indigo-600"
               name="sketch"
+              onChange={handleClickCheckBox}
+              checked={checked.sketch}
             />
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sketch/sketch-original.svg"
@@ -106,9 +153,21 @@ const CheckBoxTech = () => {
             </span>
           </label>
         </div>
+        <div className="flex justify-end">
+          <button
+            className="w-24 origin-center scale-100 transform-gpu rounded-full  bg-[#2A9D8F] text-lg font-bold text-white hover:scale-95 focus:outline-none "
+            onClick={() => {
+              handleTech();
+              onClose();
+            }}
+          >
+            {" "}
+            Aceptar
+          </button>
+        </div>
       </div>
     </>
   );
 };
 
-export default CheckBoxTech;
+export default ModalTech;

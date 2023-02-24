@@ -17,15 +17,9 @@ const ProfileView = () => {
   const handleUserNotRegistered = async (user) => {
     setState(3);
     setCurrentUser(user);
-    /* const url = await getProfilePhotoUrl(user.profilePicture);
-    setProfileUrl(url); */
-    /*  const { url } = await setUserProfilePhoto();
-    setProfileUrl(url); */
   };
   const handleUserLoggedIn = async (loggedUser) => {
     setCurrentUser(loggedUser);
-    /* const url = await getProfilePhotoUrl(loggedUser.profilePicture);
-    setProfileUrl(url); */
   };
   if (state === 3) {
     return (
