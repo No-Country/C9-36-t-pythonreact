@@ -22,7 +22,7 @@ const LoggedIn = () => {
     }
   }; */
   const handleUserLoggedIn = (user) => {
-    navegate("/registernewuser");
+    navegate("/registernewprofilefigma");
   };
   const handleUserNotLoggedIn = () => {
     /* es una ruta protegida, la voy a borrar */

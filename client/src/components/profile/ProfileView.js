@@ -17,15 +17,9 @@ const ProfileView = () => {
   const handleUserNotRegistered = async (user) => {
     setState(3);
     setCurrentUser(user);
-    /* const url = await getProfilePhotoUrl(user.profilePicture);
-    setProfileUrl(url); */
-    /*  const { url } = await setUserProfilePhoto();
-    setProfileUrl(url); */
   };
   const handleUserLoggedIn = async (loggedUser) => {
     setCurrentUser(loggedUser);
-    /* const url = await getProfilePhotoUrl(loggedUser.profilePicture);
-    setProfileUrl(url); */
   };
   if (state === 3) {
     return (
@@ -67,7 +61,11 @@ const ProfileView = () => {
               Tecnologias
             </p>
             <span className="text-sm text-gray-500">
-              {currentUser.tecnologias}
+              {currentUser.tecnologias.frontend && (
+                <div>Frontend Developer</div>
+              )}
+              {currentUser.tecnologias.backend && <div>Backend Developer</div>}
+              {currentUser.tecnologias.uxui && <div>UX/UI Designer</div>}
             </span>
           </div>
           {/* Pryoectos */}

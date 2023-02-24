@@ -32,6 +32,16 @@ import {
   /*   getBytes, */
 } from "firebase/storage";
 // Your web app's Firebase configuration
+/* svrk */
+/* const firebaseConfig = {
+  apiKey: "AIzaSyCE3fX4RTBicK9SSuYWy0Jft4vxIYlaOUY",
+  authDomain: "tindev-4c290.firebaseapp.com",
+  projectId: "tindev-4c290",
+  storageBucket: "tindev-4c290.appspot.com",
+  messagingSenderId: "582249708018",
+  appId: "1:582249708018:web:d5b7cb05a61de6cfe8136b",
+}; */
+/* phytonReact team*/
 const firebaseConfig = {
   apiKey: "AIzaSyAnEddeH4DUeuGzz3nhcJnn-Q3R1cwioNU",
   authDomain: "team-c9-36.firebaseapp.com",
@@ -152,4 +162,13 @@ export async function getProfilePhotoUrl(profilePicture) {
 export const getUserPublicProfileInfo = async (uid) => {
   const profileInfo = await getUserInfo(uid);
   return profileInfo;
+};
+export const getUsersFromServer = async () => {
+  const users = [];
+  const docsRef = collection(db, "users");
+  const querySnapshot = await getDocs(docsRef);
+  querySnapshot.forEach((doc) => {
+    users.push(doc.data());
+  });
+  return users;
 };

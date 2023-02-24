@@ -5,9 +5,11 @@ import ProfilePictur from "../profile/ProfilePictur";
 import Modal from "./Modal";
 import { useUserContext } from "../../context/UserContext";
 import { getUserInfo } from "../../config/firebase";
-import ModalTecnologias from "./ModalTecnologias";
+import ModalEspecialidades from "./ModalEspecialidades";
+import ModalTech from "./ModalTech";
 const RegisterNewProfileFigma = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalEspeOpen, setIsModalEspeOpen] = useState(false);
   const [isModalTechOpen, setIsModalTechOpen] = useState(false);
   const [name, setName] = useState("");
   const [userState, setUserState] = useState(null);
@@ -20,15 +22,26 @@ const RegisterNewProfileFigma = () => {
       setCurrentUser(userInfo);
       setProfilePicture(userInfo.profilePicture);
     };
+    console.log("se vuelve a pasar por el useEffect");
     getDataUser();
-  }, [isModalOpen, profilePicture, setProfilePicture, user.uid, user]);
+  }, [isModalOpen, isModalEspeOpen]);
+  console.log(
+    isModalOpen,
+    profilePicture,
+    setProfilePicture,
+    user.uid,
+    user,
+    currentUser
+  );
   function handleCloseModal() {
     setIsModalOpen(false);
+    setIsModalEspeOpen(false);
     setIsModalTechOpen(false);
   }
   function handleUpdateProfilePicture() {
     setProfilePicture(`${Date.now()}_${user.uid}`);
   }
+  console.log(userState);
   return (
     <div className="mx-auto grid grid-cols-1">
       <div className="flex justify-center">
@@ -57,9 +70,10 @@ const RegisterNewProfileFigma = () => {
               setUserState={setUserState}
             />
           ) : null}
-          {isModalTechOpen ? (
-            <ModalTecnologias onClose={handleCloseModal} />
+          {isModalEspeOpen ? (
+            <ModalEspecialidades onClose={handleCloseModal} />
           ) : null}
+          {isModalTechOpen ? <ModalTech onClose={handleCloseModal} /> : null}
         </div>
       </div>
       {/* Modal */}
@@ -89,8 +103,7 @@ const RegisterNewProfileFigma = () => {
           <div className="ml-3">
             <button
               onClick={() => {
-                setIsModalTechOpen(!isModalTechOpen);
-                setName("Agrega tu especialidad");
+                setIsModalEspeOpen(!isModalEspeOpen);
               }}
             >
               <LogoLapizEdit />
@@ -100,6 +113,52 @@ const RegisterNewProfileFigma = () => {
             <span className="text-base font-semibold  text-[#264653]">
               "Agrega tu especialidad"
             </span>
+            {currentUser.especialidades &&
+              currentUser.especialidades.frontend && (
+                <div>Frontend Developer</div>
+              )}
+            {currentUser.especialidades &&
+              currentUser.especialidades.backend && (
+                <div>Backend Developer</div>
+              )}
+            {currentUser.especialidades && currentUser.especialidades.uxui && (
+              <div>UX/UI Designer</div>
+            )}
+            <p>Describe el área en la que te especializas.</p>
+          </div>
+        </div>
+      </div>
+      {/* TECNOLOGIAS */}
+      <div className="container mx-auto mt-5 flex justify-center gap-2 ">
+        <div className="flex h-24 w-[379px] items-center justify-center rounded-sm bg-[#26465333]">
+          <div className="ml-3">
+            <button
+              onClick={() => {
+                setIsModalTechOpen(!isModalTechOpen);
+              }}
+            >
+              <LogoLapizEdit />
+            </button>
+          </div>
+          <div className="ml-8">
+            <span className="text-base font-semibold  text-[#264653]">
+              "Agrega tus tecnologías"
+            </span>
+            {currentUser.tecnologias && currentUser.tecnologias.csharp && (
+              <div>
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"
+                  className="ml-2 h-6 w-6"
+                  alt="C#"
+                />
+              </div>
+            )}
+            {currentUser.tecnologias && currentUser.tecnologias.backend && (
+              <div>Backend Developer</div>
+            )}
+            {currentUser.tecnologias && currentUser.tecnologias.uxui && (
+              <div>UX/UI Designer</div>
+            )}
             <p>Describe el área en la que te especializas.</p>
           </div>
         </div>
