@@ -18,7 +18,7 @@ function ProfilePhoto({ profilePicture, handleUpdateProfilePicture }) {
   } else {
     return (
       <img
-        className="h-[329px] w-[412px]"
+        className="w-60"
         src={profileUrl}
         alt="Profile"
         onClick={() => handleUpdateProfilePicture()}

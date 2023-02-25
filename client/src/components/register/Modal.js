@@ -43,6 +43,21 @@ function Modal({ onClose, nombre, setUserState }) {
       await updateUser(updatedUser);
       setCurrentUser(updatedUser);
     }
+    if (nombre === "Contacto Whatsapp") {
+      const updatedUser = { ...currentUser, ws: name };
+      await updateUser(updatedUser);
+      setCurrentUser(updatedUser);
+    }
+    if (nombre === "Contacto mail") {
+      const updatedUser = { ...currentUser, email: name };
+      await updateUser(updatedUser);
+      setCurrentUser(updatedUser);
+    }
+    if (nombre === "Contacto Linkedin") {
+      const updatedUser = { ...currentUser, linkedin: name };
+      await updateUser(updatedUser);
+      setCurrentUser(updatedUser);
+    }
   };
   const handleNameChange = (event) => {
     setName(event.target.value);
