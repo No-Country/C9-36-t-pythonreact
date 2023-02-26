@@ -10,6 +10,10 @@ import { MdOutlineMail } from "react-icons/md";
 import ModalEspecialidades from "./ModalEspecialidades";
 import ModalTech from "./ModalTech";
 import { Link } from "react-router-dom";
+import LogoWs from "../../assets/icons/LogoWs";
+import Linkedin from "../../assets/icons/Linkedin";
+import LogoGmail from "../../assets/icons/LogoGmail";
+import LogoTwitter from "../../assets/icons/LogoTwitter";
 const RegisterNewProfileFigma = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalEspeOpen, setIsModalEspeOpen] = useState(false);
@@ -41,6 +45,7 @@ const RegisterNewProfileFigma = () => {
   const handleEmail = (email) => {
     window.open(`mailto:${email}?subject=Subject&body=Body%20goes%20here`);
   };
+
   return (
     <>
       <div className="flex justify-center">
@@ -49,7 +54,7 @@ const RegisterNewProfileFigma = () => {
         </h1>
       </div>
       {/* div padre */}
-      <div className="mx-4 mt-12 grid grid-cols-1 gap-2 sm:grid-cols-4">
+      <div className="mx-4 mt-12 mb-4 grid grid-cols-1 gap-2 sm:grid-cols-4">
         {/* COL 1 */}
         <div>
           <div className="mx-auto mt-16 grid justify-center sm:col-span-1">
@@ -65,6 +70,8 @@ const RegisterNewProfileFigma = () => {
                   handleUpdateProfilePicture(currentUser.profilePicture)
                 }
               />
+            </div>
+            <div>
               {isModalOpen ? (
                 <Modal
                   onClose={handleCloseModal}
@@ -85,7 +92,7 @@ const RegisterNewProfileFigma = () => {
         <div className=" sm:col-start-2 sm:col-end-2">
           {" "}
           {/* NOMBRE */}
-          <div className="mt-16 flex items-center justify-center rounded-sm bg-[#26465333]">
+          <div className="mt-16 flex h-auto items-center justify-center rounded-sm bg-[#26465333] sm:h-40 sm:text-sm md:text-lg">
             <div className="ml-2">
               <button
                 onClick={() => {
@@ -106,7 +113,7 @@ const RegisterNewProfileFigma = () => {
             </div>
           </div>
           {/* Descripcion */}
-          <div className="mt-2 flex items-center justify-center rounded-sm bg-[#26465333]">
+          <div className="mt-2 flex h-20 items-center justify-center overflow-scroll rounded-sm bg-[#26465333] sm:h-40 sm:text-sm md:text-lg">
             <div className="ml-2 flex items-center">
               <button
                 onClick={() => {
@@ -117,19 +124,24 @@ const RegisterNewProfileFigma = () => {
                 <LogoLapizEdit />
               </button>
             </div>
-            <div className="flex-1">
-              <p className="text-base font-semibold text-[#264653]">
+            <div className="my-4 flex-1">
+              <p className=" text-base font-semibold text-[#264653]">
                 Descripcion
               </p>
-              <p>
-                {currentUser.descripcion
-                  ? currentUser.descripcion
-                  : "Haz una breve descripción de quien eres para que otros usuarios teconozcan."}
-              </p>
+              <span>
+                {currentUser.descripcion ? (
+                  currentUser.descripcion
+                ) : (
+                  <p>
+                    "Haz una breve descripción de quien eres para que otros
+                    usuarios teconozcan."
+                  </p>
+                )}
+              </span>
             </div>
           </div>
           {/* Especialidad */}
-          <div className="mt-2 flex items-center justify-center rounded-sm bg-[#26465333]">
+          <div className="mt-2 flex h-20 items-center justify-center rounded-sm bg-[#26465333] sm:h-40 sm:text-sm md:text-lg">
             <div className="ml-2">
               <button
                 onClick={() => {
@@ -161,7 +173,7 @@ const RegisterNewProfileFigma = () => {
         <div className=" sm:col-start-3 sm:col-end-3">
           {" "}
           {/* Tecnologias */}
-          <div className="flex items-center justify-center rounded-sm bg-[#26465333] sm:mt-16">
+          <div className="flex h-20 min-w-fit items-center justify-center rounded-sm bg-[#26465333] sm:mt-16 sm:h-40 sm:text-sm md:text-lg">
             <div className="ml-2">
               <button
                 onClick={() => {
@@ -220,11 +232,13 @@ const RegisterNewProfileFigma = () => {
                   />
                 )}
               </div>
-              <p>Describe el área en la que te especializas.</p>
+              <div>
+                <p>Describe el área en la que te especializas.</p>
+              </div>
             </div>
           </div>
           {/* Que busco  */}
-          <div className="mt-1 flex items-center justify-center rounded-sm bg-[#26465333]">
+          <div className="mt-2 flex h-20 items-center justify-center rounded-sm bg-[#26465333] sm:h-40 sm:text-sm md:text-lg">
             <div className="ml-2">
               <button
                 onClick={() => {
@@ -239,7 +253,7 @@ const RegisterNewProfileFigma = () => {
               <p className="text-base font-semibold  text-[#264653]">
                 Que busco
               </p>
-              <span>
+              <div>
                 {currentUser.busco ? (
                   currentUser.busco
                 ) : (
@@ -248,12 +262,12 @@ const RegisterNewProfileFigma = () => {
                     gustaría trabajar o a qué developers andas buscando.
                   </p>
                 )}
-              </span>
+              </div>
             </div>
           </div>
           {/* Proyectos */}
-          <div className="mt-1 flex items-center justify-center rounded-sm bg-[#26465333]">
-            <div className="ml-2 flex items-center">
+          <div className="md:text-md mt-2 flex h-20 items-center justify-center rounded-sm bg-[#26465333] sm:h-40 sm:text-sm">
+            <div className="ml-2 flex items-center ">
               <button
                 onClick={() => {
                   setIsModalOpen(!isModalOpen);
@@ -267,19 +281,19 @@ const RegisterNewProfileFigma = () => {
               <p className="text-base font-semibold  text-[#264653]">
                 Proyectos.
               </p>
-              <p>
+              <span>
                 {currentUser.proyectos
                   ? currentUser.proyectos
                   : "Haz una breve descripción de quien eres para que otros usuarios teconozcan."}
-              </p>
+              </span>
             </div>
           </div>
         </div>
         {/* COL 4 */}
 
         <div className=" sm:col-start-4 sm:col-end-4">
-          {/* ws */}
-          <div className="mt-16 flex items-center justify-center rounded-sm bg-[#26465333]">
+          {/* Contacto */}
+          <div className="md:text-md mt-2 flex h-20 items-center justify-center rounded-sm bg-[#26465333] sm:mt-16 sm:h-40 sm:text-sm">
             <div className="ml-2 flex items-center">
               <button
                 onClick={() => {
@@ -292,21 +306,44 @@ const RegisterNewProfileFigma = () => {
             </div>
             <div className="flex-1">
               <p className="text-base font-semibold  text-[#264653]">
-                Contacto WhatsApp
+                Contacto
               </p>
-              <p>"Escribe tu numero de WhatsApp"</p>
+              <span>
+                Publica tu informacion de contacto para que otros usuarios
+                puedan contactarte
+              </span>
+            </div>
+          </div>
+          {/* ws */}
+          <div className="mt-2 flex items-center rounded-sm bg-[#26465333] sm:h-14">
+            <div className="ml-2 flex items-center">
+              <button
+                className="flex justify-self-start"
+                onClick={() => {
+                  setIsModalOpen(!isModalOpen);
+                  setName("Contacto Whatsapp");
+                }}
+              >
+                <LogoLapizEdit />
+              </button>
+            </div>
+            <div className="ml-4">
               {currentUser.ws && (
                 <Link
                   target={"_blank"}
                   to={`https://api.whatsapp.com/send?phone=${currentUser.ws}&text=Hola!%20Me%20contacto%20desde%20hive!`}
                 >
-                  <BsWhatsapp size={"2em"} />
+                  <LogoWs />
                 </Link>
               )}
             </div>
+            <div className="ml-4">
+              {" "}
+              <p>Whatsapp</p>
+            </div>
           </div>
           {/* email */}
-          <div className="mt-2 flex items-center justify-center rounded-sm bg-[#26465333]">
+          <div className="mt-2 flex items-center rounded-sm bg-[#26465333] sm:h-14">
             <div className="ml-2 flex items-center">
               <button
                 onClick={() => {
@@ -317,26 +354,20 @@ const RegisterNewProfileFigma = () => {
                 <LogoLapizEdit />
               </button>
             </div>
-            <div className="flex-1">
-              <p className="text-base font-semibold  text-[#264653]">
-                Direccion de mail
-              </p>
-              <p>"Escribe tu Direccion de mail "</p>
-              {/* {currentUser.ws && (
-                <Link
-                  target={"_blank"}
-                  to={`https://api.whatsapp.com/send?phone=${currentUser.ws}&text=Hola!%20Me%20contacto%20desde%20hive!`}
-                >
-                  <MdOutlineMail size={"2em"} />
-                </Link>
-              )} */}
-              <button onClick={() => handleEmail(currentUser.email)}>
-                <MdOutlineMail size={"1.5em"} />
+            <div>
+              <button
+                className="mr-4 bg-transparent"
+                onClick={() => handleEmail(currentUser.email)}
+              >
+                <LogoGmail />
               </button>
+            </div>
+            <div>
+              <p>Email</p>
             </div>
           </div>
           {/* linkedin */}
-          <div className="mt-2 flex items-center justify-center rounded-sm bg-[#26465333]">
+          <div className="mt-1 flex items-center rounded-sm bg-[#26465333] sm:mt-12 sm:h-14">
             <div className="ml-2 flex items-center">
               <button
                 onClick={() => {
@@ -347,16 +378,34 @@ const RegisterNewProfileFigma = () => {
                 <LogoLapizEdit />
               </button>
             </div>
-            <div className="flex-1">
-              <p className="text-base font-semibold  text-[#264653]">
-                Perfil de Linkedin
-              </p>
-              <p>"Comparte tu perfil de Linkedin"</p>
+            <div className="ml-4">
               {currentUser.linkedin && (
                 <Link target={"_blank"} to={`${currentUser.linkedin}`}>
-                  <BsLinkedin size={"2em"} />
+                  <Linkedin />
                 </Link>
               )}
+            </div>
+            <div className="ml-4">
+              <p>Linkedin</p>
+            </div>
+          </div>
+          {/* Twitter */}
+          <div className="mt-1 flex items-center rounded-sm bg-[#26465333] sm:h-14">
+            <div className="ml-2 flex items-center">
+              <button
+                onClick={() => {
+                  setIsModalOpen(!isModalOpen);
+                  setName("Contacto Linkedin");
+                }}
+              >
+                <LogoLapizEdit />
+              </button>
+            </div>
+            <div className="ml-4">
+              <LogoTwitter />
+            </div>
+            <div className="ml-4">
+              <p>Twitter</p>
             </div>
           </div>
         </div>
