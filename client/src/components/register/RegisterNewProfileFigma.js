@@ -315,10 +315,10 @@ const RegisterNewProfileFigma = () => {
             </div>
           </div>
           {/* ws */}
-          <div className="mt-2 flex items-center rounded-sm bg-[#26465333] sm:h-14">
+          <div className="mt-2 flex items-center  rounded-sm bg-[#26465333] sm:h-14">
             <div className="ml-2 flex items-center">
               <button
-                className="flex justify-self-start"
+                className=""
                 onClick={() => {
                   setIsModalOpen(!isModalOpen);
                   setName("Contacto Whatsapp");
@@ -327,7 +327,7 @@ const RegisterNewProfileFigma = () => {
                 <LogoLapizEdit />
               </button>
             </div>
-            <div className="ml-4">
+            <div className="ml-4 sm:ml-0 md:ml-6">
               {currentUser.ws && (
                 <Link
                   target={"_blank"}
@@ -337,12 +337,12 @@ const RegisterNewProfileFigma = () => {
                 </Link>
               )}
             </div>
-            <div className="ml-4">
+            <div className="m-2">
               {" "}
               <p>Whatsapp</p>
             </div>
           </div>
-          {/* email */}
+          {/* EMAIL*/}
           <div className="mt-2 flex items-center rounded-sm bg-[#26465333] sm:h-14">
             <div className="ml-2 flex items-center">
               <button
@@ -354,21 +354,21 @@ const RegisterNewProfileFigma = () => {
                 <LogoLapizEdit />
               </button>
             </div>
-            <div>
+            <div className="sm:-ml-4 md:ml-2">
               <button
-                className="mr-4 bg-transparent"
+                className="bg-transparent"
                 onClick={() => handleEmail(currentUser.email)}
               >
                 <LogoGmail />
               </button>
             </div>
-            <div>
+            <div className="-ml-4">
               <p>Email</p>
             </div>
           </div>
           {/* linkedin */}
-          <div className="mt-1 flex items-center rounded-sm bg-[#26465333] sm:mt-12 sm:h-14">
-            <div className="ml-2 flex items-center">
+          <div className="mt-1 flex items-center gap-2 rounded-sm bg-[#26465333] sm:mt-12 sm:h-14">
+            <div className="mx-2 flex items-center gap-2">
               <button
                 onClick={() => {
                   setIsModalOpen(!isModalOpen);
@@ -378,33 +378,37 @@ const RegisterNewProfileFigma = () => {
                 <LogoLapizEdit />
               </button>
             </div>
-            <div className="ml-4">
+            <div className="sm:-ml-4 md:ml-2">
               {currentUser.linkedin && (
                 <Link target={"_blank"} to={`${currentUser.linkedin}`}>
                   <Linkedin />
                 </Link>
               )}
             </div>
-            <div className="ml-4">
+            <div className="md:ml-4">
               <p>Linkedin</p>
             </div>
           </div>
           {/* Twitter */}
-          <div className="mt-1 flex items-center rounded-sm bg-[#26465333] sm:h-14">
+          <div className="mt-1 flex items-center rounded-sm bg-[#26465333] sm:h-14 sm:gap-2">
             <div className="ml-2 flex items-center">
               <button
                 onClick={() => {
                   setIsModalOpen(!isModalOpen);
-                  setName("Contacto Linkedin");
+                  setName("Contacto Twitter");
                 }}
               >
                 <LogoLapizEdit />
               </button>
             </div>
-            <div className="ml-4">
-              <LogoTwitter />
+            <div className="ml-4 sm:-ml-2 md:ml-4">
+              {currentUser.twitter && (
+                <Link target={"_blank"} to={`${currentUser.twitter}`}>
+                  <LogoTwitter />
+                </Link>
+              )}
             </div>
-            <div className="ml-4">
+            <div className="md:ml-4">
               <p>Twitter</p>
             </div>
           </div>
