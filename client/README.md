@@ -52,6 +52,19 @@ Se trabajo en el componente dashboard, se pueden ver los perfiles de los usuario
 Se trabajo en la vista de perfil de usuario y se puede ver la imagen de perfil en miñatura.
 Junto a la imagen en miñatura se puede ver el nombre de usuario
 
+\*\* Update 24/02
+Se trabajo en el componente registernewprofile en la version desktop, se maqueto todo el componente de nuevo segun el figa
+
+\*\* Update 25/02
+Se comenzo con la optimizacion del codigo, factorizacion y componetiacion de componentes para mejorar la legibilidad del codigo
+
+\*\* Update 26/02
+Se creo la ruta de error 404 y su respectivo componente
+Se agrego el boton return home al componente error 404
+Se creo el componente Loading para mostrar un spinner mientras se carga la informacion
 
 
+\*\* Update 27/02
+Se trabajo en la vista de perfil de usuario, se maqueto segun el figma, se crearon iconos dinamicos de contacto, 
+Si el usuario cargo sus datos de contacto son botones que te linkean, si no son imagenes simples que no linkean
 }

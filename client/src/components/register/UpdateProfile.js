@@ -41,15 +41,17 @@ const UpdateProfile = ({ onUpdateProfilePicture }) => {
   };
 
   return (
-    <button onClick={() => document.getElementById("fileInput").click()}>
-      <LogoUploadPhoto />
-      <input
-        type="file"
-        id="fileInput"
-        className="hidden"
-        onChange={handleUploadProfilePhoto}
-      />
-    </button>
+    <div>
+      <button onClick={() => document.getElementById("fileInput").click()}>
+        <LogoUploadPhoto />
+        <input
+          type="file"
+          id="fileInput"
+          className="hidden"
+          onChange={handleUploadProfilePhoto}
+        />
+      </button>
+    </div>
   );
 };
 

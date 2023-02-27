@@ -16,6 +16,7 @@ import RegisterNewProfile from "./components/register/RegisterNewProfile";
 import RegisterNewProfileFigma from "./components/register/RegisterNewProfileFigma";
 import RegisterFin from "./components/register/RegisterFin";
 import UserDetailContainer from "./components/users/UserDetailContainer";
+import Error404 from "./components/Error404";
 
 function App() {
   return (
@@ -33,8 +34,8 @@ function App() {
           <Route path={"/registerSpinner"} element={<RegisterSpinner />} />
           <Route path={"/registerValidando"} element={<registerValidando />} />
           <Route path={"/registerFin"} element={<RegisterFin />} />
-          {/* <Route path={"/item/:id"} element={<ItemDetailContainer />} /> */}
           <Route path={"/user/:id"} element={<UserDetailContainer />} />
+          <Route path={"*"} element={<Error404 />} />
           <Route element={<LayoutPrivate />}>
             <Route path={"/dashboard"} element={<Dashboard />} />
             <Route path={"/loggedIn"} element={<LoggedIn />} />

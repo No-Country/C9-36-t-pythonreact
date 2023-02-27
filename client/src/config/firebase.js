@@ -120,9 +120,6 @@ export const registerNewUser = async (user) => {
 
 export const updateUser = async (user) => {
   try {
-    /* const collectionRef = collection(db, "users");
-    const docRef = doc(collectionRef, user.uid);
-    await updateDoc(docRef, user); */
     const usersRef = collection(db, "users");
     await updateDoc(doc(usersRef, user.uid), user);
     console.log("Usuario actualizado con éxito");
@@ -164,11 +161,15 @@ export const getUserPublicProfileInfo = async (uid) => {
   return profileInfo;
 };
 export const getUsersFromServer = async () => {
-  const users = [];
-  const docsRef = collection(db, "users");
-  const querySnapshot = await getDocs(docsRef);
-  querySnapshot.forEach((doc) => {
-    users.push(doc.data());
-  });
-  return users;
+  try {
+    const users = [];
+    const docsRef = collection(db, "users");
+    const querySnapshot = await getDocs(docsRef);
+    querySnapshot.forEach((doc) => {
+      users.push(doc.data());
+    });
+    return users;
+  } catch (err) {
+    console.error("Error getting documents", err);
+  }
 };

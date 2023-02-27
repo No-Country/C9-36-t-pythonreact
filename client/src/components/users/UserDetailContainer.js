@@ -1,33 +1,67 @@
 import React, { useEffect, useState } from "react";
 import UserDetail from "./UserDetail";
-import { useUserContext } from "../../context/UserContext";
-import {
-  getProfilePhotoUrl,
-  getUserInfo,
-  getUsersFromServer,
-} from "../../config/firebase";
+import { getProfilePhotoUrl, getUsersFromServer } from "../../config/firebase";
 import { useParams } from "react-router-dom";
+import Loading from "../../assets/loading/Loading";
 const UserDetailContainer = () => {
-  const { user } = useUserContext();
   const { id } = useParams();
   console.log(id + "id");
   const [users, setUsers] = useState([]);
   const [profileUrls, setProfileUrls] = useState([]);
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const fetchUsers = async () => {
-      const users = await getUsersFromServer();
-      setUsers(users);
-      setData(users.find((el) => el.uid === id));
-      console.log(users.find((el) => el.uid === id));
-      const url = await getProfilePhotoUrl(
-        users.find((el) => el.uid === id).profilePicture
-      );
-      setProfileUrls(url);
+      try {
+        const users = await getUsersFromServer();
+        setUsers(users);
+        const user = users.find((el) => el.uid === id);
+        if (user) {
+          setData(user);
+          const url = await getProfilePhotoUrl(user.profilePicture);
+          setProfileUrls(url);
+          setLoading(false);
+        } else {
+          setLoading(false);
+        }
+      } catch (error) {
+        console.error(error);
+      }
     };
     fetchUsers();
   }, []);
-  return <UserDetail data={data} profileUrls={profileUrls} />;
+  if (users) {
+    return (
+      <div>
+        {loading ? (
+          <Loading />
+        ) : (
+          <UserDetail data={data} profileUrls={profileUrls} />
+        )}
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <h1 className="text-4xl">El producto no existe</h1>
+      </div>
+    );
+  }
 };
 
 export default UserDetailContainer;
+
+/* useEffect(() => {
+    const fetchUsers = async () => {
+      const users = await getUsersFromServer();
+      setUsers(users);
+      const user = users.find((el) => el.uid === id);
+      if (user) {
+        setData(user);
+        const url = await getProfilePhotoUrl(user.profilePicture);
+        setProfileUrls(url);
+      }
+    };
+    fetchUsers();
+  }, []);  */
