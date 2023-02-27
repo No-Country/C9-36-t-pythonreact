@@ -55,11 +55,14 @@ button {
 }
 
 section {
-    width: 90%;
+    width: 100%;
     margin: 140px auto;
 }
 
 h1 {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 30px;
     font-family: "Oxygen";
     font-style: normal;
     font-weight: 700;

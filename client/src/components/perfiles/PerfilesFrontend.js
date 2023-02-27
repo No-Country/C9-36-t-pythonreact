@@ -35,12 +35,14 @@ function PerfilesFrontend() {
     <div className={styles.gridContainer}>
       {fronts.map((el, index) => (
         <Link key={el.uid} to={`/user/${el.uid}`}>
-          <div key={el.uid} className={styles.gridItem}>
-            <img
-              src={profileUrls.find((url, i) => i === index)}
-              alt="Imagen de perfil"
-            />
-            {el.userName}
+          <div key={el.uid} className={styles.gridItem}  style={{
+              backgroundImage: `url(${profileUrls.find((url, i) => i === index)})`
+            }}>
+            <div class={styles.fondo}>
+              <h2>{el.userName}</h2>
+              
+            </div>
+            
           </div>
         </Link>
       ))}

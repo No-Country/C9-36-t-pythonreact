@@ -18,7 +18,7 @@ const Home = () => {
 
 
         <div className={styles.links}>
-        <Link><button className={styles.button__sesion}>Iniciar sesión</button></Link>
+        <Link to={"/login"}><button className={styles.button__sesion}>Iniciar sesión</button></Link>
         <Link><button className={styles.button__register}>Registrarte</button></Link>
         </div>
 

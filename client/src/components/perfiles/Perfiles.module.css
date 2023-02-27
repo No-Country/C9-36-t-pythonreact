@@ -1,12 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Oxygen&display=swap");
+
+.gridContainer {
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-auto-rows: minmax(180px, auto);
+    gap: 2px;
+    
+    grid-auto-flow: dense;
+    /*para que llene los espaacios vacios*/
+    /* auto-fill calcula el ancho del grid y crea columnas ssi es neceeesario
+    auto-fit ensancha loss elementos si es necesario*/
+}
+
+
 .gridItem {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    background-color: #e9b74c;
-    border-radius: 4px;
+    text-align: center;
+    background-color: #264653;
+    
     transition: transform 0.3s ease-in-out;
-
+    width: 100%;
+    height: 100%;
+    
     background-size: cover;
     /*hace que la imaggen ocupe todo el contenedor*/
     background-position: center;
@@ -24,27 +42,32 @@
     -o-transform: scale(1.04);
 }
 
-/* auto-fill calcula el ancho del grid y crea columnas ssi es neceeesario
-    auto-fit ensancha loss elementos si es necesario*/
-.gridContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    grid-auto-rows: minmax(100px, auto);
-    gap: 20px;
-    padding: 20px;
-    grid-auto-flow: dense;
-    /*para que llene los espaacios vacios*/
-}
 
 
-@media (min-width: 600px) {
 
-    /*para que no see aplique en movil*/
-    .wide {
-        grid-column: span 2;
+    .fondo {
+        background: linear-gradient(180deg, rgba(38, 70, 83, 0.6) 28.55%, rgba(38, 70, 83, 0) 41.27%);
+        transform: matrix(1, 0, 0, -1, 0, 0);
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
+    
+    .gridItem h2 {
+        font-family: 'Oxygen';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 48px;
+        
 
-    .tall {
-        grid-row: span 2;
+
+        color: #FFFFFF;
+        position: absolute;
+        top: 15%;
+        
+        transform: matrix(1, 0, 0, -1, 0, 0);
+        
     }
-}
