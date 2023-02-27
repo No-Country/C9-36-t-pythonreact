@@ -15,6 +15,7 @@ import ProfileView from "./components/profile/ProfileView";
 import RegisterNewProfile from "./components/register/RegisterNewProfile";
 import RegisterNewProfileFigma from "./components/register/RegisterNewProfileFigma";
 import RegisterFin from "./components/register/RegisterFin";
+import UserDetailContainer from "./components/users/UserDetailContainer";
 
 function App() {
   return (
@@ -32,6 +33,8 @@ function App() {
           <Route path={"/registerSpinner"} element={<RegisterSpinner />} />
           <Route path={"/registerValidando"} element={<registerValidando />} />
           <Route path={"/registerFin"} element={<RegisterFin />} />
+          {/* <Route path={"/item/:id"} element={<ItemDetailContainer />} /> */}
+          <Route path={"/user/:id"} element={<UserDetailContainer />} />
           <Route element={<LayoutPrivate />}>
             <Route path={"/dashboard"} element={<Dashboard />} />
             <Route path={"/loggedIn"} element={<LoggedIn />} />

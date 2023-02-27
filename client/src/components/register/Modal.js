@@ -23,11 +23,6 @@ function Modal({ onClose, nombre, setUserState }) {
       await updateUser(updatedUser);
       setCurrentUser(updatedUser);
     }
-    /*     if (nombre === "Agrega tu especialidad") {
-      const updatedUser = { ...currentUser, tecnologias: name };
-      await updateUser(updatedUser);
-      setCurrentUser(updatedUser);
-    } */
     if (nombre === "Descripción") {
       const updatedUser = { ...currentUser, descripcion: name };
       await updateUser(updatedUser);
@@ -40,6 +35,26 @@ function Modal({ onClose, nombre, setUserState }) {
     }
     if (nombre === "Que busco") {
       const updatedUser = { ...currentUser, busco: name };
+      await updateUser(updatedUser);
+      setCurrentUser(updatedUser);
+    }
+    if (nombre === "Contacto Whatsapp") {
+      const updatedUser = { ...currentUser, ws: name };
+      await updateUser(updatedUser);
+      setCurrentUser(updatedUser);
+    }
+    if (nombre === "Contacto mail") {
+      const updatedUser = { ...currentUser, email: name };
+      await updateUser(updatedUser);
+      setCurrentUser(updatedUser);
+    }
+    if (nombre === "Contacto Linkedin") {
+      const updatedUser = { ...currentUser, linkedin: name };
+      await updateUser(updatedUser);
+      setCurrentUser(updatedUser);
+    }
+    if (nombre === "Contacto Twitter") {
+      const updatedUser = { ...currentUser, twitter: name };
       await updateUser(updatedUser);
       setCurrentUser(updatedUser);
     }

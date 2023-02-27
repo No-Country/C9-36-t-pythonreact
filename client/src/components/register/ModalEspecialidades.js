@@ -46,7 +46,7 @@ const ModalEspecialidades = ({ onClose }) => {
   return (
     <>
       {" "}
-      <div className="relative">
+      <div className="fixed inset-0 bg-black bg-opacity-50">
         <div
           className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform rounded-lg
               bg-[#264653] p-4 shadow-lg"
@@ -131,19 +131,3 @@ const ModalEspecialidades = ({ onClose }) => {
 };
 
 export default ModalEspecialidades;
-
-/*  if (checked.frontend) {
-      const updatedUser = { ...currentUser, frontend: "frontend" };
-      await updateUser(updatedUser);
-      setCurrentUser(updatedUser);
-    }
-    if (checked.backend) {
-      const updatedUser = { ...currentUser, backend: "backend" };
-      await updateUser(updatedUser);
-      setCurrentUser(updatedUser);
-    }
-    if (checked.uxui) {
-      const updatedUser = { ...currentUser, uxui: "uxui" };
-      await updateUser(updatedUser);
-      setCurrentUser(updatedUser);
-    } */
