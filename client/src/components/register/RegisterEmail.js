@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { register } from "../../config/firebase";
 import * as Yup from "yup";
 import Home from "../Home";
+import NavbarTop from "../NavbarTop";
+import Logo from "../../assets/Logo";
 const Register = () => {
   const navegate = useNavigate();
   const [error, setError] = useState("");
@@ -50,83 +52,97 @@ const Register = () => {
     }),
   });
   return (
-    <div className="mt-10">
-      <Home />
-      <Formik
-        initialValues={{
-          email: "",
-          password: "",
-          changepassword: "",
-        }}
-        validationSchema={registerSchema}
-        onSubmit={onSubmit}
-      >
-        <Form className="m-6 flex flex-col justify-center gap-2">
-          <div className="group relative z-0 mb-6 w-full">
-            <Field
-              type="email"
-              name="email"
-              id="email"
-              className={classTw}
-              placeholder=" "
-              required
-            />
-            <ErrorMessage name="email" component="div" />
-            <label htmlFor="floating_email" className={classLabel}>
-              Direccion de email
-            </label>
-            <div>
-              <span className="font-bold text-red-600">{error}</span>
-            </div>
+    <>
+      <NavbarTop />
+      <div className="mt-32 flex h-screen w-screen justify-center bg-[#264653]">
+        <div className="m-10 flex h-[500px] w-80 flex-col items-center justify-center rounded-md bg-white">
+          <Logo />
+
+          <div className="mt-8">
+            <p className=" text-center text-3xl font-semibold text-[#264653]">
+              Te damos la bienvenida a
+            </p>
+            <p className="text-center text-3xl font-semibold text-[#264653]">
+              Hive
+            </p>
           </div>
-          <div className="group relative z-0 mb-6 w-full">
-            <Field
-              type="password"
-              name="password"
-              id="password"
-              className={classTw}
-              placeholder=" "
-              required
-            />
-            <ErrorMessage name="password" component="div" />
-            <label htmlFor="floating_password" className={classLabel}>
-              Ingrese su contraseña
-            </label>
+          <Formik
+            initialValues={{
+              email: "",
+              password: "",
+              changepassword: "",
+            }}
+            validationSchema={registerSchema}
+            onSubmit={onSubmit}
+          >
+            <Form className="">
+              <div className="group relative z-0 mb-6 w-full">
+                <Field
+                  type="email"
+                  name="email"
+                  id="email"
+                  className={classTw}
+                  placeholder=" "
+                  required
+                />
+                <ErrorMessage name="email" component="div" />
+                <label htmlFor="floating_email" className={classLabel}>
+                  Direccion de email
+                </label>
+                <div>
+                  <span className="font-bold text-red-600">{error}</span>
+                </div>
+              </div>
+              <div className="group relative z-0 mb-6 w-full">
+                <Field
+                  type="password"
+                  name="password"
+                  id="password"
+                  className={classTw}
+                  placeholder=" "
+                  required
+                />
+                <ErrorMessage name="password" component="div" />
+                <label htmlFor="floating_password" className={classLabel}>
+                  Ingrese su contraseña
+                </label>
+              </div>
+              <div className="group relative z-0 mb-6 w-full">
+                <Field
+                  type="password"
+                  name="changepassword"
+                  id="changepassword"
+                  className={classTw}
+                  placeholder=" "
+                  required
+                />
+                <ErrorMessage name="changepassword" component="div" />
+                <label htmlFor="floating_changepassword" className={classLabel}>
+                  Reingrese su contraseña
+                </label>
+              </div>
+              <div className="flex justify-center">
+                <button
+                  type="submit"
+                  className="h-10 w-[130px] rounded-full bg-[#35457F] text-white"
+                >
+                  Aceptar
+                </button>
+              </div>
+            </Form>
+          </Formik>
+          <div className="text-right">
+            <p className="text-right">
+              Ya tenes cuenta?{" "}
+              <Link to={"/login"} className="font-bold text-black">
+                {" "}
+                Iniciar sesión
+              </Link>
+            </p>{" "}
           </div>
-          <div className="group relative z-0 mb-6 w-full">
-            <Field
-              type="password"
-              name="changepassword"
-              id="changepassword"
-              className={classTw}
-              placeholder=" "
-              required
-            />
-            <ErrorMessage name="changepassword" component="div" />
-            <label htmlFor="floating_changepassword" className={classLabel}>
-              Reingrese su contraseña
-            </label>
-          </div>
-          <div className="flex justify-center">
-            <button
-              type="submit"
-              className="h-10 w-[130px] rounded-full bg-[#35457F] text-white"
-            >
-              Aceptar
-            </button>
-          </div>
-        </Form>
-      </Formik>
-      <div className="text-right">
-        <p className="text-right">
-          Ya tenes cuenta?{" "}
-          <Link to={"/login"} className="font-bold text-black">
-            {" "}
-            Iniciar sesión
-          </Link>
-        </p>{" "}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 export default Register;
