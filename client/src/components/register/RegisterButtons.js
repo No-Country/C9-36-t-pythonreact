@@ -15,12 +15,12 @@ const ButtonsLogin = () => {
     ); /* .then((data) => setUser(data.user.email)); */
   };
   return (
-    <div className="mt-12 flex flex-col gap-5">
+    <div className="flex flex-col gap-5">
       <div className="flex justify-center">
         <Link to={"/registerEmail"}>
           <button
-            className="text- flex h-[56px] items-center gap-2 rounded-full bg-[#264653]
-         px-10 text-base text-white"
+            className="text- flex h-[56px] items-center gap-2 rounded-full border-[1px]
+         border-white bg-[#264653] px-10 text-base text-white"
           >
             <MdMailOutline className="text-3xl" />
             Registrate con tu e-mail
@@ -30,7 +30,7 @@ const ButtonsLogin = () => {
       <div className="flex justify-center">
         <button
           onClick={handleClickGoogle}
-          className="text- flex h-[56px] items-center gap-2 rounded-full border-2 border-black
+          className="flex h-[56px] items-center gap-2 rounded-full border-2 border-black bg-white
          px-12 text-base text-black"
         >
           <FaGoogle className="text-2xl text-black" />

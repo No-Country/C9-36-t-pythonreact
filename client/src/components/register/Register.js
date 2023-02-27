@@ -4,23 +4,29 @@ import { Link } from "react-router-dom";
 import { useUserContext } from "../../context/UserContext";
 import Home from "../Home";
 import { useRedirectActiveUser } from "../hooks/UseRedirectActiveUser";
+import NavbarTop from "../NavbarTop";
 import RegisterButtons from "./RegisterButtons";
 
 const Register = () => {
   const { user } = useUserContext();
   useRedirectActiveUser(user, "/dashboard");
   return (
-    <div>
-      <Home />
-      <RegisterButtons />
-      <div>
-        <Link to={"/"}>
-          <h2 className="py-2.5 px-5 mb-2 text-sm text-center mt-4 m-10 font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-            Volver al home
-          </h2>
-        </Link>
+    <>
+      <NavbarTop />
+      <div className="flex h-screen w-screen justify-center bg-[#264653]">
+        <div className="bg-[#264653]">
+          <div className="flex flex-col items-center justify-center">
+            <h1 className="mt-36 text-6xl text-white">
+              {" "}
+              Regístrate y crea tu perfil{" "}
+            </h1>
+            <div className="mb-4 mt-16 h-[500] w-[350px] rounded-md">
+              <RegisterButtons />
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getProfilePhotoUrl, getUserInfo } from "../../config/firebase";
 import { useUserContext } from "../../context/UserContext";
-function ProfilePhoto({ profilePicture, handleUpdateProfilePicture }) {
+function ProfilePhoto({ profilePicture }) {
   const [profileUrl, setProfileUrl] = useState(null);
   const { user } = useUserContext();
   useEffect(() => {
@@ -12,17 +12,14 @@ function ProfilePhoto({ profilePicture, handleUpdateProfilePicture }) {
     };
     getUrl();
   }, [profilePicture, user.uid]);
-
+  console.log(setProfileUrl);
   if (profileUrl === null) {
     return <div>No se encontró foto de perfil.</div>;
   } else {
     return (
-      <img
-        className="w-60"
-        src={profileUrl}
-        alt="Profile"
-        onClick={() => handleUpdateProfilePicture()}
-      />
+      <div className="flex flex-col justify-center gap-2">
+        <img className="w-60" src={profileUrl} alt="Profile" />
+      </div>
     );
   }
 }

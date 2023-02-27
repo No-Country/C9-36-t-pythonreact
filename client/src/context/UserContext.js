@@ -4,7 +4,7 @@ import { createContext } from "react";
 /* Config de firebase */
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../config/firebase";
-
+import Loading from "../assets/loading/Loading";
 const UserContext = createContext();
 
 export default function UserContextProvider({ children }) {
@@ -20,7 +20,7 @@ export default function UserContextProvider({ children }) {
   }, [user]);
   if (user === false)
     /* Falta agregar el spiner aca */
-    return <div>Loading app... Aca voy a poner un spinner lindo y bonito</div>;
+    return <Loading />;
   return (
     <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>
   );
