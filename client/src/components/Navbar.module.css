@@ -8,3 +8,22 @@ nav {
     justify-content: space-around;
     align-items: center;
 }
+
+
+@media  (min-width: 900px)  {
+    
+    nav {
+        position: static;
+        
+        flex-direction: row-reverse;
+        width: auto;
+        
+        display: flex;
+        
+        margin-right: 30px;
+        
+        gap: 50px;
+    }
+    
+
+}
