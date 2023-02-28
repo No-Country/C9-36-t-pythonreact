@@ -40,7 +40,11 @@ function PerfilesFrontend() {
             }}>
             <div class={styles.fondo}>
               <h2>{el.userName}</h2>
-              
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                
+                alt="JavaScript"
+              />
             </div>
             
           </div>
