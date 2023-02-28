@@ -35,8 +35,7 @@ const UserFigma = ({ data, profileUrls }) => {
             <img
               src={profileUrls}
               alt="Imagen de perfil"
-              /* className="h-[329px] w-[412px]" */
-              className="ml-1"
+              className="ml-1 h-[240px] w-[300px] overflow-hidden"
               async
             />
           </div>
@@ -153,18 +152,20 @@ const UserFigma = ({ data, profileUrls }) => {
             </div>
 
             {/* EMAIL*/}
-            <div className="-m-4 flex items-center text-left">
+            <div className="flex items-center text-left">
               {data.email ? (
                 <button
-                  className="bg-transparent"
+                  className="-ml-4 mr-10 w-3 bg-transparent"
                   onClick={() => handleEmail(data.email)}
                 >
                   <LogoGmail />
                 </button>
               ) : (
-                <LogoGmail />
+                <div className="mr-4 bg-transparent">
+                  <LogoGmail />
+                </div>
               )}
-              <p className="-ml-5">Email</p>
+              <p className="ml-0">Email</p>
             </div>
             {/* linkedin */}
             <div className="flex items-center">
