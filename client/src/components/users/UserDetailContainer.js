@@ -4,13 +4,24 @@ import { getProfilePhotoUrl, getUsersFromServer } from "../../config/firebase";
 import { useParams } from "react-router-dom";
 import Loading from "../../assets/loading/Loading";
 import UserFigma from "./UserFigma";
+import { useLayoutEffect } from "react";
+
 const UserDetailContainer = () => {
   const { id } = useParams();
-  console.log(id + "id");
   const [users, setUsers] = useState([]);
   const [profileUrls, setProfileUrls] = useState([]);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 700);
+
+  useLayoutEffect(() => {
+    const updateIsSmallScreen = () => {
+      setIsSmallScreen(window.innerWidth < 750);
+    };
+
+    window.addEventListener("resize", updateIsSmallScreen);
+    return () => window.removeEventListener("resize", updateIsSmallScreen);
+  }, []);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -37,6 +48,8 @@ const UserDetailContainer = () => {
       <div>
         {loading ? (
           <Loading />
+        ) : isSmallScreen ? (
+          <UserDetail data={data} profileUrls={profileUrls} />
         ) : (
           <UserFigma data={data} profileUrls={profileUrls} />
         )}
@@ -66,3 +79,21 @@ export default UserDetailContainer;
     };
     fetchUsers();
   }, []);  */
+/*  if (users) {
+    return (
+      <div>
+        {loading ? (
+          <Loading />
+        ) : (
+          <UserFigma data={data} profileUrls={profileUrls} />
+        )}
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <h1 className="text-4xl">El producto no existe</h1>
+      </div>
+    );
+  }
+}; */

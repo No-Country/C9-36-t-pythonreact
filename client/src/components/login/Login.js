@@ -10,8 +10,7 @@ import {
 import { FaGoogle } from "react-icons/fa";
 import { RiFacebookBoxLine } from "react-icons/ri";
 /* import * as Yup from "yup"; */
-import Home from "../Home";
-import Navbar from "../Navbar";
+
 import NavbarTop from "../NavbarTop";
 /* import { signInWithPopup } from "firebase/auth"; */
 
