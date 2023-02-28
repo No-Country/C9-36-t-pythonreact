@@ -3,6 +3,7 @@ import UserDetail from "./UserDetail";
 import { getProfilePhotoUrl, getUsersFromServer } from "../../config/firebase";
 import { useParams } from "react-router-dom";
 import Loading from "../../assets/loading/Loading";
+import UserFigma from "./UserFigma";
 const UserDetailContainer = () => {
   const { id } = useParams();
   console.log(id + "id");
@@ -37,7 +38,7 @@ const UserDetailContainer = () => {
         {loading ? (
           <Loading />
         ) : (
-          <UserDetail data={data} profileUrls={profileUrls} />
+          <UserFigma data={data} profileUrls={profileUrls} />
         )}
       </div>
     );

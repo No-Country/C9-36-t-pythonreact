@@ -69,4 +69,8 @@ Se realizo la configuracion de rutas Landing > Home > Login/Register
 Se maqueto segun el figma el componente Login Desktop
 Se maqueto segun el figma el componente Register Desktop
 Se maqueto segun el figma el componente RegisterEmail Desktop
+
+\*\* Update 27/02
+Se agregaron los bloques try catch faltantes a las funciones asyncronas
+Se termino de maquetar la vista dinamica de perfil de usario en version desktop
 }

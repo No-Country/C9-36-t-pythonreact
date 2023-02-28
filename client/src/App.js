@@ -17,6 +17,7 @@ import RegisterNewProfileFigma from "./components/register/RegisterNewProfileFig
 import RegisterFin from "./components/register/RegisterFin";
 import UserDetailContainer from "./components/users/UserDetailContainer";
 import Error404 from "./components/Error404";
+import UserFigma from "./components/users/UserFigma";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
               element={<RegisterNewProfile />}
             />
             <Route path={"/profileview"} element={<ProfileView />} />
+            <Route path={"/userfigma"} element={<UserFigma />} />
             <Route
               path={"/registernewprofilefigma"}
               element={<RegisterNewProfileFigma />}

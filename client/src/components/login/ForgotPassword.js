@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { resetPassword } from "../../config/firebase";
 import Home from "../Home";
+import NavbarTop from "../NavbarTop";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState(null);
-
+  const [value, setValue] = useState(" ");
+  const [message, setMessage] = useState(null);
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -15,6 +17,8 @@ const ForgotPassword = () => {
     } catch (error) {
       setError(error.message);
     }
+    setEmail("");
+    setMessage("Se envió un email a tu casilla para resetear tu contraseña");
   };
   const classTw =
     "peer block w-full appearance-none border border-slate-300 rounded-md text-sm shadow-sm bg-transparent p-4 text-sm text-gray-900 focus:border-blue-800 focus:outline-none  focus:ring-0 rounded-sm";
@@ -22,10 +26,11 @@ const ForgotPassword = () => {
     "transhtmlForm absolute top-5 -z-10 origin-[0] ml-1 -translate-y-6 scale-75 text-md text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-blue-600";
   return (
     <>
-      <Home />
+      <NavbarTop />
       <form
         onSubmit={onSubmit}
-        className="m-8 flex justify-center flex-col gap-6">
+        className="m-8 mt-36 flex flex-col justify-center gap-6"
+      >
         <div className="group relative z-0 ">
           <input
             type="email"
@@ -41,18 +46,18 @@ const ForgotPassword = () => {
             Direccion de email
           </label>
           <div>
-            <span className="text-red-600 font-bold">{error}</span>
+            <span className="font-bold text-red-600">{error}</span>
           </div>
         </div>
-        {/*  <input type="email" placeholder="Email" value={email} /> */}
         <div className="flex justify-center">
           <button
             type="submit"
-            className="bg-[#264653] rounded-full w-72 h-12 text-white font-semibold mt-28">
+            className="mt-28 h-12 w-72 rounded-full bg-[#264653] font-semibold text-white"
+          >
             Enviar correo electrónico
           </button>
         </div>
-
+        {message && <p className="text-2xl font-bold">{message}</p>}
         {error && <p>{error}</p>}
       </form>
     </>

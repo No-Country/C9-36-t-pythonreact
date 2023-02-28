@@ -12,33 +12,49 @@ function PerfilesDesigner() {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const users = await getUsersFromServer();
-      setUsers(users);
+      try {
+        const users = await getUsersFromServer();
+        setUsers(users);
+      } catch (error) {
+        console.log(error);
+      }
     };
     fetchUsers();
-
     async function getProfileUrls() {
-      const promises = uxui.map((el) => getProfilePhotoUrl(el.profilePicture));
-      const urls = await Promise.all(promises);
-      setProfileUrls(urls);
-      console.log(urls);
+      try {
+        const promises = uxui.map((el) =>
+          getProfilePhotoUrl(el.profilePicture)
+        );
+        const urls = await Promise.all(promises);
+        setProfileUrls(urls);
+      } catch (error) {
+        console.log(error);
+      }
     }
     getProfileUrls();
   }, [uxui.length]);
-  console.log(profileUrls);
-  console.log(uxui);
-  console.log(users);
 
   return (
     <div className={styles.gridContainer}>
       {uxui.map((el, index) => (
         <Link key={el.uid} to={`/user/${el.uid}`}>
-          <div key={el.uid} className={styles.gridItem}>
-            <img
-              src={profileUrls.find((url, i) => i === index)}
-              alt="Imagen de perfil"
-            />
-            {el.userName}
+          <div
+            key={el.uid}
+            className={styles.gridItem}
+            style={{
+              backgroundImage: `url(${profileUrls.find(
+                (url, i) => i === index
+              )})`,
+            }}
+          >
+            <div className={styles.fondo}>
+              <h2>{el.userName}</h2>
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                className="ml-2 h-6 w-6"
+                alt="JavaScript"
+              />
+            </div>
           </div>
         </Link>
       ))}

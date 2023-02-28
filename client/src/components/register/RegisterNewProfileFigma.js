@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import LogoLapizEdit from "../../assets/LogoLapizEdit";
-import UpdateProfile from "./UpdateProfile";
+import UpdateProfile from "./UpdateProfilePicture";
 import ProfilePictur from "../profile/ProfilePictur";
 import Modal from "./Modal";
 import { useUserContext } from "../../context/UserContext";
@@ -27,8 +27,13 @@ const RegisterNewProfileFigma = () => {
     const getDataUser = async () => {
       try {
         const userInfo = await getUserInfo(user.uid);
-        setCurrentUser(userInfo);
-        setProfilePicture(userInfo.profilePicture);
+        if (userInfo) {
+          console.log("entro a este if de user info");
+          setCurrentUser(userInfo);
+          setProfilePicture(userInfo.profilePicture);
+        } else {
+          console.log("no hay info de usuario");
+        }
       } catch (error) {
         console.error(error);
       }
@@ -239,7 +244,7 @@ const RegisterNewProfileFigma = () => {
             </div>
           </div>
           {/* Que busco  */}
-          <div className="mt-2 flex h-20 items-center justify-center rounded-sm bg-[#26465333] sm:h-40 sm:text-sm md:text-lg">
+          <div className="mt-2 flex h-20 items-center justify-center overflow-scroll rounded-sm bg-[#26465333] sm:h-40 sm:text-sm md:text-lg">
             <div className="ml-2">
               <button
                 onClick={() => {

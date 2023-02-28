@@ -151,9 +151,13 @@ export async function getProfilePhotoUrl(profilePicture) {
   try {
     const profileRef = ref(storage, profilePicture);
     const url = await getDownloadURL(profileRef);
-    return url;
+    if (url) {
+      return url;
+    } else {
+      console.log("no carga la foto en firebase ");
+    }
   } catch (error) {
-    /*  console.log(error); */
+    console.log(error);
   }
 }
 export const getUserPublicProfileInfo = async (uid) => {

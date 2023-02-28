@@ -15,7 +15,7 @@ const Register = () => {
       // eslint-disable-next-line no-unused-vars
       const credentialUser = await register({ email, password });
       console.log(credentialUser);
-      navegate("/registernewprofile");
+      navegate("/loggedin");
     } catch (error) {
       switch (error.code) {
         case "auth/email-already-in-use":
