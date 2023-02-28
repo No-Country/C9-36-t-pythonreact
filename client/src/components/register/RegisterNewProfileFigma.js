@@ -5,8 +5,6 @@ import ProfilePictur from "../profile/ProfilePictur";
 import Modal from "./Modal";
 import { useUserContext } from "../../context/UserContext";
 import { getUserInfo } from "../../config/firebase";
-import { BsWhatsapp, BsLinkedin } from "react-icons/bs";
-import { MdOutlineMail } from "react-icons/md";
 import ModalEspecialidades from "./ModalEspecialidades";
 import ModalTech from "./ModalTech";
 import { Link } from "react-router-dom";
@@ -27,9 +25,13 @@ const RegisterNewProfileFigma = () => {
   const { user } = useUserContext();
   useEffect(() => {
     const getDataUser = async () => {
-      const userInfo = await getUserInfo(user.uid);
-      setCurrentUser(userInfo);
-      setProfilePicture(userInfo.profilePicture);
+      try {
+        const userInfo = await getUserInfo(user.uid);
+        setCurrentUser(userInfo);
+        setProfilePicture(userInfo.profilePicture);
+      } catch (error) {
+        console.error(error);
+      }
     };
     getDataUser();
   }, [isModalOpen, isModalEspeOpen, isModalTechOpen]);
@@ -165,7 +167,6 @@ const RegisterNewProfileFigma = () => {
                 )}
               {currentUser.especialidades &&
                 currentUser.especialidades.uxui && <div>UX/UI Designer</div>}
-              <p>Describe el área en la que te especializas.</p>
             </div>
           </div>
         </div>

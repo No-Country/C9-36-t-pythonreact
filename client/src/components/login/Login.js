@@ -7,6 +7,8 @@ import { FaGoogle } from "react-icons/fa";
 
 /* import * as Yup from "yup"; */
 import Home from "../Home";
+import Navbar from "../Navbar";
+import NavbarTop from "../NavbarTop";
 /* import { signInWithPopup } from "firebase/auth"; */
 
 const Login = () => {
@@ -50,91 +52,95 @@ const Login = () => {
         .max(18, "La contraseña es muy larga."),
     }); */
   return (
-    <div className="mt-10 h-auto">
-      <Home />
-      <Formik
-        initialValues={{
-          email: "",
-          password: "",
-          changepassword: "",
-        }}
-        onSubmit={onSubmit}
-      >
-        <Form className="m-6 flex flex-col justify-center gap-2">
-          <div>
-            <h1 className="text-center text-3xl font-bold">Login</h1>
+    <>
+      <NavbarTop />
+      <div className="flex h-screen w-screen justify-center bg-[#264653]">
+        <div className="mb-4 mt-32 h-[500] w-[350px] rounded-md bg-white">
+          <Formik
+            initialValues={{
+              email: "",
+              password: "",
+              changepassword: "",
+            }}
+            onSubmit={onSubmit}
+          >
+            <Form className="m-6 flex flex-col justify-center gap-2">
+              <div>
+                <h1 className="text-center text-3xl font-bold">Login</h1>
+              </div>
+              <div className="group relative z-0 mb-6 w-full">
+                <Field
+                  type="email"
+                  name="email"
+                  id="email"
+                  className={classTw}
+                  placeholder=" "
+                  required
+                />
+                <ErrorMessage name="email" component="div" />
+                <label htmlFor="floating_email" className={classLabel}>
+                  Direccion de email
+                </label>
+              </div>
+              <div className="group relative z-0 mb-6 w-full">
+                <Field
+                  type="password "
+                  name="password"
+                  id="password"
+                  className={classTw}
+                  placeholder=" "
+                  required
+                />
+                <ErrorMessage name="password" component="div" />
+                <label htmlFor="floating_password" className={classLabel}>
+                  Ingrese su contraseña
+                </label>
+              </div>
+              {
+                <div>
+                  <p className="text-md font-bold text-red-600">{error}</p>
+                </div>
+              }
+              <div className="flex justify-center">
+                <button
+                  type="submit"
+                  className="h-10 w-40 rounded-full bg-[#35457F] text-white"
+                >
+                  Ingresar
+                </button>
+              </div>
+            </Form>
+          </Formik>
+          <div className="mx-10 mb-2 flex justify-between">
+            <Link to={"/forgotpassword"}>
+              <p className="align-middle text-sm font-semibold text-lime-800">
+                Olvidaste la contraseña?
+              </p>
+            </Link>
+            <p className="text-sm font-semibold ">
+              No tenes cuenta?{" "}
+              <Link
+                to={"/register"}
+                className="text-sm font-semibold text-lime-800 "
+              >
+                {" "}
+                Registrate
+              </Link>
+            </p>{" "}
           </div>
-          <div className="group relative z-0 mb-6 w-full">
-            <Field
-              type="email"
-              name="email"
-              id="email"
-              className={classTw}
-              placeholder=" "
-              required
-            />
-            <ErrorMessage name="email" component="div" />
-            <label htmlFor="floating_email" className={classLabel}>
-              Direccion de email
-            </label>
-          </div>
-          <div className="group relative z-0 mb-6 w-full">
-            <Field
-              type="password "
-              name="password"
-              id="password"
-              className={classTw}
-              placeholder=" "
-              required
-            />
-            <ErrorMessage name="password" component="div" />
-            <label htmlFor="floating_password" className={classLabel}>
-              Ingrese su contraseña
-            </label>
-          </div>
-          {
-            <div>
-              <p className="text-md font-bold text-red-600">{error}</p>
-            </div>
-          }
           <div className="flex justify-center">
             <button
-              type="submit"
-              className="h-10 w-40 rounded-full bg-[#35457F] text-white"
+              onClick={handleClickGoogle}
+              className="text- flex h-[56px] items-center gap-2 rounded-full border-2 border-black
+         px-12 text-base text-black"
             >
-              Ingresar
+              <FaGoogle className="text-2xl text-black" />
+              Login con Google
             </button>
           </div>
-        </Form>
-      </Formik>
-      <div className="mx-10 mb-2 flex justify-between">
-        <Link to={"/forgotpassword"}>
-          <p className="align-middle text-sm font-semibold text-lime-800">
-            Olvidaste la contraseña?
-          </p>
-        </Link>
-        <p className="text-sm font-semibold ">
-          No tenes cuenta?{" "}
-          <Link
-            to={"/register"}
-            className="text-sm font-semibold text-lime-800 "
-          >
-            {" "}
-            Registrate
-          </Link>
-        </p>{" "}
+        </div>
       </div>
-      <div className="flex justify-center">
-        <button
-          onClick={handleClickGoogle}
-          className="text- flex h-[56px] items-center gap-2 rounded-full border-2 border-black
-         px-12 text-base text-black"
-        >
-          <FaGoogle className="text-2xl text-black" />
-          Login con Google
-        </button>
-      </div>
-    </div>
+    </>
   );
 };
 export default Login;

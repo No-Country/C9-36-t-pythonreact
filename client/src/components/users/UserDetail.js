@@ -1,13 +1,23 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import Linkedin from "../../assets/icons/Linkedin";
+import LogoGmail from "../../assets/icons/LogoGmail";
+import LogoTwitter from "../../assets/icons/LogoTwitter";
+import LogoWs from "../../assets/icons/LogoWs";
 
 const UserDetail = ({ data, profileUrls }) => {
+  const handleEmail = (email) => {
+    window.open(`mailto:${email}?subject=Subject&body=Body%20goes%20here`);
+  };
+  console.log(data);
   return (
-    <div className="mx-auto flex max-w-md flex-col bg-white shadow-lg">
+    <div className="z-50 mx-auto flex max-w-md flex-col bg-white shadow-lg sm:columns-4">
       <div className="mb-4 flex items-center">
         <img
           src={profileUrls}
           alt="Imagen de perfil"
           className="h-[329px] w-[412px]"
+          async
         />
       </div>
       <div className="ml-[27px]">
@@ -109,11 +119,59 @@ const UserDetail = ({ data, profileUrls }) => {
           <p>{data.proyectos}</p>
         </div>
         {/* Contacto */}
-        <div className="mb-2">
-          <p className="mb-2 text-2xl leading-relaxed text-[#2A9D8F]">
-            Contacto
-          </p>
-          <p>{data.proyectos}</p>
+        <p className="mb-2 text-2xl leading-relaxed text-[#2A9D8F]">Contacto</p>
+        <div className=" flex items-center justify-between">
+          {/* Contacto */}
+          {/* ws */}
+          <div>
+            <div>
+              {data.ws ? (
+                <Link
+                  target={"_blank"}
+                  to={`https://api.whatsapp.com/send?phone=${data.ws}&text=Hola!%20Me%20contacto%20desde%20hive!`}
+                >
+                  <LogoWs />
+                </Link>
+              ) : (
+                <LogoWs />
+              )}
+            </div>
+          </div>
+          {/* EMAIL*/}
+          <div>
+            {data.email ? (
+              <button
+                className="bg-transparent"
+                onClick={() => handleEmail(data.email)}
+              >
+                <LogoGmail />
+              </button>
+            ) : (
+              <LogoGmail />
+            )}
+          </div>
+          {/* linkedin */}
+          <div>
+            {data.linkedin ? (
+              <Link target={"_blank"} to={`${data.linkedin}`}>
+                <Linkedin />
+              </Link>
+            ) : (
+              <Linkedin />
+            )}
+          </div>
+          {/* Twitter */}
+          <div>
+            <div>
+              {data.twitter ? (
+                <Link target={"_blank"} to={`${data.twitter}`}>
+                  <LogoTwitter />
+                </Link>
+              ) : (
+                <LogoTwitter />
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>
