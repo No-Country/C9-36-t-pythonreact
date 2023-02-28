@@ -18,7 +18,7 @@ defaults:
 
 jobs:
 
-  build:
+  Setup-Build-Deploy:
     runs-on: self-hosted
     
     steps:
@@ -44,6 +44,11 @@ jobs:
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
           aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Invalidate Cloudfront Distribution
+        run: aws cloudfront create-invalidation
+          --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+          --paths "/"
 
       - name: Deploy ./build to S3 bucket
         run: aws s3 sync ./build/ s3://${{ secrets.AWS_DEV_BUCKET_NAME }} --delete
