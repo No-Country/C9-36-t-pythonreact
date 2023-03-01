@@ -22,7 +22,7 @@ import PerfilesFrontend from "./components/perfiles/PerfilesFrontend";
 import PerfilesBackend from "./components/perfiles/PerfilesBackend";
 import PerfilesDesigner from "./components/perfiles/PerfilesDesigner";
 import AllProfiles from "./components/perfiles/AllProfiles";
-import MyFavoritesUsers from "./components/profile/MyFavoritesUsers";
+import MyFavoritesUsers from "./components/users/MyFavoritesUsers";
 
 function App() {
   return (
@@ -63,7 +63,7 @@ function App() {
               element={<PerfilesDesigner />}
             />
             <Route path={"/perfiles/allprofiles"} element={<AllProfiles />} />
-            <Route path={'/favoritesUsers'} element={<MyFavoritesUsers/>} />
+            <Route path={"/favoritesUsers"} element={<MyFavoritesUsers />} />
           </Route>
         </Routes>
       </BrowserRouter>
