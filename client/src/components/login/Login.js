@@ -11,7 +11,7 @@ import { FaGoogle } from "react-icons/fa";
 import { RiFacebookBoxLine } from "react-icons/ri";
 /* import * as Yup from "yup"; */
 
-import NavbarTop from "../NavbarTop";
+import NavbarTop from "../navegation/NavbarTop";
 /* import { signInWithPopup } from "firebase/auth"; */
 
 const Login = () => {

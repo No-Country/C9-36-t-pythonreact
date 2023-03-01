@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Logo from "../assets/LogoDashboard";
+import Logo from "../../assets/LogoDashboard";
 import { Link, NavLink } from "react-router-dom";
 // import { logOut } from "../config/firebase";
 import styles from "./Dashboard.module.css";

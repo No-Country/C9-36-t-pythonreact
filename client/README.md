@@ -76,5 +76,7 @@ Se termino de maquetar la vista dinamica de perfil de usario en version Desktop
 Se termino de maquetar la vista dinamica de perfil de usario en version Mobile
 Se termino de maquetar la vista dinamica de perfil de usario en version Tablet
 Se agrego el boton de navegacion para volver al dashboard en la vista de perfil de usuario
+Se creo la carpeta navegation y se movieron todos los componentes "sueltos" dentro de esa carpeta volviendo a configurar todas las rutas 
+Se creo el componente AllProfiles el cual mostrara todos los perfiles de los usuarios registrados en la app
 
 }

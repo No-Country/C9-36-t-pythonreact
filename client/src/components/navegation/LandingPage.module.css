@@ -116,7 +116,7 @@
         height: 100%;
         width: 42%;
         
-        background-image: url('../assets/PhotoDevs.jpg');
+        background-image: url('../../assets/PhotoDevs.jpg');
         
         background-position: center;
         background-size: cover;

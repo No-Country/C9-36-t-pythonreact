@@ -12,6 +12,7 @@ import LogoWs from "../../assets/icons/LogoWs";
 import Linkedin from "../../assets/icons/Linkedin";
 import LogoGmail from "../../assets/icons/LogoGmail";
 import LogoTwitter from "../../assets/icons/LogoTwitter";
+import Navbartest from "../navegation/Navbartest";
 const RegisterNewProfileFigma = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalEspeOpen, setIsModalEspeOpen] = useState(false);
@@ -55,6 +56,7 @@ const RegisterNewProfileFigma = () => {
 
   return (
     <>
+      <Navbartest />
       <div className="flex justify-center">
         <h1 className="mt-5 text-[24px] font-bold leading-10 text-[#264653] sm:mt-10 sm:text-7xl">
           Crea tu perfil

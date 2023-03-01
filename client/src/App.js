@@ -1,7 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Dashboard from "./components/Dashboard";
-import Home from "./components/Home";
-import LandingPage from "./components/LandingPage";
+import Dashboard from "./components/navegation/Dashboard";
+import Home from "./components/navegation/Home";
+import LandingPage from "./components/navegation/LandingPage";
+import Error404 from "./components/navegation/Error404";
 import ForgotPassword from "./components/login/ForgotPassword";
 import LoggedIn from "./components/login/LoggedIn";
 import Login from "./components/login/Login";
@@ -16,11 +17,11 @@ import RegisterNewProfile from "./components/register/RegisterNewProfile";
 import RegisterNewProfileFigma from "./components/register/RegisterNewProfileFigma";
 import RegisterFin from "./components/register/RegisterFin";
 import UserDetailContainer from "./components/users/UserDetailContainer";
-import Error404 from "./components/Error404";
 import UserFigma from "./components/users/UserFigma";
 import PerfilesFrontend from "./components/perfiles/PerfilesFrontend";
 import PerfilesBackend from "./components/perfiles/PerfilesBackend";
 import PerfilesDesigner from "./components/perfiles/PerfilesDesigner";
+import AllProfiles from "./components/perfiles/AllProfiles";
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
               path={"/perfiles/designers"}
               element={<PerfilesDesigner />}
             />
+            <Route path={"/perfiles/allprofiles"} element={<AllProfiles />} />
           </Route>
         </Routes>
       </BrowserRouter>

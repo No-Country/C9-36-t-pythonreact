@@ -1,6 +1,6 @@
-import { ErrorMessage, Field, Form, Formik, } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
-import Home from "../Home";
+import Home from "../navegation/Home";
 const Register = () => {
   const onSubmit = (values) => {
     console.log(values);
@@ -14,20 +14,24 @@ const Register = () => {
       .required("El codigo es obligatorio")
       .min(6, "El codigo ingresado es muy corto.")
       .max(10, "El codigo ingresado es muy largo."),
-    });
-    return (
+  });
+  return (
     <div className="mt-10">
       <Home />
-      <div className="flex justify-center mt-10">
-            <h2 className="text-2xl text-center">Hemos enviado un código a tu correo, colócalo aquí abajo para continuar.</h2>
+      <div className="mt-10 flex justify-center">
+        <h2 className="text-center text-2xl">
+          Hemos enviado un código a tu correo, colócalo aquí abajo para
+          continuar.
+        </h2>
       </div>
       <Formik
         initialValues={{
           codigo: "",
         }}
         validationSchema={registerCodigoSchema}
-        onSubmit={onSubmit}>
-        <Form className="flex flex-col gap-2 justify-center m-6">
+        onSubmit={onSubmit}
+      >
+        <Form className="m-6 flex flex-col justify-center gap-2">
           <div className="group relative z-0 mb-6 w-full">
             <Field
               type="number"
@@ -37,7 +41,7 @@ const Register = () => {
               placeholder=" "
               required
             />
-            <ErrorMessage name="codigo" component="div"/>
+            <ErrorMessage name="codigo" component="div" />
             <label htmlFor="floating_email" className={classLabel}>
               Ingresa el código
             </label>
@@ -45,7 +49,8 @@ const Register = () => {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="bg-[#35457F] rounded-full w-[130px] h-10 text-white">
+              className="h-10 w-[130px] rounded-full bg-[#35457F] text-white"
+            >
               Aceptar
             </button>
           </div>

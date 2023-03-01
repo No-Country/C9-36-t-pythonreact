@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getProfilePhotoUrl, getUsersFromServer } from "../../config/firebase";
-import Navbartest from "../Navbartest";
+import Navbartest from "../navegation/Navbartest";
 import styles from "./Perfiles.module.css";
 
 function PerfilesBackend() {
@@ -54,6 +54,13 @@ function PerfilesBackend() {
             >
               <div className={styles.fondo}>
                 <h2>{el.userName}</h2>
+                {el.tecnologias && el.tecnologias.javascript === true && (
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                    className="ml-2 h-6 w-6"
+                    alt="JavaScript"
+                  />
+                )}
               </div>
             </div>
           </Link>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { resetPassword } from "../../config/firebase";
-import Home from "../Home";
-import NavbarTop from "../NavbarTop";
+import Home from "../navegation/Home";
+import NavbarTop from "../navegation/NavbarTop";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");

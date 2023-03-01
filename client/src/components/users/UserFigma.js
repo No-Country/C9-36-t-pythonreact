@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import NavbarTop from "../NavbarTop";
+import NavbarTop from "../navegation/NavbarTop";
 import Linkedin from "../../assets/icons/Linkedin";
 import LogoGmail from "../../assets/icons/LogoGmail";
 import LogoTwitter from "../../assets/icons/LogoTwitter";
 import LogoWs from "../../assets/icons/LogoWs";
-import Navbartest from "../Navbartest";
+import Navbartest from "../navegation/Navbartest";
 
 const UserFigma = ({ data, profileUrls }) => {
   const [seleccion, setSeleccion] = useState("frontend");

@@ -5,8 +5,8 @@ import Linkedin from "../../assets/icons/Linkedin";
 import LogoGmail from "../../assets/icons/LogoGmail";
 import LogoTwitter from "../../assets/icons/LogoTwitter";
 import LogoWs from "../../assets/icons/LogoWs";
-import Navbar from "../Navbar";
-import Navbartest from "../Navbartest";
+import Navbar from "../navegation/Navbar";
+import Navbartest from "../navegation/Navbartest";
 
 const UserDetail = ({ data, profileUrls }) => {
   const handleEmail = (email) => {

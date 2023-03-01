@@ -1,10 +1,8 @@
 import React from "react";
 // import { Formik } from "formik";
-import { Link } from "react-router-dom";
 import { useUserContext } from "../../context/UserContext";
-import Home from "../Home";
 import { useRedirectActiveUser } from "../hooks/UseRedirectActiveUser";
-import NavbarTop from "../NavbarTop";
+import NavbarTop from "../navegation/NavbarTop";
 import RegisterButtons from "./RegisterButtons";
 
 const Register = () => {
