@@ -26,8 +26,9 @@ const Register = () => {
         <h2 className="text-center text-2xl">
           Aguarda un instante por favor estamos validando tus datos
         </h2>
+
       </div>
-    </div>
+    </div >        
   );
 };
 export default Register;
