@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Oxygen&display=swap");
 
 header {
-    position: fixed;
+    /* position: fixed; le saco el fixed por que renderiza mal todo el componente de abajo */
     top: 0;
     left: 0;
     width: 100%;
@@ -68,4 +68,47 @@ h1 {
     font-weight: 700;
     font-size: 48px;
     line-height: 48px;
+}
+
+
+@media  (min-width: 900px)  {
+    
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 115px;
+        
+    }
+
+    header button {
+        display: none;
+    }
+
+    header div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navPerfiles {
+        display: flex;
+        justify-content: space-between;
+        gap: 65px;
+    }
+
+    .navPerfiles *:hover {
+        color: #000000;
+        text-decoration: underline solid #000000;
+        text-underline-offset: 5px;
+    }
+
+    body {
+        background-color: #264653;
+    }
+
+    h1 {
+        display: none;
+    }
+
 }

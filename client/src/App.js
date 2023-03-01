@@ -18,6 +18,9 @@ import RegisterFin from "./components/register/RegisterFin";
 import UserDetailContainer from "./components/users/UserDetailContainer";
 import Error404 from "./components/Error404";
 import UserFigma from "./components/users/UserFigma";
+import PerfilesFrontend from "./components/perfiles/PerfilesFrontend";
+import PerfilesBackend from "./components/perfiles/PerfilesBackend";
+import PerfilesDesigner from "./components/perfiles/PerfilesDesigner";
 
 function App() {
   return (
@@ -37,6 +40,7 @@ function App() {
           <Route path={"/registerFin"} element={<RegisterFin />} />
           <Route path={"/user/:id"} element={<UserDetailContainer />} />
           <Route path={"*"} element={<Error404 />} />
+
           <Route element={<LayoutPrivate />}>
             <Route path={"/dashboard"} element={<Dashboard />} />
             <Route path={"/loggedIn"} element={<LoggedIn />} />
@@ -49,6 +53,12 @@ function App() {
             <Route
               path={"/registernewprofilefigma"}
               element={<RegisterNewProfileFigma />}
+            />
+            <Route path={"/perfiles/frontend"} element={<PerfilesFrontend />} />
+            <Route path={"/perfiles/backend"} element={<PerfilesBackend />} />
+            <Route
+              path={"/perfiles/designers"}
+              element={<PerfilesDesigner />}
             />
           </Route>
         </Routes>

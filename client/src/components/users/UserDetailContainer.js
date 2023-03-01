@@ -16,7 +16,7 @@ const UserDetailContainer = () => {
 
   useLayoutEffect(() => {
     const updateIsSmallScreen = () => {
-      setIsSmallScreen(window.innerWidth < 750);
+      setIsSmallScreen(window.innerWidth < 768);
     };
 
     window.addEventListener("resize", updateIsSmallScreen);

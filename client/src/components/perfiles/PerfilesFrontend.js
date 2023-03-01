@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getProfilePhotoUrl, getUsersFromServer } from "../../config/firebase";
+import Navbartest from "../Navbartest";
 import styles from "./Perfiles.module.css";
 
 function PerfilesFrontend() {
@@ -35,30 +36,33 @@ function PerfilesFrontend() {
     getProfileUrls();
   }, [fronts.length]);
   return (
-    <div className={styles.gridContainer}>
-      {fronts.map((el, index) => (
-        <Link key={el.uid} to={`/user/${el.uid}`}>
-          <div
-            key={el.uid}
-            className={styles.gridItem}
-            style={{
-              backgroundImage: `url(${profileUrls.find(
-                (url, i) => i === index
-              )})`,
-            }}
-          >
-            <div className={styles.fondo}>
-              <h2>{el.userName}</h2>
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                className="ml-2 h-6 w-6"
-                alt="JavaScript"
-              />
+    <>
+      {" "}
+      <Navbartest />
+      <div className={styles.gridContainer}>
+        {fronts.map((el, index) => (
+          <Link key={el.uid} to={`/user/${el.uid}`}>
+            <div
+              key={el.uid}
+              className={styles.gridItem}
+              style={{
+                backgroundImage: `url(${profileUrls.find(
+                  (url, i) => i === index
+                )})`,
+              }}
+            >
+              <div className={styles.fondo}>
+                <h2>{el.userName}</h2>
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                  alt="JavaScript"
+                />
+              </div>
             </div>
-          </div>
-        </Link>
-      ))}
-    </div>
+          </Link>
+        ))}
+      </div>
+    </>
   );
 }
 

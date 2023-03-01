@@ -72,5 +72,9 @@ Se maqueto segun el figma el componente RegisterEmail Desktop
 
 \*\* Update 27/02
 Se agregaron los bloques try catch faltantes a las funciones asyncronas
-Se termino de maquetar la vista dinamica de perfil de usario en version desktop
+Se termino de maquetar la vista dinamica de perfil de usario en version Desktop
+Se termino de maquetar la vista dinamica de perfil de usario en version Mobile
+Se termino de maquetar la vista dinamica de perfil de usario en version Tablet
+Se agrego el boton de navegacion para volver al dashboard en la vista de perfil de usuario
+
 }

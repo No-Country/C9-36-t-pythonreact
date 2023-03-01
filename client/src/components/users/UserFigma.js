@@ -1,20 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import NavbarTop from "../NavbarTop";
 import Linkedin from "../../assets/icons/Linkedin";
 import LogoGmail from "../../assets/icons/LogoGmail";
 import LogoTwitter from "../../assets/icons/LogoTwitter";
 import LogoWs from "../../assets/icons/LogoWs";
+import Navbartest from "../Navbartest";
 
 const UserFigma = ({ data, profileUrls }) => {
+  const [seleccion, setSeleccion] = useState("frontend");
+  const handleSeleccion = (opcion) => {
+    setSeleccion(opcion);
+  };
   const handleEmail = (email) => {
     window.open(`mailto:${email}?subject=Subject&body=Body%20goes%20here`);
   };
   return (
     <>
-      <NavbarTop />
+      <Navbartest />
       <div className="flex h-screen w-screen justify-between bg-[#264653]">
-        <div className="mt-48 ml-10 text-5xl font-bold text-white">
+        <div className="mt-32 ml-10 text-5xl font-bold text-white">
           <span className="my-2">
             {" "}
             <p className="mb-4">
@@ -28,7 +33,7 @@ const UserFigma = ({ data, profileUrls }) => {
             </p>
           </span>
         </div>
-        <div className="mx-10 mt-32 grid h-[480px] w-[600px] grid-cols-2 grid-rows-2 items-center justify-center rounded-md bg-white text-center">
+        <div className="mx-10 mt-16 grid h-[480px] w-[600px] grid-cols-2 grid-rows-2 items-center justify-center rounded-md bg-white text-center">
           {/* 1 */}
           <div>
             {" "}
