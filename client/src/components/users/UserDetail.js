@@ -7,12 +7,14 @@ import LogoTwitter from "../../assets/icons/LogoTwitter";
 import LogoWs from "../../assets/icons/LogoWs";
 import Navbar from "../navegation/Navbar";
 import Navbartest from "../navegation/Navbartest";
+import {FaHeart} from 'react-icons/fa'
+import { saveUserFavorite } from "../../config/firebase";
 
-const UserDetail = ({ data, profileUrls }) => {
+const UserDetail = ({ data, profileUrls, currentUser }) => {
   const handleEmail = (email) => {
     window.open(`mailto:${email}?subject=Subject&body=Body%20goes%20here`);
   };
-  console.log(data);
+  console.log(currentUser);
   return (
     <>
       <div className="mx-auto mt-5 mb-24 flex max-w-md flex-col justify-center bg-white shadow-lg sm:columns-4">
@@ -26,6 +28,9 @@ const UserDetail = ({ data, profileUrls }) => {
           <Link to={"/dashboard"} className="absolute top-1 left-1">
             <IconBackPage />
           </Link>
+          <button onClick={()=>saveUserFavorite(currentUser.uid,data)} className="absolute top-1 -right-1">
+            <FaHeart/>
+          </button>
         </div>
         <div className="ml-[27px]">
           <div>

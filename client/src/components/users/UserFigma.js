@@ -18,8 +18,9 @@ const UserFigma = ({ data, profileUrls }) => {
   return (
     <>
       <Navbartest />
-      <div className="flex h-screen w-screen justify-between bg-[#264653]">
-        <div className="mt-32 ml-10 text-5xl font-bold text-white">
+      <div className="flex justify-between bg-[#264653]">
+        <div className="flex w-screen justify-around ">
+        <div className="mt-10 ml-10 text-5xl font-bold text-white">
           <span className="my-2">
             {" "}
             <p className="mb-4">
@@ -33,14 +34,14 @@ const UserFigma = ({ data, profileUrls }) => {
             </p>
           </span>
         </div>
-        <div className="mx-10 mt-16 grid h-[480px] w-[600px] grid-cols-2 grid-rows-2 items-center justify-center rounded-md bg-white text-center">
+        <div className="mx-10 mt-8 grid h-[400px] w-[600px] grid-cols-2 grid-rows-2 items-center justify-center rounded-md bg-white text-center">
           {/* 1 */}
           <div>
             {" "}
             <img
               src={profileUrls}
               alt="Imagen de perfil"
-              className="ml-1 h-[240px] w-[300px] overflow-hidden"
+              className="ml-1 mt-1 h-[200px] w-[250px] overflow-hidden"
               async
             />
           </div>
@@ -195,6 +196,7 @@ const UserFigma = ({ data, profileUrls }) => {
               <p className="ml-4">Twitter</p>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </>

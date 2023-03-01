@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from "react";
 import UserDetail from "./UserDetail";
-import { getProfilePhotoUrl, getUsersFromServer } from "../../config/firebase";
+import { getProfilePhotoUrl, getUserInfo, getUsersFromServer } from "../../config/firebase";
 import { useParams } from "react-router-dom";
 import Loading from "../../assets/loading/Loading";
 import UserFigma from "./UserFigma";
 import { useLayoutEffect } from "react";
+import { useUserContext } from "../../context/UserContext";
 
 const UserDetailContainer = () => {
   const { id } = useParams();
   const [users, setUsers] = useState([]);
+  const [currentUser, setCurrentUser] = useState({});
   const [profileUrls, setProfileUrls] = useState([]);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 700);
-
+  const {user} = useUserContext();
   useLayoutEffect(() => {
     const updateIsSmallScreen = () => {
       setIsSmallScreen(window.innerWidth < 768);
@@ -42,6 +44,12 @@ const UserDetailContainer = () => {
       }
     };
     fetchUsers();
+    /* Me traigo al usuario que esta navegando para guardar o actualizar su lista de favoritos */
+    const getDataUser = async () => {
+      const userInfo = await getUserInfo(user.uid);
+      setCurrentUser(userInfo);
+    };
+    getDataUser();
   }, []);
   if (users) {
     return (
@@ -49,7 +57,7 @@ const UserDetailContainer = () => {
         {loading ? (
           <Loading />
         ) : isSmallScreen ? (
-          <UserDetail data={data} profileUrls={profileUrls} />
+          <UserDetail data={data} profileUrls={profileUrls} currentUser={currentUser} />
         ) : (
           <UserFigma data={data} profileUrls={profileUrls} />
         )}

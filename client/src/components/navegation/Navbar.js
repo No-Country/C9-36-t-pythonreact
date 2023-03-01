@@ -14,7 +14,7 @@ function Navbar() {
           </NavLink>
         </div>
         <div className={styles.logo}>
-          <NavLink to={""}>
+          <NavLink to={"/favoritesUsers"}>
             <LogoMisEquipos />
           </NavLink>
         </div>

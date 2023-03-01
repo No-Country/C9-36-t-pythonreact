@@ -22,6 +22,7 @@ import {
   where,
   setDoc,
   updateDoc,
+  arrayUnion,
   /*  deleteDoc, */
 } from "firebase/firestore";
 import {
@@ -177,3 +178,15 @@ export const getUsersFromServer = async () => {
     console.error("Error getting documents", err);
   }
 };
+
+export const saveUserFavorite = async (uid, favorite) => {
+  try {
+    const usersRef = collection(db, "users");
+    await updateDoc(doc(usersRef, uid), {
+      favorites: arrayUnion(favorite),
+    });
+    console.log("Usuario actualizado con éxito");
+  } catch (error) {
+    console.log(error + "error de getupdateuser");
+  }
+}
