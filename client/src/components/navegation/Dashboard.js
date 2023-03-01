@@ -25,6 +25,9 @@ const Dashboard = () => {
         handleSeleccion={handleSeleccion}
       />
       <AllProfiles />
+      <button onClick={handleLogout} className="bg-black">
+        Log out
+      </button>
       {/*     <section>
         <h1>Buscá con quien trabajar</h1>
 

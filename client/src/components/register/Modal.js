@@ -14,8 +14,9 @@ function Modal({ onClose, nombre, setUserState }) {
       setCurrentUser(userInfo);
     };
     getDataUser();
-    console.log(user, currentUser, name);
-  }, [user, currentUser]);
+    /*     console.log(user, currentUser, name);
+     */
+  }, []);
 
   const handleUpdate = async () => {
     if (nombre === "Agrega tu nombre") {

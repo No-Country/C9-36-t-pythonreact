@@ -22,6 +22,8 @@ import {
   where,
   setDoc,
   updateDoc,
+  arrayUnion,
+  arrayRemove,
   /*  deleteDoc, */
 } from "firebase/firestore";
 import {
@@ -175,5 +177,30 @@ export const getUsersFromServer = async () => {
     return users;
   } catch (err) {
     console.error("Error getting documents", err);
+  }
+};
+
+export const saveUserFavorite = async (uid, favorite) => {
+  try {
+    const usersRef = collection(db, "users");
+    await updateDoc(doc(usersRef, uid), {
+      favorites: arrayUnion(favorite),
+    });
+    console.log("Usuario FAVORITO actualizado con éxito");
+  } catch (error) {
+    console.log(error + "error de getupdateuser");
+  }
+};
+export const deleteUserFavorite = async (uid, favorite) => {
+  try {
+    const usersRef = collection(db, "users");
+    await updateDoc(doc(usersRef, uid), {
+      favorites: arrayRemove(favorite),
+    });
+    console.log(uid);
+    console.log(favorite);
+    console.log("Usuario FAVORITO Borrado con exito con éxito");
+  } catch (error) {
+    console.log(error + "error de getupdateuser");
   }
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import IconBackPage from "../../assets/icons/IconBackPage";
 import Linkedin from "../../assets/icons/Linkedin";
@@ -6,13 +6,33 @@ import LogoGmail from "../../assets/icons/LogoGmail";
 import LogoTwitter from "../../assets/icons/LogoTwitter";
 import LogoWs from "../../assets/icons/LogoWs";
 import Navbar from "../navegation/Navbar";
-import Navbartest from "../navegation/Navbartest";
+import { FaHeart } from "react-icons/fa";
+import { FaWindowClose } from "react-icons/fa";
+import { deleteUserFavorite, saveUserFavorite } from "../../config/firebase";
 
-const UserDetail = ({ data, profileUrls }) => {
+const UserDetail = ({ data, profileUrls, currentUser }) => {
+  const [isFavorited, setIsFavorited] = useState(
+    currentUser.favorites &&
+      currentUser.favorites.find((el) => el.uid === data.uid)
+  );
   const handleEmail = (email) => {
     window.open(`mailto:${email}?subject=Subject&body=Body%20goes%20here`);
   };
+  useEffect(() => {
+    // This code will be executed every time buttonClicked changes
+    // You can put any code here that you want to execute after buttonClicked changes
+  }, []);
   console.log(data);
+  console.log(deleteUserFavorite);
+  const handleFavoriteClick = async () => {
+    if (isFavorited) {
+      await deleteUserFavorite(currentUser.uid, data);
+    } else {
+      await saveUserFavorite(currentUser.uid, data);
+    }
+    setIsFavorited(!isFavorited);
+  };
+
   return (
     <>
       <div className="mx-auto mt-5 mb-24 flex max-w-md flex-col justify-center bg-white shadow-lg sm:columns-4">
@@ -26,6 +46,27 @@ const UserDetail = ({ data, profileUrls }) => {
           <Link to={"/dashboard"} className="absolute top-1 left-1">
             <IconBackPage />
           </Link>
+          {currentUser.uid === data.uid ? (
+            <>
+              <span className="absolute top-1 -right-1"></span>
+            </>
+          ) : isFavorited ? (
+            <>
+              <button
+                onClick={handleFavoriteClick}
+                className="absolute top-1 -right-1"
+              >
+                <FaWindowClose />
+              </button>
+            </> /*  deleteUserFavorite(currentUser.uid, data); */
+          ) : (
+            <button
+              onClick={handleFavoriteClick}
+              className="absolute top-1 -right-1"
+            >
+              <FaHeart />
+            </button>
+          )}
         </div>
         <div className="ml-[27px]">
           <div>
