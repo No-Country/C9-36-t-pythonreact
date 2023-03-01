@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import LogoLapizEdit from "../../assets/LogoLapizEdit";
-import UpdateProfile from "./UpdateProfile";
+import UpdateProfile from "./UpdateProfilePicture";
 import ProfilePictur from "../profile/ProfilePictur";
 import Modal from "./Modal";
 import { useUserContext } from "../../context/UserContext";
@@ -12,6 +12,7 @@ import LogoWs from "../../assets/icons/LogoWs";
 import Linkedin from "../../assets/icons/Linkedin";
 import LogoGmail from "../../assets/icons/LogoGmail";
 import LogoTwitter from "../../assets/icons/LogoTwitter";
+import Navbartest from "../navegation/Navbartest";
 const RegisterNewProfileFigma = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalEspeOpen, setIsModalEspeOpen] = useState(false);
@@ -27,8 +28,13 @@ const RegisterNewProfileFigma = () => {
     const getDataUser = async () => {
       try {
         const userInfo = await getUserInfo(user.uid);
-        setCurrentUser(userInfo);
-        setProfilePicture(userInfo.profilePicture);
+        if (userInfo) {
+          console.log("entro a este if de user info");
+          setCurrentUser(userInfo);
+          setProfilePicture(userInfo.profilePicture);
+        } else {
+          console.log("no hay info de usuario");
+        }
       } catch (error) {
         console.error(error);
       }
@@ -50,6 +56,7 @@ const RegisterNewProfileFigma = () => {
 
   return (
     <>
+      <Navbartest />
       <div className="flex justify-center">
         <h1 className="mt-5 text-[24px] font-bold leading-10 text-[#264653] sm:mt-10 sm:text-7xl">
           Crea tu perfil
@@ -239,7 +246,7 @@ const RegisterNewProfileFigma = () => {
             </div>
           </div>
           {/* Que busco  */}
-          <div className="mt-2 flex h-20 items-center justify-center rounded-sm bg-[#26465333] sm:h-40 sm:text-sm md:text-lg">
+          <div className="mt-2 flex h-20 items-center justify-center overflow-scroll rounded-sm bg-[#26465333] sm:h-40 sm:text-sm md:text-lg">
             <div className="ml-2">
               <button
                 onClick={() => {

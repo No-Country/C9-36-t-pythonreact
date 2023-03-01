@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import LogoLapizEdit from "../../assets/LogoLapizEdit";
 import { getUserInfo, updateUser } from "../../config/firebase";
 import { useUserContext } from "../../context/UserContext";
-
 const UpdateDataUser = () => {
   const { user } = useUserContext();
   const [currentUser, setCurrentUser] = useState({});
-
   useEffect(() => {
     const getDataUser = async () => {
       const userInfo = await getUserInfo(user.uid);

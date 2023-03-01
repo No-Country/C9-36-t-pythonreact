@@ -16,7 +16,6 @@ function RegisterNewProfile() {
   const [photoMessage, setPhotoMessage] = useState(false);
   const [formMessage, setFormMessage] = useState(false);
   const fileRef = useRef();
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     await handleNewUser(

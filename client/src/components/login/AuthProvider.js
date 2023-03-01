@@ -39,14 +39,13 @@ const AuthProvider = ({
             userName: "",
           });
           onUserNotRegistered(user);
-          navegate("/registernewprofile");
+          navegate("/registernewprofilefigma");
         }
       } else {
         onUserNotLoggedIn();
       }
     });
   }, [navegate, onUserLoggedIn, onUserNotLoggedIn, onUserNotRegistered]);
-  /* navegate, onUserLoggedIn, onUserNotLoggedIn, onUserNotRegistered */
   return <div>{children}</div>;
 };
 

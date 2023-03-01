@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getProfilePhotoUrl, getUsersFromServer } from "../../config/firebase";
+import Navbartest from "../navegation/Navbartest";
 import styles from "./Perfiles.module.css";
 
 function PerfilesFrontend() {
@@ -13,68 +14,59 @@ function PerfilesFrontend() {
   );
   useEffect(() => {
     const fetchUsers = async () => {
-      const users = await getUsersFromServer();
-      setUsers(users);
+      try {
+        const users = await getUsersFromServer();
+        setUsers(users);
+      } catch (error) {
+        console.log(error);
+      }
     };
     fetchUsers();
-
     async function getProfileUrls() {
-      const promises = fronts.map((el) =>
-        getProfilePhotoUrl(el.profilePicture)
-      );
-      const urls = await Promise.all(promises);
-      setProfileUrls(urls);
-      console.log(urls);
+      try {
+        const promises = fronts.map((el) =>
+          getProfilePhotoUrl(el.profilePicture)
+        );
+        const urls = await Promise.all(promises);
+        setProfileUrls(urls);
+      } catch (error) {
+        console.log(error);
+      }
     }
     getProfileUrls();
   }, [fronts.length]);
-  console.log(profileUrls);
-  console.log(users);
-  console.log(fronts);
   return (
-    <div className={styles.gridContainer}>
-      {fronts.map((el, index) => (
-        <Link key={el.uid} to={`/user/${el.uid}`}>
-          <div key={el.uid} className={styles.gridItem}  style={{
-              backgroundImage: `url(${profileUrls.find((url, i) => i === index)})`
-            }}>
-            <div class={styles.fondo}>
-              <h2>{el.userName}</h2>
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                
-                alt="JavaScript"
-              />
+    <>
+      {" "}
+      <Navbartest />
+      <div className={styles.gridContainer}>
+        {fronts.map((el, index) => (
+          <Link key={el.uid} to={`/user/${el.uid}`}>
+            <div
+              key={el.uid}
+              className={styles.gridItem}
+              style={{
+                backgroundImage: `url(${profileUrls.find(
+                  (url, i) => i === index
+                )})`,
+              }}
+            >
+              <div className={styles.fondo}>
+                <h2>{el.userName}</h2>
+                {el.tecnologias && el.tecnologias.react === true && (
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                    className="ml-2 h-6 w-6"
+                    alt="React"
+                  />
+                )}
+              </div>
             </div>
-            
-          </div>
-        </Link>
-      ))}
-    </div>
+          </Link>
+        ))}
+      </div>
+    </>
   );
 }
 
 export default PerfilesFrontend;
-
-/* const fronts = users.filter(
-    (el) => el.especialidades && el.especialidades.frontend === true
-  );
-
-  const getProfilePhotoUrls = async (users) => {
-    const promises = users.map((el) => getProfilePhotoUrl(el.profilePicture));
-    return await Promise.all(promises);
-  };
-
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const users = await getUsersFromServer();
-        setUsers(users);
-        const urls = await getProfilePhotoUrls(users);
-        setProfileUrls(urls);
-      } catch (e) {
-        console.log(e);
-      }
-    };
-    fetchUsers();
-  }, []); */

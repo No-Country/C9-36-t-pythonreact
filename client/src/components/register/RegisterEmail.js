@@ -3,8 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { register } from "../../config/firebase";
 import * as Yup from "yup";
-import Home from "../Home";
-import NavbarTop from "../NavbarTop";
+import NavbarTop from "../navegation/NavbarTop";
 import Logo from "../../assets/Logo";
 const Register = () => {
   const navegate = useNavigate();
@@ -15,7 +14,7 @@ const Register = () => {
       // eslint-disable-next-line no-unused-vars
       const credentialUser = await register({ email, password });
       console.log(credentialUser);
-      navegate("/registernewprofile");
+      navegate("/loggedin");
     } catch (error) {
       switch (error.code) {
         case "auth/email-already-in-use":

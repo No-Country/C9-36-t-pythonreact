@@ -69,4 +69,14 @@ Se realizo la configuracion de rutas Landing > Home > Login/Register
 Se maqueto segun el figma el componente Login Desktop
 Se maqueto segun el figma el componente Register Desktop
 Se maqueto segun el figma el componente RegisterEmail Desktop
+
+\*\* Update 27/02
+Se agregaron los bloques try catch faltantes a las funciones asyncronas
+Se termino de maquetar la vista dinamica de perfil de usario en version Desktop
+Se termino de maquetar la vista dinamica de perfil de usario en version Mobile
+Se termino de maquetar la vista dinamica de perfil de usario en version Tablet
+Se agrego el boton de navegacion para volver al dashboard en la vista de perfil de usuario
+Se creo la carpeta navegation y se movieron todos los componentes "sueltos" dentro de esa carpeta volviendo a configurar todas las rutas 
+Se creo el componente AllProfiles el cual mostrara todos los perfiles de los usuarios registrados en la app
+
 }

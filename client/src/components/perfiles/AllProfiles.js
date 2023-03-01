@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getProfilePhotoUrl, getUsersFromServer } from "../../config/firebase";
-import Navbartest from "../navegation/Navbartest";
 import styles from "./Perfiles.module.css";
 
-function PerfilesDesigner() {
+function PerfilesFrontend() {
   const [users, setUsers] = useState([]);
   const [profileUrls, setProfileUrls] = useState([]);
-  const uxui = users.filter(
-    (el) => el.especialidades && el.especialidades.uxui === true
-  );
 
+  /* const fronts = users.filter((el) => el.especialidades.frontend === true); */
+  /*   const fronts = users.filter(
+    (el) => el.especialidades && el.especialidades.frontend === true
+  ); */
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -23,7 +23,7 @@ function PerfilesDesigner() {
     fetchUsers();
     async function getProfileUrls() {
       try {
-        const promises = uxui.map((el) =>
+        const promises = users.map((el) =>
           getProfilePhotoUrl(el.profilePicture)
         );
         const urls = await Promise.all(promises);
@@ -33,13 +33,15 @@ function PerfilesDesigner() {
       }
     }
     getProfileUrls();
-  }, [uxui.length]);
-
+  }, [users.length]);
+  console.log(users);
+  console.log(setUsers);
+  console.log(profileUrls);
   return (
     <>
-      <Navbartest />
+      {" "}
       <div className={styles.gridContainer}>
-        {uxui.map((el, index) => (
+        {users.map((el, index) => (
           <Link key={el.uid} to={`/user/${el.uid}`}>
             <div
               key={el.uid}
@@ -52,6 +54,20 @@ function PerfilesDesigner() {
             >
               <div className={styles.fondo}>
                 <h2>{el.userName}</h2>
+                {el.tecnologias && el.tecnologias.react === true && (
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                    className="ml-2 h-6 w-6"
+                    alt="React"
+                  />
+                )}{" "}
+                {el.tecnologias && el.tecnologias.javascript === true && (
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                    className="ml-2 h-6 w-6"
+                    alt="JavaScript"
+                  />
+                )}
                 {el.tecnologias && el.tecnologias.figma === true && (
                   <img
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
@@ -67,4 +83,5 @@ function PerfilesDesigner() {
     </>
   );
 }
-export default PerfilesDesigner;
+
+export default PerfilesFrontend;

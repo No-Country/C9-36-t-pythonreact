@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Oxygen&display=swap");
 
 header {
-    position: fixed;
+    /* position: fixed; le saco el fixed por que renderiza mal todo el componente de abajo */
     top: 0;
     left: 0;
     width: 100%;

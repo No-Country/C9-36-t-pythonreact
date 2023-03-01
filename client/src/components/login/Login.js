@@ -2,13 +2,16 @@ import { Field, Form, Formik, ErrorMessage } from "formik";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useUserContext } from "../../context/UserContext";
-import { login, handleClickGoogle } from "../../config/firebase";
+import {
+  login,
+  handleClickGoogle,
+  signInWithFacebook,
+} from "../../config/firebase";
 import { FaGoogle } from "react-icons/fa";
-
+import { RiFacebookBoxLine } from "react-icons/ri";
 /* import * as Yup from "yup"; */
-import Home from "../Home";
-import Navbar from "../Navbar";
-import NavbarTop from "../NavbarTop";
+
+import NavbarTop from "../navegation/NavbarTop";
 /* import { signInWithPopup } from "firebase/auth"; */
 
 const Login = () => {
@@ -65,11 +68,11 @@ const Login = () => {
             }}
             onSubmit={onSubmit}
           >
-            <Form className="m-6 flex flex-col justify-center gap-2">
+            <Form className="m-6 flex flex-col justify-center gap-1">
               <div>
                 <h1 className="text-center text-3xl font-bold">Login</h1>
               </div>
-              <div className="group relative z-0 mb-6 w-full">
+              <div className="group relative z-0 mb-1 w-full">
                 <Field
                   type="email"
                   name="email"
@@ -83,7 +86,7 @@ const Login = () => {
                   Direccion de email
                 </label>
               </div>
-              <div className="group relative z-0 mb-6 w-full">
+              <div className="group relative z-0 mb-1 w-full">
                 <Field
                   type={showPwd ? "text" : "password"}
                   name="password"
@@ -141,11 +144,21 @@ const Login = () => {
           <div className="flex justify-center">
             <button
               onClick={handleClickGoogle}
-              className="text- flex h-[56px] items-center gap-2 rounded-full border-2 border-black
+              className="flex h-[56px] items-center gap-2 rounded-full border-2 border-black
          px-12 text-base text-black"
             >
               <FaGoogle className="text-2xl text-black" />
               Login con Google
+            </button>
+          </div>
+          <div className="flex justify-center">
+            <button
+              onClick={signInWithFacebook}
+              className="mt-1 flex h-[56px] items-center gap-2  rounded-full
+         bg-[#4B61B1] px-8 text-base text-white"
+            >
+              <RiFacebookBoxLine className="text-3xl text-black" />
+              Loggin con Facebook
             </button>
           </div>
         </div>

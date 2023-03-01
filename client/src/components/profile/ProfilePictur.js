@@ -8,7 +8,11 @@ function ProfilePhoto({ profilePicture }) {
     const getUrl = async () => {
       const userInfo = await getUserInfo(user.uid);
       const url = await getProfilePhotoUrl(userInfo.profilePicture);
-      setProfileUrl(url);
+      if (url) {
+        setProfileUrl(url);
+      } else {
+        console.log("no carga la imagen de perfil");
+      }
     };
     getUrl();
   }, [profilePicture, user.uid]);
