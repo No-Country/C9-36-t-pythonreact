@@ -2,7 +2,12 @@ import { Field, Form, Formik } from "formik";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useUserContext } from "../../context/UserContext";
-import { auth, login, provider } from "../../config/firebase";
+import {
+  auth,
+  login,
+  provider,
+  handleClickGoogle,
+} from "../../config/firebase";
 import { FaGoogle } from "react-icons/fa";
 
 // import * as Yup from "yup";
@@ -13,12 +18,9 @@ const Login = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const { user, setUser } = useUserContext();
-  const handleClickGoogle = () => {
-    signInWithPopup(auth, provider).then((data) => setUser(data.user.email));
-  };
   useEffect(() => {
     if (user) {
-      navigate("/dashboard");
+      navigate("/loggedin");
     }
   }, [user]);
   const onSubmit = async (values) => {

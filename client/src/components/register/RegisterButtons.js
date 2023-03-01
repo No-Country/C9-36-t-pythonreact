@@ -7,6 +7,7 @@ import { useUserContext } from "../../context/UserContext";
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../../config/firebase";
 import { signInWithFacebook } from "../../config/firebase";
+
 const ButtonsLogin = () => {
   const { user, setUser } = useUserContext();
   const handleClickGoogle = () => {

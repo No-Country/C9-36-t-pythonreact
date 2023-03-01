@@ -14,10 +14,12 @@ export default function UserContextProvider({ children }) {
     /* Destructor de observable, una seguridad en la memoria para evitar que otro componente accidentalmente vuelva a ejecutar este useEffect*/
     const unsuscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
+      user && console.log(user.displayName);
     });
     return unsuscribe;
   }, []);
   if (user === false)
+    /* Falta agregar el spiner aca */
     return <div>Loading app... Aca voy a poner un spinner lindo y bonito</div>;
   return (
     <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>

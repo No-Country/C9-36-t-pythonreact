@@ -1,16 +1,18 @@
-import { ErrorMessage, Field, Form, Formik, } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { register } from "../../config/firebase";
 import * as Yup from "yup";
 import Home from "../Home";
 const Register = () => {
+  const navegate = useNavigate();
   const [error, setError] = useState("");
   const onSubmit = async (values) => {
     const { email, password } = values;
     try {
       const credentialUser = await register({ email, password });
-      window.location.href = "/dashboard";
+      navegate("/dashboard");
+      /* window.location.href = "/dashboard"; */
     } catch (error) {
       switch (error.code) {
         case "auth/email-already-in-use":
@@ -39,15 +41,14 @@ const Register = () => {
       .required("La contraseña es requerida")
       .min(8, "La contraseña es muy corta.")
       .max(18, "La contraseña es muy larga."),
-      changepassword: Yup.string().when("password", {
+    changepassword: Yup.string().when("password", {
       is: (value) => (value && value.length > 0 ? true : false),
       then: Yup.string()
         .oneOf([Yup.ref("password")], "Las contraseñas no cohinciden.")
         .required("Debes volver a ingresar la contraseña en este campo."),
     }),
-  
-    });
-    return (
+  });
+  return (
     <div className="mt-10">
       <Home />
       <Formik
@@ -68,7 +69,7 @@ const Register = () => {
               placeholder=" "
               required
             />
-            <ErrorMessage name="email" component="div"/>
+            <ErrorMessage name="email" component="div" />
             <label htmlFor="floating_email" className={classLabel}>
               Direccion de email
             </label>
@@ -85,7 +86,7 @@ const Register = () => {
               placeholder=" "
               required
             />
-            <ErrorMessage name="password" component="div"/>
+            <ErrorMessage name="password" component="div" />
             <label htmlFor="floating_password" className={classLabel}>
               Ingrese su contraseña
             </label>
@@ -99,7 +100,7 @@ const Register = () => {
               placeholder=" "
               required
             />
-            <ErrorMessage name="changepassword" component="div"/>
+            <ErrorMessage name="changepassword" component="div" />
             <label htmlFor="floating_changepassword" className={classLabel}>
               Reingrese su contraseña
             </label>
