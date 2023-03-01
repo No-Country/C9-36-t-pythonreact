@@ -4,7 +4,7 @@ import { createContext } from "react";
 /* Config de firebase */
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../config/firebase";
-
+import Loading from "../assets/loading/Loading";
 const UserContext = createContext();
 
 export default function UserContextProvider({ children }) {
@@ -14,13 +14,13 @@ export default function UserContextProvider({ children }) {
     /* Destructor de observable, una seguridad en la memoria para evitar que otro componente accidentalmente vuelva a ejecutar este useEffect*/
     const unsuscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
-      user && console.log(user.displayName);
+      /* Eslint error user && console.log(user.displayName); */
     });
     return unsuscribe;
-  }, []);
+  }, [user]);
   if (user === false)
     /* Falta agregar el spiner aca */
-    return <div>Loading app... Aca voy a poner un spinner lindo y bonito</div>;
+    return <Loading />;
   return (
     <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>
   );

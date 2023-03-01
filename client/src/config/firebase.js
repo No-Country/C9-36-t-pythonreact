@@ -15,23 +15,33 @@ import {
 import {
   getFirestore,
   collection,
-  addDoc,
   getDocs,
   doc,
   getDoc,
   query,
   where,
   setDoc,
-  deleteDoc,
+  updateDoc,
+  /*  deleteDoc, */
 } from "firebase/firestore";
 import {
   getStorage,
   ref,
   uploadBytes,
   getDownloadURL,
-  getBytes,
+  /*   getBytes, */
 } from "firebase/storage";
 // Your web app's Firebase configuration
+/* svrk */
+/* const firebaseConfig = {
+  apiKey: "AIzaSyCE3fX4RTBicK9SSuYWy0Jft4vxIYlaOUY",
+  authDomain: "tindev-4c290.firebaseapp.com",
+  projectId: "tindev-4c290",
+  storageBucket: "tindev-4c290.appspot.com",
+  messagingSenderId: "582249708018",
+  appId: "1:582249708018:web:d5b7cb05a61de6cfe8136b",
+}; */
+/* phytonReact team*/
 const firebaseConfig = {
   apiKey: "AIzaSyAnEddeH4DUeuGzz3nhcJnn-Q3R1cwioNU",
   authDomain: "team-c9-36.firebaseapp.com",
@@ -81,7 +91,6 @@ export const userExists = async (uid) => {
   /* Buscamos en la base de datos, en la coleccion de usuarios, el documento uid */
   const docRef = doc(db, "users", uid);
   const res = await getDoc(docRef);
-  console.log(res);
   return res.exists();
 };
 export const existsUsername = async (userName) => {
@@ -99,16 +108,72 @@ export const existsUsername = async (userName) => {
 export const registerNewUser = async (user) => {
   try {
     /* Definimos la coleccion donde vamos a guardar el usuario nuevo */
-    const collectionRef = collection(db, "users");
+    /*  const collectionRef = collection(db, "users");
     const docRef = doc(collectionRef, user.uid);
-    await setDoc(docRef, user);
-  } catch (error) {}
+    await updateDoc(docRef, user); */
+    const usersRef = collection(db, "users");
+    await setDoc(doc(usersRef, user.uid), user);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const updateUser = async (user) => {
   try {
-    const collectionRef = collection(db, "users");
-    const docRef = doc(collectionRef, user.uid);
-    await setDoc(docRef, user);
-  } catch (error) {}
+    const usersRef = collection(db, "users");
+    await updateDoc(doc(usersRef, user.uid), user);
+    console.log("Usuario actualizado con éxito");
+  } catch (error) {
+    console.log(error + "error de getupdateuser");
+  }
+};
+export const getUserInfo = async (uid) => {
+  try {
+    const docRef = doc(db, "users", uid);
+    const document = await getDoc(docRef);
+    return document.data();
+  } catch (error) {
+    console.log(error + "error de getuserinfo");
+  }
+};
+
+export async function setUserProfilePhoto(uid, file) {
+  try {
+    const storage = getStorage();
+    const mountainImagesRef = ref(storage, `images/${uid}`);
+    const res = await uploadBytes(mountainImagesRef, file);
+    return res;
+  } catch (error) {
+    console.error(error + "error de setuserprofileohoto");
+  }
+}
+export async function getProfilePhotoUrl(profilePicture) {
+  try {
+    const profileRef = ref(storage, profilePicture);
+    const url = await getDownloadURL(profileRef);
+    if (url) {
+      return url;
+    } else {
+      console.log("no carga la foto en firebase ");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+export const getUserPublicProfileInfo = async (uid) => {
+  const profileInfo = await getUserInfo(uid);
+  return profileInfo;
+};
+export const getUsersFromServer = async () => {
+  try {
+    const users = [];
+    const docsRef = collection(db, "users");
+    const querySnapshot = await getDocs(docsRef);
+    querySnapshot.forEach((doc) => {
+      users.push(doc.data());
+    });
+    return users;
+  } catch (err) {
+    console.error("Error getting documents", err);
+  }
 };

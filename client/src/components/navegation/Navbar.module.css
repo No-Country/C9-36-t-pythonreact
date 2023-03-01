@@ -1,0 +1,29 @@
+nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+@media  (min-width: 900px)  {
+    
+    nav {
+        position: static;
+        
+        flex-direction: row-reverse;
+        width: auto;
+        
+        display: flex;
+        
+        margin-right: 30px;
+        
+        gap: 50px;
+    }
+    
+
+}

@@ -1,37 +1,67 @@
-import Home from "./components/Home";
-import Login from "./components/login/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Register from "./components/register/Register";
-import RegisterEmail from "./components/register/RegisterEmail";
-import Dashboard from "./components/Dashboard";
-
-import { LayoutPrivate } from "./layout/LayoutPrivate";
+import Dashboard from "./components/navegation/Dashboard";
+import Home from "./components/navegation/Home";
+import LandingPage from "./components/navegation/LandingPage";
+import Error404 from "./components/navegation/Error404";
 import ForgotPassword from "./components/login/ForgotPassword";
-import LandingPage from "./components/LandingPage";
-import RegisterCodigo from "./components/register/RegisterCodigo";
 import LoggedIn from "./components/login/LoggedIn";
-import RegisterProfile from "./components/register/RegisterProfile";
+import Login from "./components/login/Login";
+import Register from "./components/register/Register";
+import RegisterCodigo from "./components/register/RegisterCodigo";
+import RegisterEmail from "./components/register/RegisterEmail";
+import RegisterInicio from "./components/register/RegisterInicio";
+import RegisterSpinner from "./components/register/RegisterSpinner";
+import { LayoutPrivate } from "./layout/LayoutPrivate";
+import ProfileView from "./components/profile/ProfileView";
+import RegisterNewProfile from "./components/register/RegisterNewProfile";
+import RegisterNewProfileFigma from "./components/register/RegisterNewProfileFigma";
+import RegisterFin from "./components/register/RegisterFin";
+import UserDetailContainer from "./components/users/UserDetailContainer";
+import UserFigma from "./components/users/UserFigma";
+import PerfilesFrontend from "./components/perfiles/PerfilesFrontend";
+import PerfilesBackend from "./components/perfiles/PerfilesBackend";
+import PerfilesDesigner from "./components/perfiles/PerfilesDesigner";
+import AllProfiles from "./components/perfiles/AllProfiles";
 
 function App() {
-
-
   return (
     <>
       <BrowserRouter>
         <Routes>
-          {/* <Route index element={<Landing/>}/> Cuando este creada la landing page siempre va a ser la pagina de inicio*/}
-
           <Route path={"/"} element={<LandingPage />} />
           <Route path={"/home"} element={<Home />} />
+          <Route path={"/registerInicio"} element={<RegisterInicio />} />
           <Route path={"/login"} element={<Login />} />
           <Route path={"/forgotpassword"} element={<ForgotPassword />} />
           <Route path={"/register"} element={<Register />} />
           <Route path={"/registerEmail"} element={<RegisterEmail />} />
           <Route path={"/registerCodigo"} element={<RegisterCodigo />} />
+          <Route path={"/registerSpinner"} element={<RegisterSpinner />} />
+          <Route path={"/registerValidando"} element={<registerValidando />} />
+          <Route path={"/registerFin"} element={<RegisterFin />} />
+          <Route path={"/user/:id"} element={<UserDetailContainer />} />
+          <Route path={"*"} element={<Error404 />} />
+
           <Route element={<LayoutPrivate />}>
             <Route path={"/dashboard"} element={<Dashboard />} />
             <Route path={"/loggedIn"} element={<LoggedIn />} />
-            <Route path={"/registerProfile"} element={<RegisterProfile />} />
+            <Route
+              path={"/registernewprofile"}
+              element={<RegisterNewProfile />}
+            />
+            <Route path={"/profileview"} element={<ProfileView />} />
+            <Route path={"/userfigma"} element={<UserFigma />} />
+            <Route
+              path={"/registernewprofilefigma"}
+              element={<RegisterNewProfileFigma />}
+            />
+            <Route path={"/perfiles/frontend"} element={<PerfilesFrontend />} />
+            <Route path={"/perfiles/backend"} element={<PerfilesBackend />} />
+            <Route
+              path={"/perfiles/designers"}
+              element={<PerfilesDesigner />}
+            />
+            <Route path={"/perfiles/allprofiles"} element={<AllProfiles />} />
           </Route>
         </Routes>
       </BrowserRouter>

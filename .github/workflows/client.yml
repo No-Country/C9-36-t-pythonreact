@@ -18,8 +18,8 @@ defaults:
 
 jobs:
 
-  build:
-    runs-on: ubuntu-latest
+  Setup-Build-Deploy:
+    runs-on: self-hosted
     
     steps:
       
@@ -36,12 +36,19 @@ jobs:
         
       - name: Build the React application
         run: npm run build
+        env:
+          CI: ""
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
           aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Invalidate Cloudfront Distribution
+        run: aws cloudfront create-invalidation
+          --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+          --paths "/"
 
       - name: Deploy ./build to S3 bucket
         run: aws s3 sync ./build/ s3://${{ secrets.AWS_DEV_BUCKET_NAME }} --delete

@@ -1,42 +1,51 @@
 import { onAuthStateChanged } from "firebase/auth";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth, registerNewUser, userExists } from "../../config/firebase";
-import { useUserContext } from "../../context/UserContext";
-
+import {
+  auth,
+  getUserInfo,
+  registerNewUser,
+  userExists,
+} from "../../config/firebase";
 const AuthProvider = ({
   children,
   onUserNotLoggedIn,
   onUserNotRegistered,
   onUserLoggedIn,
 }) => {
- /*  const { user } = useUserContext(); */
   const navegate = useNavigate();
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
-        const exists = await userExists(user.uid);
-        if (exists) {
-          /*  onUserLoggedIn(user); */
-          console.log("logged in ");
+        const isRegistered = await userExists(user.uid);
+        if (isRegistered) {
+          const userInfo = await getUserInfo(user.uid);
+          if (userInfo.processCompleted) {
+            onUserLoggedIn(userInfo);
+          } else {
+            onUserNotRegistered(userInfo);
+          }
+          /*   const loggedUser = await getUserInfo(uid); */
         } else {
           await registerNewUser({
             uid: user.uid,
-            displayName: user.displayName,
+            busco: "",
+            contacto: "",
+            descripcion: "",
+            stacks: "",
+            tecnologias: "",
+            proyectos: "",
             profilePicture: "",
-            username: "",
-            processCompleted: false,
+            userName: "",
           });
           onUserNotRegistered(user);
-          console.log("not registered este console es del authprovider");
-          navegate("/registerprofile");
+          navegate("/registernewprofilefigma");
         }
       } else {
         onUserNotLoggedIn();
       }
     });
-  }, []);
-  /* navegate, onUserLoggedIn, onUserNotLoggedIn, onUserNotRegistered */
+  }, [navegate, onUserLoggedIn, onUserNotLoggedIn, onUserNotRegistered]);
   return <div>{children}</div>;
 };
 
