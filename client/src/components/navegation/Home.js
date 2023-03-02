@@ -16,6 +16,11 @@ const Home = () => {
             <Logo />
           </NavLink>
         </div>
+        <div className={styles.logoGrande}>
+          <NavLink to={"/"}>
+            <LogoGrande />
+          </NavLink>
+        </div>
 
         <div className={styles.links}>
           <Link to={"/login"}>

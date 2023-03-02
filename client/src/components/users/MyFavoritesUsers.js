@@ -41,8 +41,9 @@ const MyFavoritesUsers = () => {
   console.log(favorites.length);
   console.log(currentUser, "current user");
   return (
-    <>
+    <div className={styles.body}>
       <Navbartest />
+      <h1 className={styles.section__h1}>Tus favoritos</h1>
       {loading ? (
         <Loading />
       ) : favorites === [] ? (
@@ -93,7 +94,7 @@ const MyFavoritesUsers = () => {
           <div>No hay favoritos</div>
         </>
       )}
-    </>
+    </div>
   );
 };
 

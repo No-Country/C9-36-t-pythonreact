@@ -32,7 +32,7 @@ const UserFigma = ({ data, profileUrls, currentUser }) => {
   return (
     <>
       <Navbartest />
-      <div className="flex justify-between bg-[#264653]">
+      <div className="flex justify-between bg-[#264653] mt-28">
         <div className="flex w-screen justify-around ">
           <div className="mt-10 ml-10 text-5xl font-bold text-white">
             <span className="my-2">
