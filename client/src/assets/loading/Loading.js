@@ -1,6 +1,22 @@
+import gif from "./gif.gif";
 const Loading = () => {
   return (
-    <div role="status">
+    <div className="mt-10">
+      <div className="mt-12 flex justify-center">
+        <h2 className="text-center text-2xl">
+          Aguarda un instante por favor estamos validando tus datos.
+        </h2>
+      </div>
+      <div role="status" className="mt-10 flex justify-center text-black">
+        <img src={gif} />
+      </div>
+    </div>
+  );
+};
+
+export default Loading;
+
+/*   <div role="status">
       <svg
         aria-hidden="true"
         className="mr-2 h-8 w-8 animate-spin fill-blue-600 text-gray-200 dark:text-gray-600"
@@ -18,8 +34,4 @@ const Loading = () => {
         />
       </svg>
       <span className="sr-only">Loading...</span>
-    </div>
-  );
-};
-
-export default Loading;
+    </div> */

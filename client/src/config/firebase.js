@@ -62,8 +62,27 @@ export const storage = getStorage();
 /* exportamos auth, auth tiene la configuracion de nuestro proyecto  */
 export { auth, provider };
 /* Esta funcion sirve para loguear al usuario */
-export const login = ({ email, password }) =>
-  signInWithEmailAndPassword(auth, email, password);
+export const login = async ({ email, password }) => {
+  try {
+    const user = await signInWithEmailAndPassword(auth, email, password);
+    return user;
+  } catch (error) {
+    switch (error.code) {
+      case "auth/user-not-found":
+        return {
+          error: "No user found with this email address.",
+        };
+      case "auth/wrong-password":
+        return {
+          error: "Incorrect password.",
+        };
+      default:
+        return {
+          error: "Something went wrong.",
+        };
+    }
+  }
+};
 /* Esta funcion sirve para registrar al usuario */
 export const register = ({ email, password }) =>
   createUserWithEmailAndPassword(auth, email, password);

@@ -22,21 +22,21 @@ const Login = () => {
     if (user) {
       navigate("/loggedin");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
+  console.log(user);
   const onSubmit = async (values) => {
     const { email, password } = values;
-    try {
-      // eslint-disable-next-line no-unused-vars
-      const credentialUser = await login({ email, password });
-    } catch (error) {
+    const credentialUser = await login({ email, password });
+    console.log(credentialUser);
+    setError(credentialUser.error);
+    /* } catch (error) {
       if (error.code === "auth/wrong-password") {
         setError("Contraseña incorrecta");
       }
       if (error.code === "auth/too-many-requests") {
         setError("Demasiados intentos de logueo");
       }
-    }
+    } */
   };
   const classTw =
     "peer block w-full appearance-none border border-slate-300 rounded-md text-sm shadow-sm bg-transparent p-4 text-sm text-gray-900 focus:border-blue-800 focus:outline-none  focus:ring-0 rounded-sm";
@@ -87,7 +87,7 @@ const Login = () => {
               </div>
               <div className="group relative z-0 mb-1 w-full">
                 <Field
-                  type="password "
+                  type="password"
                   name="password"
                   id="password"
                   className={classTw}
