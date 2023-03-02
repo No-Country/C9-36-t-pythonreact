@@ -1,9 +1,13 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import Logo from "../../assets/LogoDashboard";
+import LogoGrande from "../../assets/Logo";
 import styles from "./Home.module.css";
 
 const Home = () => {
+
+  const windowWidth = window.innerWidth;
+  const isSmall = windowWidth < 900;
   return (
     <div>
       <header className={styles.header}>

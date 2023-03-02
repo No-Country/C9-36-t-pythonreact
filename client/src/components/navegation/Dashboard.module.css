@@ -1,14 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Oxygen&display=swap");
 
-header {
-    /* position: fixed; le saco el fixed por que renderiza mal todo el componente de abajo */
+.dashboardHeader {
+    position: fixed;  
     top: 0;
     left: 0;
     width: 100%;
     background-color: #fff;
+    z-index: 999;
 }
 
-header div {
+.logoBoton {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,20 +19,23 @@ header div {
     margin-left: 15px;
 }
 
-button {
-    padding: 8px 16px;
-    background: #264653;
-    border-radius: 30px;
-    color: #fff;
-
+.logoCuenta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-right: 20px;
-
-    font-family: "Oxygen";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
+    padding-top: 10px;
 }
+
+.logoCuenta h2 {
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+}
+
 
 .navPerfiles {
     display: flex;
@@ -54,12 +58,12 @@ button {
     text-underline-offset: 5px;
 }
 
-section {
+.section {
     width: 100%;
     margin: 140px auto;
 }
 
-h1 {
+.section__h1 {
     width: 90%;
     margin: 0 auto;
     margin-bottom: 30px;
@@ -73,7 +77,7 @@ h1 {
 
 @media  (min-width: 900px)  {
     
-    header {
+    .dashboardHeader {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -81,11 +85,11 @@ h1 {
         
     }
 
-    header button {
+    .logoCuenta {
         display: none;
     }
 
-    header div {
+    .logoBoton {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -103,12 +107,20 @@ h1 {
         text-underline-offset: 5px;
     }
 
-    body {
-        background-color: #264653;
+    .section {
+        width: 100%;
+        
+        margin: 115px auto 0 auto;
     }
 
-    h1 {
+    .section__h1 {
         display: none;
+    }
+
+    .body {
+        min-height: 100vh;
+        background-color: #264653;
+        padding-top: 10px;  
     }
 
 }
