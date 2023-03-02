@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import PerfilesBackend from "../perfiles/PerfilesBackend";
-import PerfilesFrontend from "../perfiles/PerfilesFrontend";
-import PerfilesDesigner from "../perfiles/PerfilesDesigner";
 import AllProfiles from "../perfiles/AllProfiles";
 import { logOut } from "../../config/firebase";
 import Navbartest from "./Navbartest";
@@ -18,6 +15,7 @@ const Dashboard = () => {
       console.log(error);
     }
   };
+  console.log(seleccion);
   return (
     <div>
       <Navbartest

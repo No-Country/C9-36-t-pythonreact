@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import LogoLapizEdit from "../../assets/LogoLapizEdit";
-import LogoUploadPhoto from "../../assets/LogoUploadPhoto";
 import {
   getUserInfo,
   setUserProfilePhoto,
