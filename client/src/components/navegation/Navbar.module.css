@@ -1,4 +1,7 @@
-nav {
+@import url("https://fonts.googleapis.com/css2?family=Oxygen&display=swap");
+
+
+.navbar {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -9,10 +12,28 @@ nav {
     align-items: center;
 }
 
+.logoCuenta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    padding-top: 10px;
+}
+
+.logoCuenta h2 {
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+
 
 @media  (min-width: 900px)  {
     
-    nav {
+    .navbar {
         position: static;
         
         flex-direction: row-reverse;
@@ -22,8 +43,27 @@ nav {
         
         margin-right: 30px;
         
-        gap: 50px;
+        gap: 30px;
     }
+
+
+    .logoCuentaDesktop {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .logoCuentaDesktop h2 {
+        font-family: 'Oxygen';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+
     
 
 }

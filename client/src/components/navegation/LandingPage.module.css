@@ -140,7 +140,7 @@
         transform: matrix(1, 0, 0, -1, 0, 0);
         display: flex;
         justify-content: center;
-        padding-bottom: 7%;
+        padding-bottom: 8%;
     }
 
     .button {
@@ -156,8 +156,9 @@
     }
 
     .button:hover {
-        background: #3c9f93;
-        color: #ffea00;
+        background:  #FFF;
+        color: #264653;
+        box-shadow: 6px 8px 8px 0px #00000052;
     }
 
 }

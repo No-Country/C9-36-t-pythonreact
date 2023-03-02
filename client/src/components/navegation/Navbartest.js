@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Logo from "../../assets/LogoDashboard";
+import LogoCuenta from "../../assets/LogoCuenta";
 import { Link, NavLink } from "react-router-dom";
 // import { logOut } from "../config/firebase";
 import styles from "./Dashboard.module.css";
@@ -7,14 +8,12 @@ import Navbar from "./Navbar";
 
 const Navbartest = ({ handleLogout, handleSeleccion }) => {
   return (
-    <header>
-      <div>
+    <header className={styles.dashboardHeader}>
+      <div className={styles.logoBoton}>
         <NavLink to={"/"} className={styles.logo}>
           <Logo />
         </NavLink>
-        <Link>
-          <button>Iniciar Sesión</button>
-        </Link>
+  
       </div>
       <div className={styles.navPerfiles}>
         <NavLink to={"/perfiles/frontend"}>Frontend Dev´s</NavLink>

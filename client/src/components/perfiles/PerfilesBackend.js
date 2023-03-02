@@ -38,8 +38,9 @@ function PerfilesBackend() {
   }, [backs.length]);
 
   return (
-    <>
+    <div className={styles.body}>
       <Navbartest />
+      <h1 className={styles.section__h1}>Buscá con quien trabajar</h1>
       <div className={styles.gridContainer}>
         {backs.map((el, index) => (
           <Link key={el.uid} to={`/user/${el.uid}`}>
@@ -66,7 +67,7 @@ function PerfilesBackend() {
           </Link>
         ))}
       </div>{" "}
-    </>
+    </div>
   );
 }
 export default PerfilesBackend;

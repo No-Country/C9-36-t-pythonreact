@@ -36,8 +36,9 @@ function PerfilesDesigner() {
   }, [uxui.length]);
 
   return (
-    <>
+    <div className={styles.body}>
       <Navbartest />
+      <h1 className={styles.section__h1}>Buscá con quien trabajar</h1>
       <div className={styles.gridContainer}>
         {uxui.map((el, index) => (
           <Link key={el.uid} to={`/user/${el.uid}`}>
@@ -64,7 +65,7 @@ function PerfilesDesigner() {
           </Link>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 export default PerfilesDesigner;

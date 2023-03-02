@@ -1,11 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Oxygen&display=swap");
 
+
+.section__h1 {
+    width: 90%;
+    margin: 140px auto;
+    margin-bottom: 30px;
+    font-family: "Oxygen";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 48px;
+}
+
 .gridContainer {
     
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     grid-auto-rows: minmax(180px, auto);
-    gap: 2px;
+    grid-row-gap: 20px;
     
     grid-auto-flow: dense;
     /*para que llene los espaacios vacios*/
@@ -32,15 +44,7 @@
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
 
-.gridItem:hover {
-    filter: opacity(0.9);
-    -webkit-filter: opacity(0.9);
-    transform: scale(1.04);
-    -webkit-transform: scale(1.04);
-    -moz-transform: scale(1.04);
-    -ms-transform: scale(1.04);
-    -o-transform: scale(1.04);
-}
+
 
 
 
@@ -82,4 +86,34 @@
         transform: matrix(1, 0, 0, -1, 0, 0);
         top: 4%;
         
+    }
+
+
+
+    @media  (min-width: 900px) {
+        
+        .gridContainer {
+            margin: 115px auto 0 auto;
+        }
+
+        .gridItem:hover {
+            filter: opacity(0.9);
+            -webkit-filter: opacity(0.9);
+            transform: scale(1.04);
+            -webkit-transform: scale(1.04);
+            -moz-transform: scale(1.04);
+            -ms-transform: scale(1.04);
+            -o-transform: scale(1.04);
+        }
+
+        .section__h1 {
+            display: none;
+        }
+
+        .body {
+            min-height: 100vh;
+            background-color: #264653;
+            padding-top: 10px;  
+        }
+    
     }

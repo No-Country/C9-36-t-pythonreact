@@ -36,9 +36,10 @@ function PerfilesFrontend() {
     getProfileUrls();
   }, [fronts.length]);
   return (
-    <>
+    <div className={styles.body}>
       {" "}
       <Navbartest />
+      <h1 className={styles.section__h1}>Buscá con quien trabajar</h1>
       <div className={styles.gridContainer}>
         {fronts.map((el, index) => (
           <Link key={el.uid} to={`/user/${el.uid}`}>
@@ -65,7 +66,7 @@ function PerfilesFrontend() {
           </Link>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

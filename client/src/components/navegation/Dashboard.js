@@ -5,6 +5,7 @@ import PerfilesDesigner from "../perfiles/PerfilesDesigner";
 import AllProfiles from "../perfiles/AllProfiles";
 import { logOut } from "../../config/firebase";
 import Navbartest from "./Navbartest";
+import styles from "./Dashboard.module.css"
 
 const Dashboard = () => {
   const [seleccion, setSeleccion] = useState("frontend");
@@ -19,12 +20,17 @@ const Dashboard = () => {
     }
   };
   return (
-    <div>
+    <div className={styles.body}>
       <Navbartest
         handleLogout={handleLogout}
         handleSeleccion={handleSeleccion}
       />
-      <AllProfiles />
+      <section className={styles.section}>
+        <h1 className={styles.section__h1}>Buscá con quien trabajar</h1>
+        <AllProfiles />
+        
+        
+      </section>
       {/*     <section>
         <h1>Buscá con quien trabajar</h1>
 
