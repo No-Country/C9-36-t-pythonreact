@@ -1,5 +1,5 @@
 import React from "react";
-import LogoHome from "../../assets/LogoHome";
+
 import LogoMisEquipos from "../../assets/LogoMisEquipos";
 import LogoMiPerfil from "../../assets/LogoMiPerfil";
 import LogoCuenta from "../../assets/LogoCuenta";

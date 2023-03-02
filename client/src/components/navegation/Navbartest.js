@@ -18,7 +18,7 @@ const Navbartest = ({ handleLogout, handleSeleccion }) => {
       <div className={styles.navPerfiles}>
         <NavLink to={"/perfiles/frontend"}>Frontend Dev´s</NavLink>
         <NavLink to={"/perfiles/backend"}>Backend Dev´s</NavLink>
-        <NavLink to={"/perfiles/designers"}>Designers Dev´s</NavLink>
+        <NavLink to={"/perfiles/designers"}>UX/UI Designers</NavLink>
       </div>
       {/*  */}
       <Navbar className={styles.navCuenta} />

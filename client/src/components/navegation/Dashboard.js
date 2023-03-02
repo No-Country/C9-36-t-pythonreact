@@ -23,10 +23,13 @@ const Dashboard = () => {
         handleLogout={handleLogout}
         handleSeleccion={handleSeleccion}
       />
-      <AllProfiles />
-      <button onClick={handleLogout} className="bg-black">
-        Log out
-      </button>
+      <section className={styles.section}>
+        <h1 className={styles.section__h1}>Buscá con quien trabajar</h1>
+        <AllProfiles />
+        <button onClick={handleLogout} className="bg-black">
+          Log out
+        </button>
+      </section> 
       {/*     <section>
         <h1>Buscá con quien trabajar</h1>
 

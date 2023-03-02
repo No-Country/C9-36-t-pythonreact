@@ -40,6 +40,7 @@ function PerfilesFrontend() {
     <div className={styles.body}>
       {" "}
       <Navbartest />
+      <h1 className={styles.section__h1}>Buscá con quien trabajar</h1>
       {loading ? (
         <Loading />
       ) : (
