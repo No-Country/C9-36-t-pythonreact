@@ -1,4 +1,10 @@
-nav {
+@import url("https://fonts.googleapis.com/css2?family=Oxygen&display=swap");
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto:wght@500&display=swap');
+
+
+
+.navbar {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -9,10 +15,31 @@ nav {
     align-items: center;
 }
 
+.logoCuenta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.logoCuenta h2 {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+/* identical to box height, or 100% */
+
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+
 
 @media  (min-width: 900px)  {
     
-    nav {
+    .navbar {
         position: static;
         
         flex-direction: row-reverse;
@@ -22,8 +49,10 @@ nav {
         
         margin-right: 30px;
         
-        gap: 50px;
+        gap: 40px;
     }
+
+
     
 
 }
