@@ -73,7 +73,7 @@ function PerfilesDesigner() {
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 }
 export default PerfilesDesigner;

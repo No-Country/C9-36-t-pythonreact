@@ -70,7 +70,7 @@ function PerfilesFrontend() {
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 }
 

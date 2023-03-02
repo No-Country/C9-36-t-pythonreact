@@ -74,7 +74,7 @@ function PerfilesBackend() {
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 }
 export default PerfilesBackend;
