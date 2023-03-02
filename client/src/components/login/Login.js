@@ -12,6 +12,7 @@ import { RiFacebookBoxLine } from "react-icons/ri";
 /* import * as Yup from "yup"; */
 
 import NavbarTop from "../navegation/NavbarTop";
+import Logo from "../../assets/Logo";
 /* import { signInWithPopup } from "firebase/auth"; */
 
 const Login = () => {
@@ -58,7 +59,10 @@ const Login = () => {
     <>
       <NavbarTop />
       <div className="flex h-screen w-screen justify-center bg-[#264653]">
-        <div className="mb-4 mt-32 h-[500] w-[350px] rounded-md bg-white">
+        <div className="mb-4 mt-10 h-[500] w-[350px] rounded-md bg-white">
+          <div className="flex justify-center">
+            <Logo width={100} height={100} />
+          </div>
           <Formik
             initialValues={{
               email: "",
@@ -69,7 +73,9 @@ const Login = () => {
           >
             <Form className="m-6 flex flex-col justify-center gap-1">
               <div>
-                <h1 className="text-center text-3xl font-bold">Login</h1>
+                <h1 className="text-center text-3xl font-bold">
+                  Iniciar Sesión
+                </h1>
               </div>
               <div className="group relative z-0 mb-1 w-full">
                 <Field
@@ -114,13 +120,13 @@ const Login = () => {
               </div>
             </Form>
           </Formik>
-          <div className="mx-10 mb-2 flex justify-between">
+          <div className="mx-10 mb-2 flex flex-col justify-between gap-4">
             <Link to={"/forgotpassword"}>
               <p className="align-middle text-sm font-semibold text-lime-800">
                 Olvidaste la contraseña?
               </p>
             </Link>
-            <p className="text-sm font-semibold ">
+            <p className="mb-5 text-sm font-semibold">
               No tenes cuenta?{" "}
               <Link
                 to={"/register"}

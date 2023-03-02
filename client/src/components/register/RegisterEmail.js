@@ -53,10 +53,11 @@ const Register = () => {
   return (
     <>
       <NavbarTop />
-      <div className="mt-32 flex h-screen w-screen justify-center bg-[#264653]">
-        <div className="m-10 flex h-[500px] w-80 flex-col items-center justify-center rounded-md bg-white">
-          <Logo />
-
+      <div className="mt-12 flex h-screen w-screen justify-center bg-[#264653]">
+        <div className="m-10 flex h-[600px] w-80 flex-col items-center justify-center rounded-md bg-white">
+          <div className="flex justify-center">
+            <Logo width={90} height={90} />
+          </div>
           <div className="mt-8">
             <p className=" text-center text-3xl font-semibold text-[#264653]">
               Te damos la bienvenida a
@@ -75,7 +76,7 @@ const Register = () => {
             onSubmit={onSubmit}
           >
             <Form className="">
-              <div className="group relative z-0 mb-6 w-full">
+              <div className="group relative z-0 mb-6 w-64">
                 <Field
                   type="email"
                   name="email"
@@ -130,7 +131,7 @@ const Register = () => {
               </div>
             </Form>
           </Formik>
-          <div className="text-right">
+          <div className="mt-4 text-right">
             <p className="text-right">
               Ya tenes cuenta?{" "}
               <Link to={"/login"} className="font-bold text-black">
