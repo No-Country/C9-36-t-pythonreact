@@ -1,13 +1,14 @@
 import React from "react";
 
-const Logo = () => {
+const Logo = ({ width, height }) => {
   return (
     <svg
-      width="151"
-      height="144"
+      width={width || "151"}
+      height={height || "144"}
       viewBox="0 0 151 144"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg">
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         d="M0.0252139 83.8934L29.2911 31.8927L87.7792 31.9164L117.001 83.941L87.7355 135.942L29.2474 135.918L0.0252139 83.8934Z"
         fill="#2A9D8F"

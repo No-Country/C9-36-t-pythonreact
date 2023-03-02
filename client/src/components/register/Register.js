@@ -7,7 +7,7 @@ import RegisterButtons from "./RegisterButtons";
 
 const Register = () => {
   const { user } = useUserContext();
-  useRedirectActiveUser(user, "/dashboard");
+  useRedirectActiveUser(user, "/loggedin");
   return (
     <>
       <NavbarTop />

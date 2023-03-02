@@ -32,6 +32,7 @@ const AuthProvider = ({
             busco: "",
             contacto: "",
             descripcion: "",
+            favorites: "",
             stacks: "",
             tecnologias: "",
             proyectos: "",

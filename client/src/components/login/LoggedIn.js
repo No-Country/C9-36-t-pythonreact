@@ -4,10 +4,10 @@ import AuthProvider from "./AuthProvider";
 const LoggedIn = () => {
   const navegate = useNavigate();
   const handleUserLoggedIn = (user) => {
-    navegate("/registernewprofilefigma");
+    navegate("/dashboard");
   };
   const handleUserNotRegistered = (user) => {
-    navegate("/registernewprofilefigma");
+    navegate("/dashboard");
   };
   return (
     <AuthProvider

@@ -19,7 +19,7 @@ function Navbar() {
         </navLink>
         </div>
         <div className={styles.logo}>
-          <NavLink to={""}>
+          <NavLink to={"/favoritesUsers"}>
             <LogoMisEquipos />
           </NavLink>
         </div>

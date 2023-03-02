@@ -22,6 +22,8 @@ import {
   where,
   setDoc,
   updateDoc,
+  arrayUnion,
+  arrayRemove,
   /*  deleteDoc, */
 } from "firebase/firestore";
 import {
@@ -60,8 +62,27 @@ export const storage = getStorage();
 /* exportamos auth, auth tiene la configuracion de nuestro proyecto  */
 export { auth, provider };
 /* Esta funcion sirve para loguear al usuario */
-export const login = ({ email, password }) =>
-  signInWithEmailAndPassword(auth, email, password);
+export const login = async ({ email, password }) => {
+  try {
+    const user = await signInWithEmailAndPassword(auth, email, password);
+    return user;
+  } catch (error) {
+    switch (error.code) {
+      case "auth/user-not-found":
+        return {
+          error: "No user found with this email address.",
+        };
+      case "auth/wrong-password":
+        return {
+          error: "Incorrect password.",
+        };
+      default:
+        return {
+          error: "Something went wrong.",
+        };
+    }
+  }
+};
 /* Esta funcion sirve para registrar al usuario */
 export const register = ({ email, password }) =>
   createUserWithEmailAndPassword(auth, email, password);
@@ -175,5 +196,30 @@ export const getUsersFromServer = async () => {
     return users;
   } catch (err) {
     console.error("Error getting documents", err);
+  }
+};
+
+export const saveUserFavorite = async (uid, favorite) => {
+  try {
+    const usersRef = collection(db, "users");
+    await updateDoc(doc(usersRef, uid), {
+      favorites: arrayUnion(favorite),
+    });
+    console.log("Usuario FAVORITO actualizado con éxito");
+  } catch (error) {
+    console.log(error + "error de getupdateuser");
+  }
+};
+export const deleteUserFavorite = async (uid, favorite) => {
+  try {
+    const usersRef = collection(db, "users");
+    await updateDoc(doc(usersRef, uid), {
+      favorites: arrayRemove(favorite),
+    });
+    console.log(uid);
+    console.log(favorite);
+    console.log("Usuario FAVORITO Borrado con exito con éxito");
+  } catch (error) {
+    console.log(error + "error de getupdateuser");
   }
 };

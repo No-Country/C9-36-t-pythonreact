@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import PerfilesBackend from "../perfiles/PerfilesBackend";
-import PerfilesFrontend from "../perfiles/PerfilesFrontend";
-import PerfilesDesigner from "../perfiles/PerfilesDesigner";
 import AllProfiles from "../perfiles/AllProfiles";
 import { logOut } from "../../config/firebase";
 import Navbartest from "./Navbartest";
@@ -19,18 +16,17 @@ const Dashboard = () => {
       console.log(error);
     }
   };
+  console.log(seleccion);
   return (
     <div className={styles.body}>
       <Navbartest
         handleLogout={handleLogout}
         handleSeleccion={handleSeleccion}
       />
-      <section className={styles.section}>
-        <h1 className={styles.section__h1}>Buscá con quien trabajar</h1>
-        <AllProfiles />
-        
-        
-      </section>
+      <AllProfiles />
+      <button onClick={handleLogout} className="bg-black">
+        Log out
+      </button>
       {/*     <section>
         <h1>Buscá con quien trabajar</h1>
 

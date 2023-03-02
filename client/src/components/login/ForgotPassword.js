@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { resetPassword } from "../../config/firebase";
-import Home from "../navegation/Home";
 import NavbarTop from "../navegation/NavbarTop";
 
 const ForgotPassword = () => {
@@ -14,11 +13,11 @@ const ForgotPassword = () => {
       /* LLamo a una funcion creada en config/firebase para resetear el password */
       await resetPassword(email);
       setError(null);
+      setMessage("Se envió un email a tu casilla para resetear tu contraseña");
     } catch (error) {
-      setError(error.message);
+      setError("Mail no registrado en nuestra base de datos");
     }
     setEmail("");
-    setMessage("Se envió un email a tu casilla para resetear tu contraseña");
   };
   const classTw =
     "peer block w-full appearance-none border border-slate-300 rounded-md text-sm shadow-sm bg-transparent p-4 text-sm text-gray-900 focus:border-blue-800 focus:outline-none  focus:ring-0 rounded-sm";
@@ -58,7 +57,6 @@ const ForgotPassword = () => {
           </button>
         </div>
         {message && <p className="text-2xl font-bold">{message}</p>}
-        {error && <p>{error}</p>}
       </form>
     </>
   );

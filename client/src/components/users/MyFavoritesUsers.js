@@ -1,27 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getProfilePhotoUrl, getUsersFromServer } from "../../config/firebase";
-import styles from "./Perfiles.module.css";
 import Loading from "../../assets/loading/Loading";
-function PerfilesFrontend() {
-  const [users, setUsers] = useState([]);
-  const [profileUrls, setProfileUrls] = useState([]);
+import { getProfilePhotoUrl, getUserInfo } from "../../config/firebase";
+import { useUserContext } from "../../context/UserContext";
+import Navbartest from "../navegation/Navbartest";
+import styles from "../perfiles/Perfiles.module.css";
+const MyFavoritesUsers = () => {
   const [loading, setLoading] = useState(true);
+  const { user } = useUserContext({});
+  const [currentUser, setCurrentUser] = useState({});
+  const [favorites, setFavorites] = useState([]);
+  const [profileUrls, setProfileUrls] = useState([]);
+
   useEffect(() => {
-    const fetchUsers = async () => {
+    const getDataUser = async () => {
       try {
-        const users = await getUsersFromServer();
-        setUsers(users);
+        const userInfo = await getUserInfo(user.uid);
+        setCurrentUser(userInfo);
+        setFavorites(userInfo.favorites);
         setLoading(false);
       } catch (error) {
         console.log(error);
-        setLoading(false);
       }
     };
-    fetchUsers();
+    getDataUser();
+
     async function getProfileUrls() {
       try {
-        const promises = users.map((el) =>
+        const promises = favorites.map((el) =>
           getProfilePhotoUrl(el.profilePicture)
         );
         const urls = await Promise.all(promises);
@@ -31,21 +37,22 @@ function PerfilesFrontend() {
       }
     }
     getProfileUrls();
-  }, [users.length]);
-  console.log(users);
-  console.log(setUsers);
-  console.log(profileUrls);
+  }, [favorites.length]);
+  console.log(favorites.length);
+  console.log(currentUser, "current user");
   return (
     <>
-      {" "}
+      <Navbartest />
       {loading ? (
         <Loading />
-      ) : (
+      ) : favorites === [] ? (
+        <div>Esta vacio</div>
+      ) : Array.isArray(favorites) && favorites.length > 0 ? (
         <div className={styles.gridContainer}>
-          {users.map((el, index) => (
-            <Link key={el.uid} to={`/user/${el.uid}`}>
+          {favorites.map((el, index) => (
+            <Link key={`${el.userName}-${index}`} to={`/user/${el.uid}`}>
               <div
-                key={el.uid}
+                key={`${el.userName}-${index}`}
                 className={styles.gridItem}
                 style={{
                   backgroundImage: `url(${profileUrls.find(
@@ -81,9 +88,28 @@ function PerfilesFrontend() {
             </Link>
           ))}
         </div>
+      ) : (
+        <>
+          <div>No hay favoritos</div>
+        </>
       )}
     </>
   );
-}
+};
 
-export default PerfilesFrontend;
+export default MyFavoritesUsers;
+
+/* <div className="grid grid-cols-3 gap-4">
+          {currentUser.favorites === undefined ? (
+            <div>No hay favoritos</div>
+          ) : (
+            currentUser.favorites?.map((el, index) => (
+              <div
+                key={`${el.userName}-${index}`}
+                className="rounded-lg bg-white p-4 shadow-md"
+              >
+                <div className="text-lg font-medium">{el.userName}</div>
+              </div>
+            ))
+          )}
+        </div> */

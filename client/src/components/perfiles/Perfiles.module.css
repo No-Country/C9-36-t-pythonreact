@@ -20,6 +20,7 @@
     grid-row-gap: 20px;
     
     grid-auto-flow: dense;
+    margin-top: 10px;
     /*para que llene los espaacios vacios*/
     /* auto-fill calcula el ancho del grid y crea columnas ssi es neceeesario
     auto-fit ensancha loss elementos si es necesario*/
