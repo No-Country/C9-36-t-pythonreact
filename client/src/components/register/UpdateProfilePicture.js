@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import LogoLapizEdit from "../../assets/LogoLapizEdit";
 import LogoUploadPhoto from "../../assets/LogoUploadPhoto";
 import {
   getUserInfo,
@@ -43,7 +44,7 @@ const UpdateProfile = ({ onUpdateProfilePicture }) => {
   return (
     <div>
       <button onClick={() => document.getElementById("fileInput").click()}>
-        <LogoUploadPhoto />
+        <LogoLapizEdit />
         <input
           type="file"
           id="fileInput"

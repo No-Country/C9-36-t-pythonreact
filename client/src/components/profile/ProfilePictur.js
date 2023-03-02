@@ -22,7 +22,7 @@ function ProfilePhoto({ profilePicture }) {
   } else {
     return (
       <div className="flex flex-col justify-center gap-2">
-        <img className="w-60" src={profileUrl} alt="Profile" />
+        <img className="w-60 rounded-xl" src={profileUrl} alt="Profile" />
       </div>
     );
   }
