@@ -84,4 +84,10 @@ Se creo el componente MyFavoritesUsers el cual mostrara todos los perfiles de lo
 Se integro la logica en UserDetail y UserFigma para que el usuario pueda agregar o quitar usuarios de su lista de favoritos
 Se valido que el usuario no pueda agregar a si mismo a su lista de favoritos
 Se valido que el usuario no pueda agregar a un usuario que ya esta en su lista de favoritos
+
+\*\* Update 2/03
+Se agrego el Loading a los componetes UserDetail, UserFigma, AllProfiles, MyFavoritesUsers, RegisterNewProfileFigma
+Se agrego al Loading el gif provisto por el uxui designer
+Se arreglo los mensajes de error en el loggin cuando el usuario ingresa un mail invalido, o una contraseña invalida"
+
 }

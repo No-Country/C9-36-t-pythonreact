@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Loading from "../../assets/loading/Loading";
 import { getProfilePhotoUrl, getUserInfo } from "../../config/firebase";
 import { useUserContext } from "../../context/UserContext";
 import Navbartest from "../navegation/Navbartest";
 import styles from "../perfiles/Perfiles.module.css";
 const MyFavoritesUsers = () => {
+  const [loading, setLoading] = useState(true);
   const { user } = useUserContext({});
   const [currentUser, setCurrentUser] = useState({});
   const [favorites, setFavorites] = useState([]);
@@ -16,6 +18,7 @@ const MyFavoritesUsers = () => {
         const userInfo = await getUserInfo(user.uid);
         setCurrentUser(userInfo);
         setFavorites(userInfo.favorites);
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -36,10 +39,13 @@ const MyFavoritesUsers = () => {
     getProfileUrls();
   }, [favorites.length]);
   console.log(favorites.length);
+  console.log(currentUser, "current user");
   return (
     <>
       <Navbartest />
-      {favorites === [] ? (
+      {loading ? (
+        <Loading />
+      ) : favorites === [] ? (
         <div>Esta vacio</div>
       ) : Array.isArray(favorites) && favorites.length > 0 ? (
         <div className={styles.gridContainer}>
@@ -83,7 +89,9 @@ const MyFavoritesUsers = () => {
           ))}
         </div>
       ) : (
-        <div>No hay favoritos</div>
+        <>
+          <div>No hay favoritos</div>
+        </>
       )}
     </>
   );
