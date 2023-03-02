@@ -5,6 +5,7 @@ import { createContext } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../config/firebase";
 import Loading from "../assets/loading/Loading";
+
 const UserContext = createContext();
 
 export default function UserContextProvider({ children }) {

@@ -48,11 +48,11 @@ const UserFigma = ({ data, profileUrls, currentUser }) => {
               </p>
             </span>
           </div>
-          <div className="relative mx-10 mt-8 grid h-[430px] w-[600px] grid-cols-2 grid-rows-2 items-center justify-center rounded-md bg-white text-center">
+          <div className="relative mx-10 mt-8 grid h-[480px] w-[600px] grid-cols-2 grid-rows-2 items-center justify-center rounded-md bg-white text-center">
             {/* 1 */}
             {currentUser.uid === data.uid ? (
               <>
-                <span className="absolute top-1 right-1"></span>
+                <span className="sticky top-1 right-1"></span>
               </>
             ) : isFavorited ? (
               <>
@@ -83,8 +83,8 @@ const UserFigma = ({ data, profileUrls, currentUser }) => {
             {/* 2 */}
             {/* Nombre */}
             <div className="relative ml-2">
-              <div className="-mt-16 ml-2 text-left text-[#264653]">
-                <h2 className="text-5xl font-bold leading-10 ">
+              <div className="-mt-16 ml-2 w-56 text-left text-[#264653]">
+                <h2 className="text-left text-4xl font-bold leading-10">
                   {data.userName}
                 </h2>
               </div>
@@ -95,7 +95,7 @@ const UserFigma = ({ data, profileUrls, currentUser }) => {
                 </span>
               </div>
               <div className="mb-2">
-                <p className="mb-4 ml-2 text-left text-base font-semibold leading-relaxed text-black">
+                <p className="mb-4 ml-2 text-left text-base font-semibold leading-relaxed text-black sm:text-xs">
                   {data.descripcion}
                 </p>
               </div>
@@ -165,11 +165,11 @@ const UserFigma = ({ data, profileUrls, currentUser }) => {
             {/* 4 */}
             <div className="relative ml-2">
               {/* Pryoectos */}
-              <div className="-mt-20 mb-2 ml-2 text-left">
-                <p className="mb-2 text-left text-2xl font-semibold leading-relaxed text-[#2A9D8F]">
+              <div className="-mt-16 mb-2 ml-2 text-left">
+                <p className="mb-2 text-left text-xl font-semibold leading-relaxed text-[#2A9D8F]">
                   Proyectos
                 </p>
-                <p>{data.proyectos}</p>
+                <p className="">{data.proyectos}</p>
               </div>
               {/* Contacto */}
               <div className="ml-2">

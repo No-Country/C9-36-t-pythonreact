@@ -10,6 +10,7 @@ import { FaHeart } from "react-icons/fa";
 import { FaWindowClose } from "react-icons/fa";
 import { deleteUserFavorite, saveUserFavorite } from "../../config/firebase";
 import Loading from "../../assets/loading/Loading";
+import LogoPerfilPicture from "../../assets/LogoPerfilPicture";
 const UserDetail = ({ data, profileUrls, currentUser }) => {
   const [loading, setLoading] = useState(true);
   const [isFavorited, setIsFavorited] = useState(
@@ -43,7 +44,7 @@ const UserDetail = ({ data, profileUrls, currentUser }) => {
         <div className="mx-auto mt-5 mb-24 flex max-w-md flex-col justify-center bg-white shadow-lg sm:columns-4">
           <div className="relative mx-4 mb-4">
             <img
-              src={profileUrls}
+              src={profileUrls && <LogoPerfilPicture />}
               alt="Imagen de perfil"
               className="h-[329px] w-[412px]"
               async
