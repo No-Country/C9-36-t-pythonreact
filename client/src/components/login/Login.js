@@ -143,8 +143,7 @@ const Login = () => {
               <div className="flex justify-center">
                 <button
                   type="submit"
-                  className="h-10 w-40 rounded-full bg-[#35457F] text-white"
-                >
+                  className="h-10 w-40 rounded-full bg-[#35457F] text-white">
                   Ingresar
                 </button>
               </div>
