@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AllProfiles from "../perfiles/AllProfiles";
 import { logOut } from "../../config/firebase";
 import Navbartest from "./Navbartest";
-import styles from "./Dashboard.module.css"
+import styles from "./Dashboard.module.css";
 
 const Dashboard = () => {
   const [seleccion, setSeleccion] = useState("frontend");
@@ -26,10 +26,7 @@ const Dashboard = () => {
       <section className={styles.section}>
         <h1 className={styles.section__h1}>Buscá con quien trabajar</h1>
         <AllProfiles />
-        <button onClick={handleLogout} className="bg-black">
-          Log out
-        </button>
-      </section> 
+      </section>
       {/*     <section>
         <h1>Buscá con quien trabajar</h1>
 

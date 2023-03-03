@@ -9,6 +9,8 @@ import Navbartest from "../navegation/Navbartest";
 import { deleteUserFavorite, saveUserFavorite } from "../../config/firebase";
 import { FaHeart } from "react-icons/fa";
 import { FaWindowClose } from "react-icons/fa";
+import IconAddFavorite from "../../assets/icons/IconAddFavorite";
+import IconDeleteFavorite from "../../assets/icons/IconDeleteFavorite";
 const UserFigma = ({ data, profileUrls, currentUser }) => {
   const [seleccion, setSeleccion] = useState("frontend");
   const [isFavorited, setIsFavorited] = useState(
@@ -23,16 +25,13 @@ const UserFigma = ({ data, profileUrls, currentUser }) => {
     }
     setIsFavorited(!isFavorited);
   };
-  const handleSeleccion = (opcion) => {
-    setSeleccion(opcion);
-  };
   const handleEmail = (email) => {
     window.open(`mailto:${email}?subject=Subject&body=Body%20goes%20here`);
   };
   return (
     <>
       <Navbartest />
-      <div className="flex justify-between bg-[#264653] mt-28">
+      <div className="mt-28 flex justify-between bg-[#264653]">
         <div className="flex w-screen justify-around ">
           <div className="mt-10 ml-10 text-5xl font-bold text-white">
             <span className="my-2">
@@ -52,23 +51,23 @@ const UserFigma = ({ data, profileUrls, currentUser }) => {
             {/* 1 */}
             {currentUser.uid === data.uid ? (
               <>
-                <span className="sticky top-1 right-1"></span>
+                <span className="absolute top-1 right-2"></span>
               </>
             ) : isFavorited ? (
               <>
                 <button
                   onClick={handleFavoriteClick}
-                  className="absolute top-1 -right-4"
+                  className="absolute top-1 right-2"
                 >
-                  <FaWindowClose />
+                  <IconAddFavorite />
                 </button>
               </> /*  deleteUserFavorite(currentUser.uid, data); */
             ) : (
               <button
                 onClick={handleFavoriteClick}
-                className="absolute top-1 -right-4"
+                className="absolute top-1 right-2"
               >
-                <FaHeart />
+                <IconDeleteFavorite />
               </button>
             )}
             <div>
@@ -197,7 +196,7 @@ const UserFigma = ({ data, profileUrls, currentUser }) => {
               <div className="flex items-center text-left">
                 {data.email ? (
                   <button
-                    className="-ml-4 mr-10 w-3 bg-transparent"
+                    className="ml-0 mr-10 w-3 bg-transparent"
                     onClick={() => handleEmail(data.email)}
                   >
                     <LogoGmail />
