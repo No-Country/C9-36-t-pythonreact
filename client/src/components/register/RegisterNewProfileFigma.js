@@ -83,7 +83,7 @@ const RegisterNewProfileFigma = () => {
                     handleUpdateProfilePicture={handleUpdateProfilePicture}
                   />
                 </div>
-                <div className="relative left-[103px] mt-2 flex w-full sm:absolute sm:left-28">
+                <div className="sm:-ml-30 relative mt-2 flex w-full justify-center sm:absolute sm:top-80">
                   <UpdateProfile
                     onUpdateProfilePicture={() =>
                       handleUpdateProfilePicture(currentUser.profilePicture)
