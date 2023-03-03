@@ -10,7 +10,7 @@ const Navbartest = ({ handleLogout, handleSeleccion }) => {
   return (
     <header className={styles.dashboardHeader}>
       <div className={styles.logoBoton}>
-        <NavLink to={"/"} className={styles.logo}>
+        <NavLink to={"/dashboard"} className={styles.logo}>
           <Logo />
         </NavLink>
   
