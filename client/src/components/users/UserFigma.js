@@ -7,8 +7,6 @@ import LogoTwitter from "../../assets/icons/LogoTwitter";
 import LogoWs from "../../assets/icons/LogoWs";
 import Navbartest from "../navegation/Navbartest";
 import { deleteUserFavorite, saveUserFavorite } from "../../config/firebase";
-import { FaHeart } from "react-icons/fa";
-import { FaWindowClose } from "react-icons/fa";
 import IconAddFavorite from "../../assets/icons/IconAddFavorite";
 import IconDeleteFavorite from "../../assets/icons/IconDeleteFavorite";
 const UserFigma = ({ data, profileUrls, currentUser }) => {
@@ -59,7 +57,7 @@ const UserFigma = ({ data, profileUrls, currentUser }) => {
                   onClick={handleFavoriteClick}
                   className="absolute top-1 right-2"
                 >
-                  <IconAddFavorite />
+                  <IconDeleteFavorite />
                 </button>
               </> /*  deleteUserFavorite(currentUser.uid, data); */
             ) : (
@@ -67,7 +65,7 @@ const UserFigma = ({ data, profileUrls, currentUser }) => {
                 onClick={handleFavoriteClick}
                 className="absolute top-1 right-2"
               >
-                <IconDeleteFavorite />
+                <IconAddFavorite />
               </button>
             )}
             <div>

@@ -10,7 +10,6 @@ const Register = () => {
   useRedirectActiveUser(user, "/loggedin");
   return (
     <>
-      <NavbarTop />
       <div className="flex h-screen w-screen justify-center bg-[#264653]">
         <div className="bg-[#264653]">
           <div className="flex flex-col items-center justify-center">

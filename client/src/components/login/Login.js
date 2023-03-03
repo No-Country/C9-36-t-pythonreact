@@ -58,8 +58,7 @@ const Login = () => {
     }); */
   return (
     <>
-      <NavbarTop />
-      <div className="flex w-screen justify-center bg-[#264653]">
+      <div className="flex h-full w-screen justify-center bg-[#264653]">
         <div className="mb-4 mt-32 h-[600px] w-[350px] rounded-md bg-white">
           <div className="flex justify-center">
             <Logo width={100} height={100} />
@@ -96,6 +95,7 @@ const Login = () => {
                 <Field
                   type="password"
                   name="password"
+                  suggested="current-password"
                   id="password"
                   className={classTw}
                   placeholder=" "

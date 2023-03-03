@@ -11,6 +11,8 @@ import { FaWindowClose } from "react-icons/fa";
 import { deleteUserFavorite, saveUserFavorite } from "../../config/firebase";
 import Loading from "../../assets/loading/Loading";
 import LogoPerfilPicture from "../../assets/LogoPerfilPicture";
+import IconAddFavorite from "../../assets/icons/IconAddFavorite";
+import IconDeleteFavorite from "../../assets/icons/IconDeleteFavorite";
 const UserDetail = ({ data, profileUrls, currentUser }) => {
   const [loading, setLoading] = useState(true);
   const [isFavorited, setIsFavorited] = useState(
@@ -43,12 +45,15 @@ const UserDetail = ({ data, profileUrls, currentUser }) => {
       ) : (
         <div className="mx-auto mt-5 mb-24 flex max-w-md flex-col justify-center bg-white shadow-lg sm:columns-4">
           <div className="relative mx-4 mb-4">
-            <img
-              src={profileUrls && <LogoPerfilPicture />}
-              alt="Imagen de perfil"
-              className="h-[329px] w-[412px]"
-              async
-            />
+            {profileUrls ? (
+              <img
+                src={profileUrls}
+                alt="Imagen de perfil"
+                className="h-[329px] w-[412px]"
+                async
+              />
+            ) : null}
+
             <Link to={"/dashboard"} className="absolute top-1 left-1">
               <IconBackPage />
             </Link>
@@ -60,17 +65,17 @@ const UserDetail = ({ data, profileUrls, currentUser }) => {
               <>
                 <button
                   onClick={handleFavoriteClick}
-                  className="absolute top-1 -right-1"
+                  className="absolute top-1 right-3"
                 >
-                  <FaWindowClose />
+                  <IconDeleteFavorite />
                 </button>
               </> /*  deleteUserFavorite(currentUser.uid, data); */
             ) : (
               <button
                 onClick={handleFavoriteClick}
-                className="absolute top-1 -right-1"
+                className="absolute top-1 right-3"
               >
-                <FaHeart />
+                <IconAddFavorite />
               </button>
             )}
           </div>
@@ -188,9 +193,7 @@ const UserDetail = ({ data, profileUrls, currentUser }) => {
                     >
                       <LogoWs />
                     </Link>
-                  ) : (
-                    <LogoWs />
-                  )}
+                  ) : null}
                 </div>
               </div>
               {/* EMAIL*/}
@@ -202,9 +205,7 @@ const UserDetail = ({ data, profileUrls, currentUser }) => {
                   >
                     <LogoGmail />
                   </button>
-                ) : (
-                  <LogoGmail />
-                )}
+                ) : null}
               </div>
               {/* linkedin */}
               <div>
@@ -212,9 +213,7 @@ const UserDetail = ({ data, profileUrls, currentUser }) => {
                   <Link target={"_blank"} to={`${data.linkedin}`}>
                     <Linkedin />
                   </Link>
-                ) : (
-                  <Linkedin />
-                )}
+                ) : null}
               </div>
               {/* Twitter */}
               <div>
@@ -223,9 +222,7 @@ const UserDetail = ({ data, profileUrls, currentUser }) => {
                     <Link target={"_blank"} to={`${data.twitter}`}>
                       <LogoTwitter />
                     </Link>
-                  ) : (
-                    <LogoTwitter />
-                  )}
+                  ) : null}
                 </div>
               </div>
             </div>

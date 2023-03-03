@@ -23,12 +23,9 @@ const Home = () => {
         </div>
 
         <div className={styles.links}>
-          <botton
-            onClick={() => navegate("/login")}
-            className={styles.button__sesion}
-          >
+          <NavLink to={"/login"} className={styles.button__sesion}>
             Iniciar sesión
-          </botton>
+          </NavLink>
           <NavLink to={"/register"}>
             <button className={styles.button__register}>Registrarte</button>
           </NavLink>

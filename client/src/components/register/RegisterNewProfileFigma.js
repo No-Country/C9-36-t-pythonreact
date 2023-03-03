@@ -60,7 +60,9 @@ const RegisterNewProfileFigma = () => {
   console.log(userState, "userState");
   return (
     <>
-      <Navbartest />
+      <div className="mb-10 sm:mb-20">
+        <Navbartest />
+      </div>
       {loading ? (
         <Loading />
       ) : (
@@ -71,9 +73,9 @@ const RegisterNewProfileFigma = () => {
             </h1>
           </div>
           {/* div padre */}
-          <div className="mx-4 mt-12 mb-4 grid h-screen grid-cols-1 gap-2 bg-white sm:flex">
+          <div className="mx-4 mt-12 mb-96 grid h-screen grid-cols-1 gap-2 bg-white sm:mb-4 sm:flex">
             {/* COL 1 */}
-            <div className="ml-8 flex justify-center sm:flex-none">
+            <div className="relative ml-8 flex justify-center sm:flex-none">
               <div className=" grid items-center justify-center">
                 <div className="flex items-center justify-center">
                   <ProfilePictur
@@ -81,7 +83,7 @@ const RegisterNewProfileFigma = () => {
                     handleUpdateProfilePicture={handleUpdateProfilePicture}
                   />
                 </div>
-                <div className="mt-2 flex w-full justify-center">
+                <div className="relative left-[103px] mt-2 flex w-full sm:absolute sm:left-28">
                   <UpdateProfile
                     onUpdateProfilePicture={() =>
                       handleUpdateProfilePicture(currentUser.profilePicture)
@@ -321,18 +323,11 @@ const RegisterNewProfileFigma = () => {
               </div>
               {/* COL 3 */}
 
-              <div className="mt-9  sm:col-start-3 sm:col-end-4">
+              <div className="mt-9  flex flex-col gap-4 sm:col-start-3 sm:col-end-4 sm:gap-2">
                 {/* Contacto */}
                 <div className="md:text-md flex  justify-center rounded-sm sm:h-40 sm:text-sm">
                   <div className="ml-2 flex items-start">
-                    <button
-                      onClick={() => {
-                        setIsModalOpen(!isModalOpen);
-                        setName("Contacto Whatsapp");
-                      }}
-                    >
-                      <LogoLapizEdit />
-                    </button>
+                    <LogoLapizEdit />
                   </div>
                   <div className="flex-1">
                     <p className="text-base font-semibold  text-[#264653]">
@@ -345,8 +340,8 @@ const RegisterNewProfileFigma = () => {
                   </div>
                 </div>
                 {/* ws */}
-                <div className="mt-2 flex items-center  rounded-sm  sm:h-14">
-                  <div className="ml-2 flex items-center">
+                <div className="mt-2 ml-2 flex items-center">
+                  <div className="">
                     <button
                       className=""
                       onClick={() => {
@@ -357,24 +352,14 @@ const RegisterNewProfileFigma = () => {
                       <LogoLapizEdit />
                     </button>
                   </div>
-                  <div className="ml-4 sm:ml-0 md:ml-6">
-                    {currentUser.ws && (
-                      <Link
-                        target={"_blank"}
-                        to={`https://api.whatsapp.com/send?phone=${currentUser.ws}&text=Hola!%20Me%20contacto%20desde%20hive!`}
-                      >
-                        <LogoWs />
-                      </Link>
-                    )}
-                  </div>
-                  <div className="m-2">
-                    {" "}
-                    <p>Whatsapp</p>
+                  <div className="mx-2 flex items-center">
+                    <LogoWs />
+                    <p className="ml-2 sm:ml-4">Whatsapp</p>
                   </div>
                 </div>
                 {/* EMAIL*/}
-                <div className="mt-2 flex items-center rounded-sm  sm:h-14">
-                  <div className="ml-2 flex items-center">
+                <div className="mt-2 ml-2 flex items-center rounded-sm">
+                  <div className="">
                     <button
                       onClick={() => {
                         setIsModalOpen(!isModalOpen);
@@ -384,22 +369,16 @@ const RegisterNewProfileFigma = () => {
                       <LogoLapizEdit />
                     </button>
                   </div>
-                  <div className="sm:-ml-4 md:ml-2">
-                    <button
-                      className="bg-transparent"
-                      onClick={() => handleEmail(currentUser.email)}
-                    >
-                      <LogoGmail />
-                    </button>
-                  </div>
-                  <div className="-ml-4">
+                  <div className="mx-4 ml-2 flex items-center sm:ml-4">
+                    <LogoGmail />
                     <p>Email</p>
                   </div>
                 </div>
-                {/* linkedin */}
-                <div className="mt-1 flex items-center gap-2 rounded-sm  sm:mt-12 sm:h-14">
-                  <div className="mx-2 flex items-center gap-2">
+                {/* LINKEDIN */}
+                <div className="mt-2 ml-2 flex items-center rounded-sm">
+                  <div className=" flex">
                     <button
+                      className="mr-2 "
                       onClick={() => {
                         setIsModalOpen(!isModalOpen);
                         setName("Contacto Linkedin");
@@ -408,19 +387,13 @@ const RegisterNewProfileFigma = () => {
                       <LogoLapizEdit />
                     </button>
                   </div>
-                  <div className="sm:-ml-4 md:ml-2">
-                    {currentUser.linkedin && (
-                      <Link target={"_blank"} to={`${currentUser.linkedin}`}>
-                        <Linkedin />
-                      </Link>
-                    )}
-                  </div>
-                  <div className="md:ml-4">
-                    <p>Linkedin</p>
+                  <Linkedin />
+                  <div className="sm:ml-1 md:ml-4">
+                    <p className="ml-2">Linkedin</p>
                   </div>
                 </div>
                 {/* Twitter */}
-                <div className="mt-1 flex items-center rounded-sm  sm:h-14 sm:gap-2">
+                <div className="mt-1 flex items-center rounded-sm sm:gap-2">
                   <div className="ml-2 flex items-center">
                     <button
                       onClick={() => {
@@ -431,14 +404,9 @@ const RegisterNewProfileFigma = () => {
                       <LogoLapizEdit />
                     </button>
                   </div>
-                  <div className="ml-4 sm:-ml-2 md:ml-4">
-                    {currentUser.twitter && (
-                      <Link target={"_blank"} to={`${currentUser.twitter}`}>
-                        <LogoTwitter />
-                      </Link>
-                    )}
-                  </div>
-                  <div className="md:ml-4">
+
+                  <div className="ml-2 flex items-center sm:ml-1 md:ml-3">
+                    <LogoTwitter />
                     <p>Twitter</p>
                   </div>
                 </div>
