@@ -180,7 +180,7 @@ const Login = () => {
           <div className="flex justify-center">
             <button
               onClick={signInWithFacebook}
-              className="mt-1 flex h-[56px] items-center gap-2  rounded-full
+              className="mt-4 flex h-[56px] items-center gap-2  rounded-full
          bg-[#4B61B1] px-8 text-base text-white"
             >
               <RiFacebookBoxLine className="text-3xl text-black" />

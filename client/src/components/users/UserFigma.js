@@ -29,7 +29,7 @@ const UserFigma = ({ data, profileUrls, currentUser }) => {
   return (
     <>
       <Navbartest />
-      <div className="mt-28 flex h-full justify-between bg-[#264653]">
+      <div className="mt-28 flex h-[87vh] justify-between bg-[#264653]">
         <div className="flex w-screen justify-around ">
           <div className="mt-10 ml-10 text-5xl font-bold text-white">
             <span className="my-2">
@@ -166,7 +166,7 @@ const UserFigma = ({ data, profileUrls, currentUser }) => {
                 <p className="mb-2 text-left text-xl font-semibold leading-relaxed text-[#2A9D8F]">
                   Proyectos
                 </p>
-                <p className="">{data.proyectos}</p>
+                <p className="text-sm">{data.proyectos}</p>
               </div>
               {/* Contacto */}
               <div className="ml-2">

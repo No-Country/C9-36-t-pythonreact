@@ -73,7 +73,7 @@ const RegisterNewProfileFigma = () => {
             </h1>
           </div>
           {/* div padre */}
-          <div className="mx-4 mt-12 mb-96 grid h-screen grid-cols-1 gap-2 bg-white sm:mb-4 sm:flex">
+          <div className="mx-4 mt-12 mb-96 grid h-screen grid-cols-1 gap-2 bg-white sm:mb-4 sm:flex sm:h-[70vh]">
             {/* COL 1 */}
             <div className="relative ml-8 flex justify-center sm:flex-none">
               <div className=" grid items-center justify-center">
@@ -114,7 +114,7 @@ const RegisterNewProfileFigma = () => {
                 {" "}
                 {/* NOMBRE */}
                 <div className="flex h-auto justify-center rounded-sm sm:mt-10  sm:h-40 sm:text-sm md:text-lg">
-                  <div className="ml-2">
+                  <div className="mx-2 mt-1 sm:mt-8">
                     <button
                       className="items-center"
                       onClick={() => {
@@ -138,7 +138,7 @@ const RegisterNewProfileFigma = () => {
                 </div>
                 {/* Descripcion */}
                 <div className="mt-2 flex justify-center rounded-sm  sm:mb-10  sm:h-40 sm:text-sm md:text-lg">
-                  <div className="ml-2 flex items-center">
+                  <div className="ml-2 mr-2 mt-5 sm:mt-10">
                     <button
                       onClick={() => {
                         setIsModalOpen(!isModalOpen);
@@ -166,7 +166,7 @@ const RegisterNewProfileFigma = () => {
                 </div>
                 {/* Especialidad */}
                 <div className="mt-2 flex items-center justify-center rounded-sm  sm:h-40 sm:text-sm md:text-lg">
-                  <div className="ml-2">
+                  <div className="mr-2 ml-2 -mt-3">
                     <button
                       onClick={() => {
                         setIsModalEspeOpen(!isModalEspeOpen);
@@ -177,7 +177,7 @@ const RegisterNewProfileFigma = () => {
                   </div>
                   <div className="flex-1">
                     <span className="text-base font-semibold  text-[#264653]">
-                      "Agrega tu especialidad"
+                      Agrega tu especialidad
                     </span>
                     {currentUser.especialidades &&
                       currentUser.especialidades.frontend && (
@@ -195,11 +195,11 @@ const RegisterNewProfileFigma = () => {
                 </div>
               </div>
               {/* COL 2a */}
-              <div className="mt-10 sm:col-start-2 sm:col-end-3">
+              <div className="mt-4 sm:col-start-2 sm:col-end-3 sm:mt-10">
                 {" "}
                 {/* Tecnologias */}
                 <div className="flex min-w-fit rounded-sm sm:h-40 sm:text-sm md:text-lg">
-                  <div className="ml-2">
+                  <div className="ml-2 mt-1 mr-2">
                     <button
                       onClick={() => {
                         setIsModalTechOpen(!isModalTechOpen);
@@ -210,9 +210,9 @@ const RegisterNewProfileFigma = () => {
                   </div>
                   <div className="flex-1">
                     <span className="text-base font-semibold  text-[#264653]">
-                      "Agrega tus tecnologías"
+                      Agrega tus tecnologías
                     </span>
-                    <div className="flex flex-wrap text-sm text-gray-500">
+                    <div className="mt-1 flex flex-wrap text-sm text-gray-500">
                       {currentUser.tecnologias &&
                         currentUser.tecnologias.csharp && (
                           <img
@@ -270,8 +270,8 @@ const RegisterNewProfileFigma = () => {
                   </div>
                 </div>
                 {/* Que busco  */}
-                <div className="mt-6 flex justify-center  sm:mb-10 sm:h-40 sm:text-sm md:text-lg">
-                  <div className="ml-2">
+                <div className="mt-3 flex justify-center sm:mt-6  sm:mb-10 sm:h-32 sm:text-sm md:text-lg">
+                  <div className="ml-2 mr-2 mt-1">
                     <button
                       onClick={() => {
                         setIsModalOpen(!isModalOpen);
@@ -285,7 +285,7 @@ const RegisterNewProfileFigma = () => {
                     <p className="text-base font-semibold text-[#264653] sm:text-sm md:text-lg">
                       Que busco
                     </p>
-                    <div>
+                    <div className="mt-2 text-sm">
                       {currentUser.busco ? (
                         currentUser.busco
                       ) : (
@@ -299,7 +299,7 @@ const RegisterNewProfileFigma = () => {
                 </div>
                 {/* Proyectos */}
                 <div className="md:text-md mt-2 flex items-center justify-center rounded-sm  sm:h-40 sm:text-sm">
-                  <div className="ml-2 flex ">
+                  <div className="ml-2 mr-2 -mt-4 flex ">
                     <button
                       onClick={() => {
                         setIsModalOpen(!isModalOpen);
@@ -323,10 +323,10 @@ const RegisterNewProfileFigma = () => {
               </div>
               {/* COL 3 */}
 
-              <div className="mt-9  flex flex-col gap-4 sm:col-start-3 sm:col-end-4 sm:gap-2">
+              <div className="mt-4 flex flex-col gap-4 sm:col-start-3 sm:col-end-4 sm:mt-9 sm:gap-2">
                 {/* Contacto */}
                 <div className="md:text-md flex  justify-center rounded-sm sm:h-40 sm:text-sm">
-                  <div className="ml-2 flex items-start">
+                  <div className="ml-2 mr-2 mt-1 flex items-start">
                     <LogoLapizEdit />
                   </div>
                   <div className="flex-1">
@@ -343,7 +343,6 @@ const RegisterNewProfileFigma = () => {
                 <div className="mt-2 ml-2 flex items-center">
                   <div className="">
                     <button
-                      className=""
                       onClick={() => {
                         setIsModalOpen(!isModalOpen);
                         setName("Contacto Whatsapp");
@@ -352,7 +351,7 @@ const RegisterNewProfileFigma = () => {
                       <LogoLapizEdit />
                     </button>
                   </div>
-                  <div className="mx-2 flex items-center">
+                  <div className="mx-2 flex items-center sm:ml-4">
                     <LogoWs />
                     <p className="ml-2 sm:ml-4">Whatsapp</p>
                   </div>
@@ -387,8 +386,9 @@ const RegisterNewProfileFigma = () => {
                       <LogoLapizEdit />
                     </button>
                   </div>
-                  <Linkedin />
-                  <div className="sm:ml-1 md:ml-4">
+
+                  <div className="flex items-center sm:ml-2 md:ml-2">
+                    <Linkedin />
                     <p className="ml-2">Linkedin</p>
                   </div>
                 </div>
@@ -405,7 +405,7 @@ const RegisterNewProfileFigma = () => {
                     </button>
                   </div>
 
-                  <div className="ml-2 flex items-center sm:ml-1 md:ml-3">
+                  <div className="ml-2 flex items-center sm:ml-1 md:ml-2">
                     <LogoTwitter />
                     <p>Twitter</p>
                   </div>
