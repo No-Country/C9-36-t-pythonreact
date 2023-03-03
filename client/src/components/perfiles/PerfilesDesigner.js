@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
 import { getProfilePhotoUrl, getUsersFromServer } from "../../config/firebase";
 import Navbartest from "../navegation/Navbartest";
 import styles from "./Perfiles.module.css";
 import Loading from "../../assets/loading/Loading";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../assets/variants";
 
 function PerfilesDesigner() {
   const [loading, setLoading] = useState(true);
@@ -47,7 +48,13 @@ function PerfilesDesigner() {
       {loading ? (
         <Loading />
       ) : (
-        <div className={styles.gridContainer}>
+        <motion.div
+          variants={fadeIn("left", 0.4)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.7 }}
+          className={styles.gridContainer}
+        >
           {uxui.map((el, index) => (
             <Link key={el.uid} to={`/user/${el.uid}`}>
               <div
@@ -72,7 +79,7 @@ function PerfilesDesigner() {
               </div>
             </Link>
           ))}
-        </div>
+        </motion.div>
       )}
     </div>
   );

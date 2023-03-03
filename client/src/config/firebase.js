@@ -70,11 +70,11 @@ export const login = async ({ email, password }) => {
     switch (error.code) {
       case "auth/user-not-found":
         return {
-          error: "No user found with this email address.",
+          error: "Email o contraseña incorrectos.",
         };
       case "auth/wrong-password":
         return {
-          error: "Incorrect password.",
+          error: "Email o contraseña incorrectos.",
         };
       default:
         return {

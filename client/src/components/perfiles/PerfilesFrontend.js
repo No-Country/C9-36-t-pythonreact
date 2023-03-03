@@ -4,6 +4,8 @@ import { getProfilePhotoUrl, getUsersFromServer } from "../../config/firebase";
 import Navbartest from "../navegation/Navbartest";
 import styles from "./Perfiles.module.css";
 import Loading from "../../assets/loading/Loading";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../assets/variants";
 function PerfilesFrontend() {
   const [users, setUsers] = useState([]);
   const [profileUrls, setProfileUrls] = useState([]);
@@ -44,7 +46,13 @@ function PerfilesFrontend() {
       {loading ? (
         <Loading />
       ) : (
-        <div className={styles.gridContainer}>
+        <motion.div
+          variants={fadeIn("up", 0.4)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.7 }}
+          className={styles.gridContainer}
+        >
           {fronts.map((el, index) => (
             <Link key={el.uid} to={`/user/${el.uid}`}>
               <div
@@ -69,7 +77,7 @@ function PerfilesFrontend() {
               </div>
             </Link>
           ))}
-        </div>
+        </motion.div>
       )}
     </div>
   );

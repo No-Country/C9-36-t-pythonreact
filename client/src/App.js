@@ -13,7 +13,6 @@ import RegisterInicio from "./components/register/RegisterInicio";
 import RegisterSpinner from "./components/register/RegisterSpinner";
 import { LayoutPrivate } from "./layout/LayoutPrivate";
 import ProfileView from "./components/profile/ProfileView";
-import RegisterNewProfile from "./components/register/RegisterNewProfile";
 import RegisterNewProfileFigma from "./components/register/RegisterNewProfileFigma";
 import RegisterFin from "./components/register/RegisterFin";
 import UserDetailContainer from "./components/users/UserDetailContainer";
@@ -46,10 +45,6 @@ function App() {
           <Route element={<LayoutPrivate />}>
             <Route path={"/dashboard"} element={<Dashboard />} />
             <Route path={"/loggedIn"} element={<LoggedIn />} />
-            <Route
-              path={"/registernewprofile"}
-              element={<RegisterNewProfile />}
-            />
             <Route path={"/profileview"} element={<ProfileView />} />
             <Route path={"/userfigma"} element={<UserFigma />} />
             <Route

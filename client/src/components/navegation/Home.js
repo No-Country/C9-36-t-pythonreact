@@ -1,13 +1,13 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/LogoDashboard";
 import LogoGrande from "../../assets/Logo";
 import styles from "./Home.module.css";
 
 const Home = () => {
-
   const windowWidth = window.innerWidth;
   const isSmall = windowWidth < 900;
+  const navegate = useNavigate();
   return (
     <div>
       <header className={styles.header}>
@@ -23,12 +23,12 @@ const Home = () => {
         </div>
 
         <div className={styles.links}>
-          <Link to={"/login"}>
-            <button className={styles.button__sesion}>Iniciar sesión</button>
-          </Link>
-          <Link to={"/register"}>
+          <NavLink to={"/login"} className={styles.button__sesion}>
+            Iniciar sesión
+          </NavLink>
+          <NavLink to={"/register"}>
             <button className={styles.button__register}>Registrarte</button>
-          </Link>
+          </NavLink>
         </div>
       </header>
 

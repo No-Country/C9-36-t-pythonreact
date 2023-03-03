@@ -7,8 +7,8 @@ import LogoTwitter from "../../assets/icons/LogoTwitter";
 import LogoWs from "../../assets/icons/LogoWs";
 import Navbartest from "../navegation/Navbartest";
 import { deleteUserFavorite, saveUserFavorite } from "../../config/firebase";
-import { FaHeart } from "react-icons/fa";
-import { FaWindowClose } from "react-icons/fa";
+import IconAddFavorite from "../../assets/icons/IconAddFavorite";
+import IconDeleteFavorite from "../../assets/icons/IconDeleteFavorite";
 const UserFigma = ({ data, profileUrls, currentUser }) => {
   const [seleccion, setSeleccion] = useState("frontend");
   const [isFavorited, setIsFavorited] = useState(
@@ -23,16 +23,13 @@ const UserFigma = ({ data, profileUrls, currentUser }) => {
     }
     setIsFavorited(!isFavorited);
   };
-  const handleSeleccion = (opcion) => {
-    setSeleccion(opcion);
-  };
   const handleEmail = (email) => {
     window.open(`mailto:${email}?subject=Subject&body=Body%20goes%20here`);
   };
   return (
     <>
       <Navbartest />
-      <div className="flex justify-between bg-[#264653] mt-28">
+      <div className="mt-28 flex h-[87vh] justify-between bg-[#264653]">
         <div className="flex w-screen justify-around ">
           <div className="mt-10 ml-10 text-5xl font-bold text-white">
             <span className="my-2">
@@ -48,27 +45,27 @@ const UserFigma = ({ data, profileUrls, currentUser }) => {
               </p>
             </span>
           </div>
-          <div className="relative mx-10 mt-8 grid h-[430px] w-[600px] grid-cols-2 grid-rows-2 items-center justify-center rounded-md bg-white text-center">
+          <div className="relative mx-10 mt-8 grid h-[480px] w-[600px] grid-cols-2 grid-rows-2 items-center justify-center rounded-md bg-white text-center">
             {/* 1 */}
             {currentUser.uid === data.uid ? (
               <>
-                <span className="absolute top-1 right-1"></span>
+                <span className="absolute top-1 right-2"></span>
               </>
             ) : isFavorited ? (
               <>
                 <button
                   onClick={handleFavoriteClick}
-                  className="absolute top-1 -right-4"
+                  className="absolute top-1 right-2"
                 >
-                  <FaWindowClose />
+                  <IconDeleteFavorite />
                 </button>
               </> /*  deleteUserFavorite(currentUser.uid, data); */
             ) : (
               <button
                 onClick={handleFavoriteClick}
-                className="absolute top-1 -right-4"
+                className="absolute top-1 right-2"
               >
-                <FaHeart />
+                <IconAddFavorite />
               </button>
             )}
             <div>
@@ -83,8 +80,8 @@ const UserFigma = ({ data, profileUrls, currentUser }) => {
             {/* 2 */}
             {/* Nombre */}
             <div className="relative ml-2">
-              <div className="-mt-16 ml-2 text-left text-[#264653]">
-                <h2 className="text-5xl font-bold leading-10 ">
+              <div className="-mt-16 ml-2 w-56 text-left text-[#264653]">
+                <h2 className="text-left text-4xl font-bold leading-10">
                   {data.userName}
                 </h2>
               </div>
@@ -95,7 +92,7 @@ const UserFigma = ({ data, profileUrls, currentUser }) => {
                 </span>
               </div>
               <div className="mb-2">
-                <p className="mb-4 ml-2 text-left text-base font-semibold leading-relaxed text-black">
+                <p className="mb-4 ml-2 text-left text-base font-semibold leading-relaxed text-black sm:text-xs">
                   {data.descripcion}
                 </p>
               </div>
@@ -165,11 +162,11 @@ const UserFigma = ({ data, profileUrls, currentUser }) => {
             {/* 4 */}
             <div className="relative ml-2">
               {/* Pryoectos */}
-              <div className="-mt-20 mb-2 ml-2 text-left">
-                <p className="mb-2 text-left text-2xl font-semibold leading-relaxed text-[#2A9D8F]">
+              <div className="-mt-16 mb-2 ml-2 text-left">
+                <p className="mb-2 text-left text-xl font-semibold leading-relaxed text-[#2A9D8F]">
                   Proyectos
                 </p>
-                <p>{data.proyectos}</p>
+                <p className="text-sm">{data.proyectos}</p>
               </div>
               {/* Contacto */}
               <div className="ml-2">
@@ -197,7 +194,7 @@ const UserFigma = ({ data, profileUrls, currentUser }) => {
               <div className="flex items-center text-left">
                 {data.email ? (
                   <button
-                    className="-ml-4 mr-10 w-3 bg-transparent"
+                    className="ml-0 mr-10 w-3 bg-transparent"
                     onClick={() => handleEmail(data.email)}
                   >
                     <LogoGmail />

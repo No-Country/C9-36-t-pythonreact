@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { getProfilePhotoUrl, getUsersFromServer } from "../../config/firebase";
 import styles from "./Perfiles.module.css";
 import Loading from "../../assets/loading/Loading";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../assets/variants";
 function PerfilesFrontend() {
   const [users, setUsers] = useState([]);
   const [profileUrls, setProfileUrls] = useState([]);
@@ -41,7 +43,13 @@ function PerfilesFrontend() {
       {loading ? (
         <Loading />
       ) : (
-        <div className={styles.gridContainer}>
+        <motion.div
+          variants={fadeIn("right", 0.3)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.3 }}
+          className={styles.gridContainer}
+        >
           {users.map((el, index) => (
             <Link key={el.uid} to={`/user/${el.uid}`}>
               <div
@@ -80,7 +88,7 @@ function PerfilesFrontend() {
               </div>
             </Link>
           ))}
-        </div>
+        </motion.div>
       )}
     </>
   );

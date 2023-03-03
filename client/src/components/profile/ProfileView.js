@@ -44,7 +44,7 @@ const ProfileView = () => {
             </span>
           </div>
           <div className="mb-2">
-            <p className="mb-4 text-base leading-relaxed text-black">
+            <p className="mb-4 text-base leading-relaxed text-black sm:text-sm">
               {currentUser.descripcion}
             </p>
           </div>

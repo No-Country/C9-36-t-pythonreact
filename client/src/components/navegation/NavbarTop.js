@@ -11,14 +11,13 @@ const NavbarTop = () => {
             <Logo />
           </NavLink>
         </div>
-
         <div className={styles.links}>
-          <Link to={"/login"}>
+          <NavLink to={"/login"}>
             <button className={styles.button__sesion}>Iniciar sesión</button>
-          </Link>
-          <Link to={"/register"}>
+          </NavLink>
+          <NavLink to={"/register"}>
             <button className={styles.button__register}>Registrarte</button>
-          </Link>
+          </NavLink>
         </div>
       </header>
     </div>

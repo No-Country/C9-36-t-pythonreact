@@ -91,7 +91,9 @@ const MyFavoritesUsers = () => {
         </div>
       ) : (
         <>
-          <div>No hay favoritos</div>
+          <div className="mt-36 flex items-center justify-center text-3xl text-white">
+            No tenes usuarios favoritos guardados
+          </div>
         </>
       )}
     </div>
