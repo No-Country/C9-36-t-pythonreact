@@ -43,7 +43,7 @@ const UserDetail = ({ data, profileUrls, currentUser }) => {
       {loading ? (
         <Loading />
       ) : (
-        <div className="mx-auto mt-5 mb-24 flex max-w-md flex-col justify-center bg-white shadow-lg sm:columns-4">
+        <div className="mx-auto  mt-5 mb-24 flex max-w-md flex-col justify-center bg-white shadow-lg sm:columns-4">
           <div className="relative mx-4 mb-4">
             {profileUrls ? (
               <img
@@ -181,7 +181,7 @@ const UserDetail = ({ data, profileUrls, currentUser }) => {
             <p className="mb-2 text-2xl leading-relaxed text-[#2A9D8F]">
               Contacto
             </p>
-            <div className=" flex items-center justify-between">
+            <div className=" flex items-center justify-around">
               {/* Contacto */}
               {/* ws */}
               <div>
