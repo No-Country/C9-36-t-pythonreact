@@ -16,7 +16,7 @@ import Logo from "../../assets/Logo";
 /* import { signInWithPopup } from "firebase/auth"; */
 
 const Login = () => {
-  const [showPwd, setShowPwd] = useState(false)
+  const [showPwd, setShowPwd] = useState(false);
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const { user } = useUserContext();
@@ -94,7 +94,7 @@ const Login = () => {
               </div>
               <div className="group relative z-0 mb-1 w-full">
                 <Field
-                  type="password"
+                  type={showPwd ? "text" : "password"}
                   name="password"
                   id="password"
                   className={classTw}
