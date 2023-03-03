@@ -21,6 +21,7 @@
     
     grid-auto-flow: dense;
     margin-top: 10px;
+    margin-bottom: 110px;
     /*para que llene los espaacios vacios*/
     /* auto-fill calcula el ancho del grid y crea columnas ssi es neceeesario
     auto-fit ensancha loss elementos si es necesario*/
@@ -95,6 +96,7 @@
         
         .gridContainer {
             margin: 115px auto 0 auto;
+
         }
 
         .gridItem:hover {
