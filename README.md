@@ -1,81 +1,60 @@
-# Hive App
+# Hive
+====
+
+Hive es una aplicación desarrollada para conectar a juniors que buscan formar equipos de trabajo.
+
 ### [Hive Website](https://d226puxlmt5jf4.cloudfront.net)
 
-Explicación de lo que la aplicación hace, ejemplo:
-Hive es una aplicación desarrollado por y para esos juniors que están buscando conectarse entre sí, para poder formar equipos de trabajo.
+## Funcionalidades
+---------------
 
-  
+-   Registro: permite a los usuarios crear una cuenta, subir su foto y completar sus datos.
+-   Login: permite a los usuarios ingresar a la aplicación una vez creada su cuenta.
+-   Conexión: tutorial para vincularse con otros juniors y comenzar a trabajar en equipo.
+-   Despegue: sugerencias de herramientas para trabajar en equipo, como Discord, Google Meet y Trello.
 
-## Registrate
+## El equipo
+---------
 
-  Poner fotito, y los pasos para registrarse, modos, etc.
+-   Hernan Casabella: UX/UI Designer.
+-   Cristian Illi: Frontend Developer.
+-   Tomas Villagra: Frontend Developer.
+-   Martin Maldonado: Frontend Developer.
+-   Mariano Perin: DevOps Engineer.
 
-  
+## El desafío
+----------
 
-## Logueate
+Nuestro objetivo es ayudar a los juniors a conectarse y formar equipos de trabajo de manera fácil y eficiente. Con Hive, queremos facilitar la tarea de encontrar personas con las habilidades y la motivación adecuadas para llevar adelante proyectos en equipo.
 
-  
+Desarrollo
+----------
 
-Igual que el registro pero para loguearse en caso de ya tener cuenta, o una vez creada.
+### Tecnologías utilizadas:
 
-  
+-   React
+-   Tailwind CSS
+-   React Router
+-   Firebase
+-   Formik
+-   React Icons
 
-## Conecta
+### Deployment:
 
-  Tutorial de como hacer para vincularte/conectarte con otros juniors.
-  
-  
+-   Github Actions
+-   AWS S3
+-   AWS Cloudfront
 
-## Despega
+### Instalación
+-----------
 
-Cómo empezar a laburar, ejemplos, sugerencias de herramientas -> discord, google meet, trello, etc.
+1.  Clonar el repositorio.
+2.  Instalar las dependencias con `npm install`.
+3.  Iniciar la aplicación con `npm start`.
 
- 
+¡Listo! Ahora puedes usar Hive en tu navegador.
 
-## El Equipo
+### Contribución
+------------
 
-  
-
-- Hernan Casabella - UX/UI Designer
-
-- Cristian Illi - Frontend Developer
-
-- Tomas Villagra - Frontend Developer
-
-- Martin Maldonado - Frontend Developer
-
-- Mariano Perin - DevOps Engineer
-
-  
-
-## El Desafío
-
-Acá explicar un poco el desafío del desarrollo de la aplicación. El problema que vimos, y cómo nuestra app viene de cierta manera a arreglarlo.
-
-  
-
-### Development
-
-- React
-
-- Tailwind
-
-- react-router-dom
-
-- Firebase
-
-- Formik
-
-- react-icons
-
-  
-
-### Deployment
-
-- Github Actions
-
-- AWS
-
-- S3
-
-- Cloudfront
+Si quieres contribuir al desarrollo de Hive, por favor envía un pull request con tus cambios. Nos encantaría que formaras parte de nuestro equipo.
